@@ -1,0 +1,7 @@
+{"time":"2025-04-22T23:56:31.515209156+08:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/export/home2/weijie210/coconut/wandb/run-20250422_235631-nhcng211/logs/debug-core.log"}
+{"time":"2025-04-22T23:56:31.762016373+08:00","level":"INFO","msg":"created new stream","id":"nhcng211"}
+{"time":"2025-04-22T23:56:31.762191133+08:00","level":"INFO","msg":"stream: started","id":"nhcng211"}
+{"time":"2025-04-22T23:56:31.762218545+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"nhcng211"}
+{"time":"2025-04-22T23:56:31.7622496+08:00","level":"INFO","msg":"sender: started","stream_id":"nhcng211"}
+{"time":"2025-04-22T23:56:31.762428239+08:00","level":"INFO","msg":"handler: started","stream_id":"nhcng211"}
+{"time":"2025-04-22T23:56:32.14852949+08:00","level":"INFO","msg":"Starting system monitor"}

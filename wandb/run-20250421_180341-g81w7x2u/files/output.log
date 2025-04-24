@@ -1,0 +1,59 @@
+Map (num_proc=32): 100%|██████████| 500/500 [00:00<00:00, 1491.71 examples/s]
+Map (num_proc=32): 100%|██████████| 10000/10000 [00:00<00:00, 23177.71 examples/s]
+Map (num_proc=32): 100%|██████████| 500/500 [00:00<00:00, 1421.66 examples/s]
+Training Epoch: 1/5, batch 312/313 completed (loss: 0.0554: 100%|[34m██████████[0m| 313/313 [10:18<00:00,  1.98s/it]
+logging training data
+eval loss 0.35235886089503765
+Test Accuracy:   0%|[34m          [0m| 0/125 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 0: Answer = '300' CoT = '<<4-2=2>>
+<<2/.5=4>>
+<<12/4=3>>
+<<100*3=300>>'
+Full output: '<|begin_of_text|>John cuts his grass to 2 inches.  It grows.5 inches per month.  When it gets to 4 inches he cuts it back down to 2 inches.  It cost $100 to get his grass cut.  How much does he pay per year?
+<<2+.5=2.5>>
+<<2.5-.5=2>>
+<<2+2=4>>
+<<4-2=2>>
+<<100*12=1200>>
+### 1200<|end_of_text|>'
+Extracted Output: '1200'
+Test accuracy: 0.0:   1%|[34m          [0m| 1/125 [00:12<25:49, 12.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 4: Answer = '240' CoT = '<<200*3=600>>
+<<600*.4=240>>'
+Full output: '<|begin_of_text|>Tom bought his games for $200.  They tripled in value and he then sold 40% of them.  How much did he sell the games for?
+<<200*3=600>>
+<<600*0.40=240>>
+### 240<|end_of_text|>'
+Extracted Output: '240'
+Test accuracy: 0.5:   2%|[34m▏         [0m| 2/125 [00:26<27:06, 13.22s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 8: Answer = '25' CoT = '<<2*2.25=4.50>>
+<<2*4=8.00>>
+<<2*2.50=5.00>>
+<<4.50+8.00+.50+5.00+3.50+3.50=25.00>>'
+Full output: '<|begin_of_text|>It’s Meghan’s turn to pick up her team's coffee order.  She needs 2 drip coffees that are $2.25 each and one double shot espresso that’s $3.50.  She needs 2 lattes that are $4.00 and needs to add vanilla syrup to one of those for an additional $0.50.  She also needs 2 cold brew coffees that are $2.50 each and 1 cappuccino for $3.50.  How much is the coffee order?
+<<2.25*2=4.50>>
+<<4+0.50=4.50>>
+<<2.50*2=5.00>>
+<<4.50+5.00+3.50=13.00>>
+### 13<|end_of_text|>'
+Extracted Output: '13'
+Test accuracy: 0.33:   2%|[34m▏         [0m| 3/125 [00:41<28:21, 13.95s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 12: Answer = '10' CoT = '<<12*10=120>>
+<<130-120=10>>'
+Full output: '<|begin_of_text|>Joshua packs 12 bottles in each crate. He has a total of 130 bottles and 10 crates. How many bottles will not be placed in a crate?
+<<12*10=120>>
+<<130-120=10>>
+### 10<|end_of_text|>'
+Extracted Output: '10'
+Test accuracy: 0.5:   3%|[34m▎         [0m| 4/125 [00:51<25:32, 12.67s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 16: Answer = '45' CoT = '<<10+15=25>>
+<<2*10=20>>
+<<20+25=45>>'
+Full output: '<|begin_of_text|>Olivia gave William 10 napkins. Amelia also gives William twice the number of napkins Olivia gave him. If William had 15 napkins before, how many napkins does he have now?
+<<10*2=20>>
+<<10+20=30>>
+<<15+30=45>>
+### 45<|end_of_text|>'
+Extracted Output: '45'
+Test accuracy: 0.6:   4%|[34m▍         [0m| 5/125 [01:07<27:28, 13.74s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:   5%|[34m▍         [0m| 6/125 [01:23<28:31, 14.38s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.

@@ -1,0 +1,29 @@
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 177.18 examples/s]
+Map (num_proc=32): 100%|██████████| 10000/10000 [00:00<00:00, 12873.45 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 157.50 examples/s]
+Training Epoch: 2:   0%|[34m          [0m| 0/625 [00:00<?, ?it/s]We detected that you are passing `past_key_values` as a tuple of tuples. This is deprecated and will be removed in v4.47. Please convert your cache or use an appropriate `Cache` class (https://huggingface.co/docs/transformers/kv_cache#legacy-cache-format)
+logging training data
+Traceback (most recent call last):
+  File "/export/home2/weijie210/coconut/run.py", line 534, in <module>
+    main()
+  File "/export/home2/weijie210/coconut/run.py", line 364, in main
+    loss.backward()
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/_tensor.py", line 581, in backward
+    torch.autograd.backward(
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/autograd/__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/autograd/graph.py", line 825, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 224.00 MiB. GPU 0 has a total capacity of 79.33 GiB of which 197.81 MiB is free. Including non-PyTorch memory, this process has 79.12 GiB memory in use. Of the allocated memory 77.70 GiB is allocated by PyTorch, and 787.01 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/export/home2/weijie210/coconut/run.py", line 534, in <module>
+[rank0]:     main()
+[rank0]:   File "/export/home2/weijie210/coconut/run.py", line 364, in main
+[rank0]:     loss.backward()
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/_tensor.py", line 581, in backward
+[rank0]:     torch.autograd.backward(
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/autograd/__init__.py", line 347, in backward
+[rank0]:     _engine_run_backward(
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/autograd/graph.py", line 825, in _engine_run_backward
+[rank0]:     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 224.00 MiB. GPU 0 has a total capacity of 79.33 GiB of which 197.81 MiB is free. Including non-PyTorch memory, this process has 79.12 GiB memory in use. Of the allocated memory 77.70 GiB is allocated by PyTorch, and 787.01 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

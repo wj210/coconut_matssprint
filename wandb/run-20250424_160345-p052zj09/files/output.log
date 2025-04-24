@@ -1,0 +1,1058 @@
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 206.75 examples/s]
+Map (num_proc=32): 100%|██████████| 4740/4740 [00:00<00:00, 5197.51 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 176.48 examples/s]
+Training Epoch: 1/15, batch 296/297 completed (loss: 0.0194: 100%|[34m██████████[0m| 297/297 [06:54<00:00,  1.39s/it]
+logging training data
+eval loss 1.3303663219724382
+Test Accuracy:   0%|[34m          [0m| 0/25 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 0: Answer = 'no' CoT = 'Let V1 = CEO; V3 = director; X = having visited England; Y = employee.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y_{X = 1} - Y_{X = 0} | X = 1]
+\sum_{V3=v} P(V3=v|X=1)*[P(Y=1|X=1,V3=v) - P(Y=1|X=0,V3=v)]
+P(Y=1 | X=0, V3=0) = 0.09
+P(Y=1 | X=0, V3=1) = 0.47
+P(Y=1 | X=1, V3=0) = 0.50
+P(Y=1 | X=1, V3=1) = 0.85
+P(V3=1 | X=0) = 0.66
+P(V3=1 | X=1) = 0.73
+0.73 * (0.85 - 0.50) + 0.66 * (0.47 - 0.09) = 0.39, 0.39 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: CEO has a direct effect on director and having visited England. Having visited England has a direct effect on employee. Director has a direct effect on employee.
+For people who have not visited England and directors who don't sign termination letters, the probability of employee being fired is 9%. For people who have not visited England and directors who sign termination letters, the probability of employee being fired is 47%. For people who have visited England and directors who don't sign termination letters, the probability of employee being fired is 50%. For people who have visited England and directors who sign termination letters, the probability of employee being fired is 85%. For people who have not visited England, the probability of director signing the termination letter is 66%. For people who have visited England, the probability of director signing the termination letter is 73%.
+For people who have visited England, would it be more likely to see employee being fired if the person had not visited England?
+Let V1 = CEO; V3 = director; X = having visited England; Y = employee.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V1=1)-P(Y=1|V1=0)]/[P(X=1|V1=1)-P(X=1|V1=0)]
+P(Y=1 | V1=0) = 0.09
+P(Y=1 | V1=1) = 0.'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: CEO has a direct effect on director and having visited England. Having visited England has a direct effect on employee. Director has a direct effect on employee.
+For people who have not visited England and directors who don't sign termination letters the probability of employee being fired is 9%. For people who have not visited England and directors who sign termination letters the probability of employee being fired is 47%. For people who have visited England and directors who don't sign termination letters the probability of employee being fired is 50%. For people who have visited England and directors who sign termination letters the probability of employee being fired is 85%. For people who have not visited England the probability of director signing the termination letter is 66%. For people who have visited England the probability of director signing the termination letter is 73%.
+For people who have visited England would it be more likely to see employee being fired if the person had not visited England?
+Let V1 = CEO; V3 = director; X = having visited England; Y = employee.
+V1->V3V1->XX->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V1=1)-P(Y=1|V1=0)]/[P(X=1|V1=1)-P(X=1|V1=0)]
+P(Y=1 | V1=0) = 0.09
+P(Y=1 | V1=1) = 0.'
+Test accuracy: 0.0:   4%|[34m▍         [0m| 1/25 [00:28<11:18, 28.27s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 4: Answer = 'no' CoT = 'Let V2 = residency status; X = gender; V3 = department competitiveness; Y = freckles.
+X->V3,V2->V3,X->Y,V2->Y,V3->Y
+E[Y_{X=0, V3=1} - Y_{X=0, V3=0}]
+\sum_{V3=v} [\sum_{V2=k} P(Y=1|X=0,V3=v)*[P(V3=v|X=1,V2=k)-P(V3=v|X=0,V2=k)]*P(V2=k)]
+P(Y=1 | X=0, V3=0) = 0.62
+P(Y=1 | X=0, V3=1) = 0.81
+P(Y=1 | X=1, V3=0) = 0.37
+P(Y=1 | X=1, V3=1) = 0.56
+P(V3=1 | X=0, V2=0) = 0.48
+P(V3=1 | X=0, V2=1) = 0.81
+P(V3=1 | X=1, V2=0) = 0.14
+P(V3=1 | X=1, V2=1) = 0.60
+P(V2=1) = 0.06
+0.06 * 0.81 * (0.60 - 0.14)+ 0.94 * 0.81 * (0.81 - 0.48)= -0.07, -0.07 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on department competitiveness and freckles. Residency status has a direct effect on department competitiveness and freckles. Department competitiveness has a direct effect on freckles. Residency status is unobserved.
+For individuals who are not male and applicants to a non-competitive department, the probability of freckles is 62%. For individuals who are not male and applicants to a competitive department, the probability of freckles is 81%. For individuals who are male and applicants to a non-competitive department, the probability of freckles is 37%. For individuals who are male and applicants to a competitive department, the probability of freckles is 56%. For individuals who are not male and out-of-state residents, the probability of competitive department is 48%. For individuals who are not male and in-state residents, the probability of competitive department is 81%. For individuals who are male and out-of-state residents, the probability of competitive department is 14%. For individuals who are male and in-state residents, the probability of competitive department is 60%. The overall probability of in-state residency is 6%.
+Does gender positively affect freckles through department competitiveness?
+Let V2 = residency status; X = gender; V3 = department competitiveness; Y = freckles.
+X->V3,V2->V3,X->Y,V2->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.62
+P(Y=1 | X=1) = 0.81
+0.81 - 0.62 = 0.19, 0'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Gender has a direct effect on department competitiveness and freckles. Residency status has a direct effect on department competitiveness and freckles. Department competitiveness has a direct effect on freckles. Residency status is unobserved.
+For individuals who are not male and applicants to a non-competitive department the probability of freckles is 62%. For individuals who are not male and applicants to a competitive department the probability of freckles is 81%. For individuals who are male and applicants to a non-competitive department the probability of freckles is 37%. For individuals who are male and applicants to a competitive department the probability of freckles is 56%. For individuals who are not male and out-of-state residents the probability of competitive department is 48%. For individuals who are not male and in-state residents the probability of competitive department is 81%. For individuals who are male and out-of-state residents the probability of competitive department is 14%. For individuals who are male and in-state residents the probability of competitive department is 60%. The overall probability of in-state residency is 6%.
+Does gender positively affect freckles through department competitiveness?
+Let V2 = residency status; X = gender; V3 = department competitiveness; Y = freckles.
+X->V3V2->V3X->YV2->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.62
+P(Y=1 | X=1) = 0.81
+0.81 - 0.62 = 0.19 0'
+Test accuracy: 0.0:   8%|[34m▊         [0m| 2/25 [00:56<10:45, 28.09s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 8: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+E[Y_{X=0, V2=1} - Y_{X=0, V2=0}]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.71
+P(Y=1 | X=1) = 0.72
+0.72 - 0.71 = 0.01, 0.01 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+For those who are not pexu, the probability of rukz is 71%. For those who are pexu, the probability of rukz is 72%.
+Does pexu negatively affect rukz through hwax?
+Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.71
+P(Y=1 | X=1) = 0.72
+0.72 - 0.71 = 0.01, 0.01 > 0
+### no<|end_of_text|>'
+Extracted Output: 'no'
+Test accuracy: 0.33:  12%|[34m█▏        [0m| 3/25 [01:24<10:15, 27.98s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 12: Answer = 'yes' CoT = 'Let V1 = muvy; X = kwox; V3 = swoq; Y = kwoz.
+V1->X,X->V3,V1->Y,V3->Y
+E[Y_{X=0, V3=1} - Y_{X=0, V3=0}]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = h,V3 = v)*P(X = h)]
+P(V3=1 | X=0) = 0.57
+P(V3=1 | X=1) = 0.32
+P(Y=1 | X=0, V3=0) = 0.29
+P(Y=1 | X=0, V3=1) = 0.63
+P(Y=1 | X=1, V3=0) = 0.46
+P(Y=1 | X=1, V3=1) = 0.71
+P(X=1) = 0.78
+0.32 - 0.57 * (0.71 * 0.78 + 0.63 * 0.22)= -0.07, -0.07 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Muvy has a direct effect on kwox and kwoz. Kwox has a direct effect on swoq. Swoq has a direct effect on kwoz. Muvy is unobserved.
+For those who are not kwox, the probability of swoq is 57%. For those who are kwox, the probability of swoq is 32%. For those who are not kwox and are not swoq, the probability of kwoz is 29%. For those who are not kwox and are swoq, the probability of kwoz is 63%. For those who are kwox and are not swoq, the probability of kwoz is 46%. For those who are kwox and are swoq, the probability of kwoz is 71%. The overall probability of kwox is 78%.
+Does kwox negatively affect kwoz through swoq?
+Let V1 = muvy; X = kwox; V3 = swoq; Y = kwoz.
+V1->X,X->V3,V1->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = h,V3 = v)*P(X = h)]
+P(V3=1 | X='
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Muvy has a direct effect on kwox and kwoz. Kwox has a direct effect on swoq. Swoq has a direct effect on kwoz. Muvy is unobserved.
+For those who are not kwox the probability of swoq is 57%. For those who are kwox the probability of swoq is 32%. For those who are not kwox and are not swoq the probability of kwoz is 29%. For those who are not kwox and are swoq the probability of kwoz is 63%. For those who are kwox and are not swoq the probability of kwoz is 46%. For those who are kwox and are swoq the probability of kwoz is 71%. The overall probability of kwox is 78%.
+Does kwox negatively affect kwoz through swoq?
+Let V1 = muvy; X = kwox; V3 = swoq; Y = kwoz.
+V1->XX->V3V1->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = hV3 = v)*P(X = h)]
+P(V3=1 | X='
+Test accuracy: 0.25:  16%|[34m█▌        [0m| 4/25 [01:51<09:46, 27.94s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 16: Answer = 'no' CoT = 'Let V1 = jyka; V3 = zory; X = zuph; Y = glimx.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y_{X = 1} - Y_{X = 0} | X = 1]
+\sum_{V3=v} P(V3=v|X=1)*[P(Y=1|X=1,V3=v) - P(Y=1|X=0,V3=v)]
+P(Y=1 | X=0, V3=0) = 0.82
+P(Y=1 | X=0, V3=1) = 0.08
+P(Y=1 | X=1, V3=0) = 0.60
+P(Y=1 | X=1, V3=1) = 0.54
+P(V3=1 | X=0) = 0.54
+P(V3=1 | X=1) = 0.47
+0.47 * (0.54 - 0.60) + 0.54 * (0.08 - 0.82) = 0.11, 0.11 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Jyka has a direct effect on zory and zuph. Zuph has a direct effect on glimx. Zory has a direct effect on glimx.
+For those who are not zuph and are not zory, the probability of glimx is 82%. For those who are not zuph and are zory, the probability of glimx is 8%. For those who are zuph and are not zory, the probability of glimx is 60%. For those who are zuph and are zory, the probability of glimx is 54%. For those who are not zuph, the probability of zory is 54%. For those who are zuph, the probability of zory is 47%.
+For those who are zuph, would it be more likely to see glimx if the individual was not zuph?
+Let V1 = jyka; V3 = zory; X = zuph; Y = glimx.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V3=1)-P(Y=1|V3=0)]/[P(X=1|V3=1)-P(X=1|V3=0)]
+P(Y=1 | V3=0) = 0.82
+P(Y=1 | V3=1'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Jyka has a direct effect on zory and zuph. Zuph has a direct effect on glimx. Zory has a direct effect on glimx.
+For those who are not zuph and are not zory the probability of glimx is 82%. For those who are not zuph and are zory the probability of glimx is 8%. For those who are zuph and are not zory the probability of glimx is 60%. For those who are zuph and are zory the probability of glimx is 54%. For those who are not zuph the probability of zory is 54%. For those who are zuph the probability of zory is 47%.
+For those who are zuph would it be more likely to see glimx if the individual was not zuph?
+Let V1 = jyka; V3 = zory; X = zuph; Y = glimx.
+V1->V3V1->XX->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V3=1)-P(Y=1|V3=0)]/[P(X=1|V3=1)-P(X=1|V3=0)]
+P(Y=1 | V3=0) = 0.82
+P(Y=1 | V3=1'
+Test accuracy: 0.2:  20%|[34m██        [0m| 5/25 [02:19<09:17, 27.88s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.17:  24%|[34m██▍       [0m| 6/25 [02:47<08:49, 27.84s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.14:  28%|[34m██▊       [0m| 7/25 [03:15<08:20, 27.81s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.12:  32%|[34m███▏      [0m| 8/25 [03:43<07:52, 27.80s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.11:  36%|[34m███▌      [0m| 9/25 [04:10<07:25, 27.84s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.2:  40%|[34m████      [0m| 10/25 [04:38<06:57, 27.81s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.27:  44%|[34m████▍     [0m| 11/25 [05:06<06:29, 27.79s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.25:  48%|[34m████▊     [0m| 12/25 [05:34<06:01, 27.80s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.31:  52%|[34m█████▏    [0m| 13/25 [06:02<05:33, 27.80s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.29:  56%|[34m█████▌    [0m| 14/25 [06:29<05:05, 27.74s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.27:  60%|[34m██████    [0m| 15/25 [06:57<04:37, 27.75s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.25:  64%|[34m██████▍   [0m| 16/25 [07:25<04:09, 27.73s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.24:  68%|[34m██████▊   [0m| 17/25 [07:52<03:41, 27.74s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.22:  72%|[34m███████▏  [0m| 18/25 [08:20<03:14, 27.72s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.21:  76%|[34m███████▌  [0m| 19/25 [08:48<02:46, 27.73s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.2:  80%|[34m████████  [0m| 20/25 [09:16<02:18, 27.73s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.19:  84%|[34m████████▍ [0m| 21/25 [09:43<01:50, 27.74s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.18:  88%|[34m████████▊ [0m| 22/25 [10:11<01:23, 27.73s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.17:  92%|[34m█████████▏[0m| 23/25 [10:39<00:55, 27.75s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.17:  96%|[34m█████████▌[0m| 24/25 [11:07<00:27, 27.75s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.16: 100%|[34m██████████[0m| 25/25 [11:34<00:00, 27.80s/it]
+Device 0: Cor=4, CoT=0, Total=25
+Accuracy on validation set: 19 / 100 = 0.19
+CoT match on validation set: 0 / 100 = 0.0
+saving model.
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 199.56 examples/s]
+Map (num_proc=32): 100%|██████████| 4740/4740 [00:00<00:00, 6381.32 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 171.82 examples/s]
+Training Epoch: 2/15, batch 296/297 completed (loss: 0.0145: 100%|[34m██████████[0m| 297/297 [06:53<00:00,  1.39s/it]
+logging training data
+eval loss 1.4463485819952828
+Test Accuracy:   0%|[34m          [0m| 0/25 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 0: Answer = 'no' CoT = 'Let V1 = CEO; V3 = director; X = having visited England; Y = employee.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y_{X = 1} - Y_{X = 0} | X = 1]
+\sum_{V3=v} P(V3=v|X=1)*[P(Y=1|X=1,V3=v) - P(Y=1|X=0,V3=v)]
+P(Y=1 | X=0, V3=0) = 0.09
+P(Y=1 | X=0, V3=1) = 0.47
+P(Y=1 | X=1, V3=0) = 0.50
+P(Y=1 | X=1, V3=1) = 0.85
+P(V3=1 | X=0) = 0.66
+P(V3=1 | X=1) = 0.73
+0.73 * (0.85 - 0.50) + 0.66 * (0.47 - 0.09) = 0.39, 0.39 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: CEO has a direct effect on director and having visited England. Having visited England has a direct effect on employee. Director has a direct effect on employee.
+For people who have not visited England and directors who don't sign termination letters, the probability of employee being fired is 9%. For people who have not visited England and directors who sign termination letters, the probability of employee being fired is 47%. For people who have visited England and directors who don't sign termination letters, the probability of employee being fired is 50%. For people who have visited England and directors who sign termination letters, the probability of employee being fired is 85%. For people who have not visited England, the probability of director signing the termination letter is 66%. For people who have visited England, the probability of director signing the termination letter is 73%.
+For people who have visited England, would it be more likely to see employee being fired if the person had not visited England?
+Let V1 = CEO; V3 = director; X = having visited England; Y = employee.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V3=1)-P(Y=1|V3=0)]/[P(X=1|V3=1)-P(X=1|V3=0)]
+P(Y=1 | V3=0) = 0.09
+P(Y=1 | V3=1) = 0.'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: CEO has a direct effect on director and having visited England. Having visited England has a direct effect on employee. Director has a direct effect on employee.
+For people who have not visited England and directors who don't sign termination letters the probability of employee being fired is 9%. For people who have not visited England and directors who sign termination letters the probability of employee being fired is 47%. For people who have visited England and directors who don't sign termination letters the probability of employee being fired is 50%. For people who have visited England and directors who sign termination letters the probability of employee being fired is 85%. For people who have not visited England the probability of director signing the termination letter is 66%. For people who have visited England the probability of director signing the termination letter is 73%.
+For people who have visited England would it be more likely to see employee being fired if the person had not visited England?
+Let V1 = CEO; V3 = director; X = having visited England; Y = employee.
+V1->V3V1->XX->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V3=1)-P(Y=1|V3=0)]/[P(X=1|V3=1)-P(X=1|V3=0)]
+P(Y=1 | V3=0) = 0.09
+P(Y=1 | V3=1) = 0.'
+Test accuracy: 0.0:   4%|[34m▍         [0m| 1/25 [00:27<11:07, 27.82s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 4: Answer = 'no' CoT = 'Let V2 = residency status; X = gender; V3 = department competitiveness; Y = freckles.
+X->V3,V2->V3,X->Y,V2->Y,V3->Y
+E[Y_{X=0, V3=1} - Y_{X=0, V3=0}]
+\sum_{V3=v} [\sum_{V2=k} P(Y=1|X=0,V3=v)*[P(V3=v|X=1,V2=k)-P(V3=v|X=0,V2=k)]*P(V2=k)]
+P(Y=1 | X=0, V3=0) = 0.62
+P(Y=1 | X=0, V3=1) = 0.81
+P(Y=1 | X=1, V3=0) = 0.37
+P(Y=1 | X=1, V3=1) = 0.56
+P(V3=1 | X=0, V2=0) = 0.48
+P(V3=1 | X=0, V2=1) = 0.81
+P(V3=1 | X=1, V2=0) = 0.14
+P(V3=1 | X=1, V2=1) = 0.60
+P(V2=1) = 0.06
+0.06 * 0.81 * (0.60 - 0.14)+ 0.94 * 0.81 * (0.81 - 0.48)= -0.07, -0.07 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on department competitiveness and freckles. Residency status has a direct effect on department competitiveness and freckles. Department competitiveness has a direct effect on freckles. Residency status is unobserved.
+For individuals who are not male and applicants to a non-competitive department, the probability of freckles is 62%. For individuals who are not male and applicants to a competitive department, the probability of freckles is 81%. For individuals who are male and applicants to a non-competitive department, the probability of freckles is 37%. For individuals who are male and applicants to a competitive department, the probability of freckles is 56%. For individuals who are not male and out-of-state residents, the probability of competitive department is 48%. For individuals who are not male and in-state residents, the probability of competitive department is 81%. For individuals who are male and out-of-state residents, the probability of competitive department is 14%. For individuals who are male and in-state residents, the probability of competitive department is 60%. The overall probability of in-state residency is 6%.
+Does gender positively affect freckles through department competitiveness?
+Let V2 = residency status; X = gender; V3 = department competitiveness; Y = freckles.
+X->V3,V2->V3,X->Y,V2->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V2 = v} [P(V3 = 1|V2 = v,X = 1) - P(V3 = 1|V2 = v, X = 0)] * [\sum_{X = h} P(Y = 1|X = h,V2 = v)*'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Gender has a direct effect on department competitiveness and freckles. Residency status has a direct effect on department competitiveness and freckles. Department competitiveness has a direct effect on freckles. Residency status is unobserved.
+For individuals who are not male and applicants to a non-competitive department the probability of freckles is 62%. For individuals who are not male and applicants to a competitive department the probability of freckles is 81%. For individuals who are male and applicants to a non-competitive department the probability of freckles is 37%. For individuals who are male and applicants to a competitive department the probability of freckles is 56%. For individuals who are not male and out-of-state residents the probability of competitive department is 48%. For individuals who are not male and in-state residents the probability of competitive department is 81%. For individuals who are male and out-of-state residents the probability of competitive department is 14%. For individuals who are male and in-state residents the probability of competitive department is 60%. The overall probability of in-state residency is 6%.
+Does gender positively affect freckles through department competitiveness?
+Let V2 = residency status; X = gender; V3 = department competitiveness; Y = freckles.
+X->V3V2->V3X->YV2->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V2 = v} [P(V3 = 1|V2 = vX = 1) - P(V3 = 1|V2 = v X = 0)] * [\sum_{X = h} P(Y = 1|X = hV2 = v)*'
+Test accuracy: 0.0:   8%|[34m▊         [0m| 2/25 [00:55<10:39, 27.81s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 8: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+E[Y_{X=0, V2=1} - Y_{X=0, V2=0}]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.71
+P(Y=1 | X=1) = 0.72
+0.72 - 0.71 = 0.01, 0.01 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+For those who are not pexu, the probability of rukz is 71%. For those who are pexu, the probability of rukz is 72%.
+Does pexu negatively affect rukz through hwax?
+Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.71
+P(Y=1 | X=1) = 0.72
+0.72 - 0.71 = -0.00, 0.00 = 0
+### no<|end_of_text|>'
+Extracted Output: 'no'
+Test accuracy: 0.33:  12%|[34m█▏        [0m| 3/25 [01:23<10:12, 27.82s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 12: Answer = 'yes' CoT = 'Let V1 = muvy; X = kwox; V3 = swoq; Y = kwoz.
+V1->X,X->V3,V1->Y,V3->Y
+E[Y_{X=0, V3=1} - Y_{X=0, V3=0}]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = h,V3 = v)*P(X = h)]
+P(V3=1 | X=0) = 0.57
+P(V3=1 | X=1) = 0.32
+P(Y=1 | X=0, V3=0) = 0.29
+P(Y=1 | X=0, V3=1) = 0.63
+P(Y=1 | X=1, V3=0) = 0.46
+P(Y=1 | X=1, V3=1) = 0.71
+P(X=1) = 0.78
+0.32 - 0.57 * (0.71 * 0.78 + 0.63 * 0.22)= -0.07, -0.07 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Muvy has a direct effect on kwox and kwoz. Kwox has a direct effect on swoq. Swoq has a direct effect on kwoz. Muvy is unobserved.
+For those who are not kwox, the probability of swoq is 57%. For those who are kwox, the probability of swoq is 32%. For those who are not kwox and are not swoq, the probability of kwoz is 29%. For those who are not kwox and are swoq, the probability of kwoz is 63%. For those who are kwox and are not swoq, the probability of kwoz is 46%. For those who are kwox and are swoq, the probability of kwoz is 71%. The overall probability of kwox is 78%.
+Does kwox negatively affect kwoz through swoq?
+Let V1 = muvy; X = kwox; V3 = swoq; Y = kwoz.
+V1->X,X->V3,V1->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = h,V3 = v)*P(X = h)]
+P(V3=1 | X='
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Muvy has a direct effect on kwox and kwoz. Kwox has a direct effect on swoq. Swoq has a direct effect on kwoz. Muvy is unobserved.
+For those who are not kwox the probability of swoq is 57%. For those who are kwox the probability of swoq is 32%. For those who are not kwox and are not swoq the probability of kwoz is 29%. For those who are not kwox and are swoq the probability of kwoz is 63%. For those who are kwox and are not swoq the probability of kwoz is 46%. For those who are kwox and are swoq the probability of kwoz is 71%. The overall probability of kwox is 78%.
+Does kwox negatively affect kwoz through swoq?
+Let V1 = muvy; X = kwox; V3 = swoq; Y = kwoz.
+V1->XX->V3V1->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = hV3 = v)*P(X = h)]
+P(V3=1 | X='
+Test accuracy: 0.25:  16%|[34m█▌        [0m| 4/25 [01:51<09:43, 27.80s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 16: Answer = 'no' CoT = 'Let V1 = jyka; V3 = zory; X = zuph; Y = glimx.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y_{X = 1} - Y_{X = 0} | X = 1]
+\sum_{V3=v} P(V3=v|X=1)*[P(Y=1|X=1,V3=v) - P(Y=1|X=0,V3=v)]
+P(Y=1 | X=0, V3=0) = 0.82
+P(Y=1 | X=0, V3=1) = 0.08
+P(Y=1 | X=1, V3=0) = 0.60
+P(Y=1 | X=1, V3=1) = 0.54
+P(V3=1 | X=0) = 0.54
+P(V3=1 | X=1) = 0.47
+0.47 * (0.54 - 0.60) + 0.54 * (0.08 - 0.82) = 0.11, 0.11 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Jyka has a direct effect on zory and zuph. Zuph has a direct effect on glimx. Zory has a direct effect on glimx.
+For those who are not zuph and are not zory, the probability of glimx is 82%. For those who are not zuph and are zory, the probability of glimx is 8%. For those who are zuph and are not zory, the probability of glimx is 60%. For those who are zuph and are zory, the probability of glimx is 54%. For those who are not zuph, the probability of zory is 54%. For those who are zuph, the probability of zory is 47%.
+For those who are zuph, would it be more likely to see glimx if the individual was not zuph?
+Let V1 = jyka; V3 = zory; X = zuph; Y = glimx.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V3=1)-P(Y=1|V3=0)]/[P(X=1|V3=1)-P(X=1|V3=0)]
+P(Y=1 | V3=0) = 0.82
+P(Y=1 | V3=1'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Jyka has a direct effect on zory and zuph. Zuph has a direct effect on glimx. Zory has a direct effect on glimx.
+For those who are not zuph and are not zory the probability of glimx is 82%. For those who are not zuph and are zory the probability of glimx is 8%. For those who are zuph and are not zory the probability of glimx is 60%. For those who are zuph and are zory the probability of glimx is 54%. For those who are not zuph the probability of zory is 54%. For those who are zuph the probability of zory is 47%.
+For those who are zuph would it be more likely to see glimx if the individual was not zuph?
+Let V1 = jyka; V3 = zory; X = zuph; Y = glimx.
+V1->V3V1->XX->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V3=1)-P(Y=1|V3=0)]/[P(X=1|V3=1)-P(X=1|V3=0)]
+P(Y=1 | V3=0) = 0.82
+P(Y=1 | V3=1'
+Test accuracy: 0.2:  20%|[34m██        [0m| 5/25 [02:18<09:15, 27.76s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.17:  24%|[34m██▍       [0m| 6/25 [02:46<08:46, 27.73s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.14:  28%|[34m██▊       [0m| 7/25 [03:14<08:18, 27.71s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.12:  32%|[34m███▏      [0m| 8/25 [03:42<07:52, 27.80s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.11:  36%|[34m███▌      [0m| 9/25 [04:10<07:25, 27.86s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.1:  40%|[34m████      [0m| 10/25 [04:38<06:58, 27.88s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.18:  44%|[34m████▍     [0m| 11/25 [05:05<06:29, 27.84s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.17:  48%|[34m████▊     [0m| 12/25 [05:33<06:01, 27.81s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.23:  52%|[34m█████▏    [0m| 13/25 [06:01<05:33, 27.80s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.21:  56%|[34m█████▌    [0m| 14/25 [06:29<05:05, 27.79s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.2:  60%|[34m██████    [0m| 15/25 [06:56<04:37, 27.77s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.19:  64%|[34m██████▍   [0m| 16/25 [07:24<04:10, 27.78s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.18:  68%|[34m██████▊   [0m| 17/25 [07:52<03:42, 27.78s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.17:  72%|[34m███████▏  [0m| 18/25 [08:20<03:14, 27.83s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.16:  76%|[34m███████▌  [0m| 19/25 [08:48<02:46, 27.81s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.15:  80%|[34m████████  [0m| 20/25 [09:16<02:19, 27.84s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.14:  84%|[34m████████▍ [0m| 21/25 [09:43<01:51, 27.80s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.18:  88%|[34m████████▊ [0m| 22/25 [10:11<01:23, 27.82s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.17:  92%|[34m█████████▏[0m| 23/25 [10:39<00:55, 27.79s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.17:  96%|[34m█████████▌[0m| 24/25 [11:07<00:27, 27.81s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.16: 100%|[34m██████████[0m| 25/25 [11:35<00:00, 27.80s/it]
+Device 0: Cor=4, CoT=0, Total=25
+Accuracy on validation set: 21 / 100 = 0.21
+CoT match on validation set: 0 / 100 = 0.0
+saving model.
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 208.74 examples/s]
+Map (num_proc=32): 100%|██████████| 4740/4740 [00:00<00:00, 6740.40 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 170.64 examples/s]
+Training Epoch: 3/15, batch 296/297 completed (loss: 0.0348: 100%|[34m██████████[0m| 297/297 [06:56<00:00,  1.40s/it]
+logging training data
+eval loss 1.5134429250444685
+Test Accuracy:   0%|[34m          [0m| 0/25 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 0: Answer = 'no' CoT = 'Let V1 = CEO; V3 = director; X = having visited England; Y = employee.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y_{X = 1} - Y_{X = 0} | X = 1]
+\sum_{V3=v} P(V3=v|X=1)*[P(Y=1|X=1,V3=v) - P(Y=1|X=0,V3=v)]
+P(Y=1 | X=0, V3=0) = 0.09
+P(Y=1 | X=0, V3=1) = 0.47
+P(Y=1 | X=1, V3=0) = 0.50
+P(Y=1 | X=1, V3=1) = 0.85
+P(V3=1 | X=0) = 0.66
+P(V3=1 | X=1) = 0.73
+0.73 * (0.85 - 0.50) + 0.66 * (0.47 - 0.09) = 0.39, 0.39 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: CEO has a direct effect on director and having visited England. Having visited England has a direct effect on employee. Director has a direct effect on employee.
+For people who have not visited England and directors who don't sign termination letters, the probability of employee being fired is 9%. For people who have not visited England and directors who sign termination letters, the probability of employee being fired is 47%. For people who have visited England and directors who don't sign termination letters, the probability of employee being fired is 50%. For people who have visited England and directors who sign termination letters, the probability of employee being fired is 85%. For people who have not visited England, the probability of director signing the termination letter is 66%. For people who have visited England, the probability of director signing the termination letter is 73%.
+For people who have visited England, would it be more likely to see employee being fired if the person had not visited England?
+Let V1 = CEO; V3 = director; X = having visited England; Y = employee.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V1=1)-P(Y=1|V1=0)]/[P(X=1|V1=1)-P(X=1|V1=0)]
+P(Y=1 | V1=0) = 0.09
+P(Y=1 | V1=1) = 0.'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: CEO has a direct effect on director and having visited England. Having visited England has a direct effect on employee. Director has a direct effect on employee.
+For people who have not visited England and directors who don't sign termination letters the probability of employee being fired is 9%. For people who have not visited England and directors who sign termination letters the probability of employee being fired is 47%. For people who have visited England and directors who don't sign termination letters the probability of employee being fired is 50%. For people who have visited England and directors who sign termination letters the probability of employee being fired is 85%. For people who have not visited England the probability of director signing the termination letter is 66%. For people who have visited England the probability of director signing the termination letter is 73%.
+For people who have visited England would it be more likely to see employee being fired if the person had not visited England?
+Let V1 = CEO; V3 = director; X = having visited England; Y = employee.
+V1->V3V1->XX->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V1=1)-P(Y=1|V1=0)]/[P(X=1|V1=1)-P(X=1|V1=0)]
+P(Y=1 | V1=0) = 0.09
+P(Y=1 | V1=1) = 0.'
+Test accuracy: 0.0:   4%|[34m▍         [0m| 1/25 [00:28<11:15, 28.14s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 4: Answer = 'no' CoT = 'Let V2 = residency status; X = gender; V3 = department competitiveness; Y = freckles.
+X->V3,V2->V3,X->Y,V2->Y,V3->Y
+E[Y_{X=0, V3=1} - Y_{X=0, V3=0}]
+\sum_{V3=v} [\sum_{V2=k} P(Y=1|X=0,V3=v)*[P(V3=v|X=1,V2=k)-P(V3=v|X=0,V2=k)]*P(V2=k)]
+P(Y=1 | X=0, V3=0) = 0.62
+P(Y=1 | X=0, V3=1) = 0.81
+P(Y=1 | X=1, V3=0) = 0.37
+P(Y=1 | X=1, V3=1) = 0.56
+P(V3=1 | X=0, V2=0) = 0.48
+P(V3=1 | X=0, V2=1) = 0.81
+P(V3=1 | X=1, V2=0) = 0.14
+P(V3=1 | X=1, V2=1) = 0.60
+P(V2=1) = 0.06
+0.06 * 0.81 * (0.60 - 0.14)+ 0.94 * 0.81 * (0.81 - 0.48)= -0.07, -0.07 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on department competitiveness and freckles. Residency status has a direct effect on department competitiveness and freckles. Department competitiveness has a direct effect on freckles. Residency status is unobserved.
+For individuals who are not male and applicants to a non-competitive department, the probability of freckles is 62%. For individuals who are not male and applicants to a competitive department, the probability of freckles is 81%. For individuals who are male and applicants to a non-competitive department, the probability of freckles is 37%. For individuals who are male and applicants to a competitive department, the probability of freckles is 56%. For individuals who are not male and out-of-state residents, the probability of competitive department is 48%. For individuals who are not male and in-state residents, the probability of competitive department is 81%. For individuals who are male and out-of-state residents, the probability of competitive department is 14%. For individuals who are male and in-state residents, the probability of competitive department is 60%. The overall probability of in-state residency is 6%.
+Does gender positively affect freckles through department competitiveness?
+Let V2 = residency status; X = gender; V3 = department competitiveness; Y = freckles.
+X->V3,V2->V3,X->Y,V2->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.62
+P(Y=1 | X=1) = 0.81
+P(Y=1 | X=0) = 0.37
+P'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Gender has a direct effect on department competitiveness and freckles. Residency status has a direct effect on department competitiveness and freckles. Department competitiveness has a direct effect on freckles. Residency status is unobserved.
+For individuals who are not male and applicants to a non-competitive department the probability of freckles is 62%. For individuals who are not male and applicants to a competitive department the probability of freckles is 81%. For individuals who are male and applicants to a non-competitive department the probability of freckles is 37%. For individuals who are male and applicants to a competitive department the probability of freckles is 56%. For individuals who are not male and out-of-state residents the probability of competitive department is 48%. For individuals who are not male and in-state residents the probability of competitive department is 81%. For individuals who are male and out-of-state residents the probability of competitive department is 14%. For individuals who are male and in-state residents the probability of competitive department is 60%. The overall probability of in-state residency is 6%.
+Does gender positively affect freckles through department competitiveness?
+Let V2 = residency status; X = gender; V3 = department competitiveness; Y = freckles.
+X->V3V2->V3X->YV2->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.62
+P(Y=1 | X=1) = 0.81
+P(Y=1 | X=0) = 0.37
+P'
+Test accuracy: 0.0:   8%|[34m▊         [0m| 2/25 [00:56<10:45, 28.05s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 8: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+E[Y_{X=0, V2=1} - Y_{X=0, V2=0}]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.71
+P(Y=1 | X=1) = 0.72
+0.72 - 0.71 = 0.01, 0.01 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+For those who are not pexu, the probability of rukz is 71%. For those who are pexu, the probability of rukz is 72%.
+Does pexu negatively affect rukz through hwax?
+Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.71
+P(Y=1 | X=1) = 0.72
+0.72 - 0.71 = 0.01, 0.01 > 0
+### no<|end_of_text|>'
+Extracted Output: 'no'
+Test accuracy: 0.33:  12%|[34m█▏        [0m| 3/25 [01:23<10:14, 27.93s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 12: Answer = 'yes' CoT = 'Let V1 = muvy; X = kwox; V3 = swoq; Y = kwoz.
+V1->X,X->V3,V1->Y,V3->Y
+E[Y_{X=0, V3=1} - Y_{X=0, V3=0}]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = h,V3 = v)*P(X = h)]
+P(V3=1 | X=0) = 0.57
+P(V3=1 | X=1) = 0.32
+P(Y=1 | X=0, V3=0) = 0.29
+P(Y=1 | X=0, V3=1) = 0.63
+P(Y=1 | X=1, V3=0) = 0.46
+P(Y=1 | X=1, V3=1) = 0.71
+P(X=1) = 0.78
+0.32 - 0.57 * (0.71 * 0.78 + 0.63 * 0.22)= -0.07, -0.07 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Muvy has a direct effect on kwox and kwoz. Kwox has a direct effect on swoq. Swoq has a direct effect on kwoz. Muvy is unobserved.
+For those who are not kwox, the probability of swoq is 57%. For those who are kwox, the probability of swoq is 32%. For those who are not kwox and are not swoq, the probability of kwoz is 29%. For those who are not kwox and are swoq, the probability of kwoz is 63%. For those who are kwox and are not swoq, the probability of kwoz is 46%. For those who are kwox and are swoq, the probability of kwoz is 71%. The overall probability of kwox is 78%.
+Does kwox negatively affect kwoz through swoq?
+Let V1 = muvy; X = kwox; V3 = swoq; Y = kwoz.
+V1->X,X->V3,V1->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = h,V3 = v)*P(X = h)]
+P(V3=1 | X='
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Muvy has a direct effect on kwox and kwoz. Kwox has a direct effect on swoq. Swoq has a direct effect on kwoz. Muvy is unobserved.
+For those who are not kwox the probability of swoq is 57%. For those who are kwox the probability of swoq is 32%. For those who are not kwox and are not swoq the probability of kwoz is 29%. For those who are not kwox and are swoq the probability of kwoz is 63%. For those who are kwox and are not swoq the probability of kwoz is 46%. For those who are kwox and are swoq the probability of kwoz is 71%. The overall probability of kwox is 78%.
+Does kwox negatively affect kwoz through swoq?
+Let V1 = muvy; X = kwox; V3 = swoq; Y = kwoz.
+V1->XX->V3V1->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = hV3 = v)*P(X = h)]
+P(V3=1 | X='
+Test accuracy: 0.25:  16%|[34m█▌        [0m| 4/25 [01:51<09:44, 27.81s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 16: Answer = 'no' CoT = 'Let V1 = jyka; V3 = zory; X = zuph; Y = glimx.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y_{X = 1} - Y_{X = 0} | X = 1]
+\sum_{V3=v} P(V3=v|X=1)*[P(Y=1|X=1,V3=v) - P(Y=1|X=0,V3=v)]
+P(Y=1 | X=0, V3=0) = 0.82
+P(Y=1 | X=0, V3=1) = 0.08
+P(Y=1 | X=1, V3=0) = 0.60
+P(Y=1 | X=1, V3=1) = 0.54
+P(V3=1 | X=0) = 0.54
+P(V3=1 | X=1) = 0.47
+0.47 * (0.54 - 0.60) + 0.54 * (0.08 - 0.82) = 0.11, 0.11 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Jyka has a direct effect on zory and zuph. Zuph has a direct effect on glimx. Zory has a direct effect on glimx.
+For those who are not zuph and are not zory, the probability of glimx is 82%. For those who are not zuph and are zory, the probability of glimx is 8%. For those who are zuph and are not zory, the probability of glimx is 60%. For those who are zuph and are zory, the probability of glimx is 54%. For those who are not zuph, the probability of zory is 54%. For those who are zuph, the probability of zory is 47%.
+For those who are zuph, would it be more likely to see glimx if the individual was not zuph?
+Let V1 = jyka; V3 = zory; X = zuph; Y = glimx.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V1=1)-P(Y=1|V1=0)]/[P(X=1|V1=1)-P(X=1|V1=0)]
+P(Y=1 | V1=0) = 0.82
+P(Y=1 | V1=1'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Jyka has a direct effect on zory and zuph. Zuph has a direct effect on glimx. Zory has a direct effect on glimx.
+For those who are not zuph and are not zory the probability of glimx is 82%. For those who are not zuph and are zory the probability of glimx is 8%. For those who are zuph and are not zory the probability of glimx is 60%. For those who are zuph and are zory the probability of glimx is 54%. For those who are not zuph the probability of zory is 54%. For those who are zuph the probability of zory is 47%.
+For those who are zuph would it be more likely to see glimx if the individual was not zuph?
+Let V1 = jyka; V3 = zory; X = zuph; Y = glimx.
+V1->V3V1->XX->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V1=1)-P(Y=1|V1=0)]/[P(X=1|V1=1)-P(X=1|V1=0)]
+P(Y=1 | V1=0) = 0.82
+P(Y=1 | V1=1'
+Test accuracy: 0.2:  20%|[34m██        [0m| 5/25 [02:19<09:17, 27.85s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.33:  24%|[34m██▍       [0m| 6/25 [02:47<08:49, 27.87s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.29:  28%|[34m██▊       [0m| 7/25 [03:15<08:22, 27.91s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.25:  32%|[34m███▏      [0m| 8/25 [03:43<07:54, 27.92s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.22:  36%|[34m███▌      [0m| 9/25 [04:11<07:26, 27.90s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.3:  40%|[34m████      [0m| 10/25 [04:38<06:58, 27.87s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.36:  44%|[34m████▍     [0m| 11/25 [05:06<06:30, 27.90s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.33:  48%|[34m████▊     [0m| 12/25 [05:34<06:02, 27.88s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.38:  52%|[34m█████▏    [0m| 13/25 [06:02<05:34, 27.83s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.43:  56%|[34m█████▌    [0m| 14/25 [06:30<05:06, 27.85s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.4:  60%|[34m██████    [0m| 15/25 [06:58<04:38, 27.85s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.38:  64%|[34m██████▍   [0m| 16/25 [07:25<04:10, 27.82s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.41:  68%|[34m██████▊   [0m| 17/25 [07:53<03:42, 27.78s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.39:  72%|[34m███████▏  [0m| 18/25 [08:21<03:14, 27.75s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.37:  76%|[34m███████▌  [0m| 19/25 [08:49<02:46, 27.79s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.35:  80%|[34m████████  [0m| 20/25 [09:16<02:18, 27.76s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.33:  84%|[34m████████▍ [0m| 21/25 [09:44<01:51, 27.77s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.36:  88%|[34m████████▊ [0m| 22/25 [10:12<01:23, 27.69s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.35:  92%|[34m█████████▏[0m| 23/25 [10:40<00:55, 27.78s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.33:  96%|[34m█████████▌[0m| 24/25 [11:08<00:27, 27.81s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.32: 100%|[34m██████████[0m| 25/25 [11:36<00:00, 27.85s/it]
+Device 0: Cor=8, CoT=0, Total=25
+Accuracy on validation set: 24 / 100 = 0.24
+CoT match on validation set: 0 / 100 = 0.0
+saving model.
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 195.13 examples/s]
+Map (num_proc=32): 100%|██████████| 4740/4740 [00:00<00:00, 6347.13 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 183.79 examples/s]
+Training Epoch: 4/15, batch 296/297 completed (loss: 0.0014: 100%|[34m██████████[0m| 297/297 [06:55<00:00,  1.40s/it]
+logging training data
+eval loss 1.546742047582354
+Test Accuracy:   0%|[34m          [0m| 0/25 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 0: Answer = 'no' CoT = 'Let V1 = CEO; V3 = director; X = having visited England; Y = employee.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y_{X = 1} - Y_{X = 0} | X = 1]
+\sum_{V3=v} P(V3=v|X=1)*[P(Y=1|X=1,V3=v) - P(Y=1|X=0,V3=v)]
+P(Y=1 | X=0, V3=0) = 0.09
+P(Y=1 | X=0, V3=1) = 0.47
+P(Y=1 | X=1, V3=0) = 0.50
+P(Y=1 | X=1, V3=1) = 0.85
+P(V3=1 | X=0) = 0.66
+P(V3=1 | X=1) = 0.73
+0.73 * (0.85 - 0.50) + 0.66 * (0.47 - 0.09) = 0.39, 0.39 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: CEO has a direct effect on director and having visited England. Having visited England has a direct effect on employee. Director has a direct effect on employee.
+For people who have not visited England and directors who don't sign termination letters, the probability of employee being fired is 9%. For people who have not visited England and directors who sign termination letters, the probability of employee being fired is 47%. For people who have visited England and directors who don't sign termination letters, the probability of employee being fired is 50%. For people who have visited England and directors who sign termination letters, the probability of employee being fired is 85%. For people who have not visited England, the probability of director signing the termination letter is 66%. For people who have visited England, the probability of director signing the termination letter is 73%.
+For people who have visited England, would it be more likely to see employee being fired if the person had not visited England?
+Let V1 = CEO; V3 = director; X = having visited England; Y = employee.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V1=1)-P(Y=1|V1=0)]/[P(X=1|V1=1)-P(X=1|V1=0)]
+P(Y=1 | V1=0) = 0.09
+P(Y=1 | V1=1) = 0.'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: CEO has a direct effect on director and having visited England. Having visited England has a direct effect on employee. Director has a direct effect on employee.
+For people who have not visited England and directors who don't sign termination letters the probability of employee being fired is 9%. For people who have not visited England and directors who sign termination letters the probability of employee being fired is 47%. For people who have visited England and directors who don't sign termination letters the probability of employee being fired is 50%. For people who have visited England and directors who sign termination letters the probability of employee being fired is 85%. For people who have not visited England the probability of director signing the termination letter is 66%. For people who have visited England the probability of director signing the termination letter is 73%.
+For people who have visited England would it be more likely to see employee being fired if the person had not visited England?
+Let V1 = CEO; V3 = director; X = having visited England; Y = employee.
+V1->V3V1->XX->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V1=1)-P(Y=1|V1=0)]/[P(X=1|V1=1)-P(X=1|V1=0)]
+P(Y=1 | V1=0) = 0.09
+P(Y=1 | V1=1) = 0.'
+Test accuracy: 0.0:   4%|[34m▍         [0m| 1/25 [00:28<11:14, 28.11s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 4: Answer = 'no' CoT = 'Let V2 = residency status; X = gender; V3 = department competitiveness; Y = freckles.
+X->V3,V2->V3,X->Y,V2->Y,V3->Y
+E[Y_{X=0, V3=1} - Y_{X=0, V3=0}]
+\sum_{V3=v} [\sum_{V2=k} P(Y=1|X=0,V3=v)*[P(V3=v|X=1,V2=k)-P(V3=v|X=0,V2=k)]*P(V2=k)]
+P(Y=1 | X=0, V3=0) = 0.62
+P(Y=1 | X=0, V3=1) = 0.81
+P(Y=1 | X=1, V3=0) = 0.37
+P(Y=1 | X=1, V3=1) = 0.56
+P(V3=1 | X=0, V2=0) = 0.48
+P(V3=1 | X=0, V2=1) = 0.81
+P(V3=1 | X=1, V2=0) = 0.14
+P(V3=1 | X=1, V2=1) = 0.60
+P(V2=1) = 0.06
+0.06 * 0.81 * (0.60 - 0.14)+ 0.94 * 0.81 * (0.81 - 0.48)= -0.07, -0.07 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on department competitiveness and freckles. Residency status has a direct effect on department competitiveness and freckles. Department competitiveness has a direct effect on freckles. Residency status is unobserved.
+For individuals who are not male and applicants to a non-competitive department, the probability of freckles is 62%. For individuals who are not male and applicants to a competitive department, the probability of freckles is 81%. For individuals who are male and applicants to a non-competitive department, the probability of freckles is 37%. For individuals who are male and applicants to a competitive department, the probability of freckles is 56%. For individuals who are not male and out-of-state residents, the probability of competitive department is 48%. For individuals who are not male and in-state residents, the probability of competitive department is 81%. For individuals who are male and out-of-state residents, the probability of competitive department is 14%. For individuals who are male and in-state residents, the probability of competitive department is 60%. The overall probability of in-state residency is 6%.
+Does gender positively affect freckles through department competitiveness?
+Let V2 = residency status; X = gender; V3 = department competitiveness; Y = freckles.
+X->V3,V2->V3,X->Y,V2->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.62
+P(Y=1 | X=1) = 0.81
+P(Y=1 | X=0) = 0.37
+P'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Gender has a direct effect on department competitiveness and freckles. Residency status has a direct effect on department competitiveness and freckles. Department competitiveness has a direct effect on freckles. Residency status is unobserved.
+For individuals who are not male and applicants to a non-competitive department the probability of freckles is 62%. For individuals who are not male and applicants to a competitive department the probability of freckles is 81%. For individuals who are male and applicants to a non-competitive department the probability of freckles is 37%. For individuals who are male and applicants to a competitive department the probability of freckles is 56%. For individuals who are not male and out-of-state residents the probability of competitive department is 48%. For individuals who are not male and in-state residents the probability of competitive department is 81%. For individuals who are male and out-of-state residents the probability of competitive department is 14%. For individuals who are male and in-state residents the probability of competitive department is 60%. The overall probability of in-state residency is 6%.
+Does gender positively affect freckles through department competitiveness?
+Let V2 = residency status; X = gender; V3 = department competitiveness; Y = freckles.
+X->V3V2->V3X->YV2->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.62
+P(Y=1 | X=1) = 0.81
+P(Y=1 | X=0) = 0.37
+P'
+Test accuracy: 0.0:   8%|[34m▊         [0m| 2/25 [00:56<10:45, 28.08s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 8: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+E[Y_{X=0, V2=1} - Y_{X=0, V2=0}]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.71
+P(Y=1 | X=1) = 0.72
+0.72 - 0.71 = 0.01, 0.01 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+For those who are not pexu, the probability of rukz is 71%. For those who are pexu, the probability of rukz is 72%.
+Does pexu negatively affect rukz through hwax?
+Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.71
+P(Y=1 | X=1) = 0.72
+0.72 - 0.71 = 0.02, 0.02 > 0
+### no<|end_of_text|>'
+Extracted Output: 'no'
+Test accuracy: 0.33:  12%|[34m█▏        [0m| 3/25 [01:24<10:17, 28.08s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 12: Answer = 'yes' CoT = 'Let V1 = muvy; X = kwox; V3 = swoq; Y = kwoz.
+V1->X,X->V3,V1->Y,V3->Y
+E[Y_{X=0, V3=1} - Y_{X=0, V3=0}]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = h,V3 = v)*P(X = h)]
+P(V3=1 | X=0) = 0.57
+P(V3=1 | X=1) = 0.32
+P(Y=1 | X=0, V3=0) = 0.29
+P(Y=1 | X=0, V3=1) = 0.63
+P(Y=1 | X=1, V3=0) = 0.46
+P(Y=1 | X=1, V3=1) = 0.71
+P(X=1) = 0.78
+0.32 - 0.57 * (0.71 * 0.78 + 0.63 * 0.22)= -0.07, -0.07 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Muvy has a direct effect on kwox and kwoz. Kwox has a direct effect on swoq. Swoq has a direct effect on kwoz. Muvy is unobserved.
+For those who are not kwox, the probability of swoq is 57%. For those who are kwox, the probability of swoq is 32%. For those who are not kwox and are not swoq, the probability of kwoz is 29%. For those who are not kwox and are swoq, the probability of kwoz is 63%. For those who are kwox and are not swoq, the probability of kwoz is 46%. For those who are kwox and are swoq, the probability of kwoz is 71%. The overall probability of kwox is 78%.
+Does kwox negatively affect kwoz through swoq?
+Let V1 = muvy; X = kwox; V3 = swoq; Y = kwoz.
+V1->X,X->V3,V1->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = h,V3 = v)*P(X = h)]
+P(V3=1 | X='
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Muvy has a direct effect on kwox and kwoz. Kwox has a direct effect on swoq. Swoq has a direct effect on kwoz. Muvy is unobserved.
+For those who are not kwox the probability of swoq is 57%. For those who are kwox the probability of swoq is 32%. For those who are not kwox and are not swoq the probability of kwoz is 29%. For those who are not kwox and are swoq the probability of kwoz is 63%. For those who are kwox and are not swoq the probability of kwoz is 46%. For those who are kwox and are swoq the probability of kwoz is 71%. The overall probability of kwox is 78%.
+Does kwox negatively affect kwoz through swoq?
+Let V1 = muvy; X = kwox; V3 = swoq; Y = kwoz.
+V1->XX->V3V1->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = hV3 = v)*P(X = h)]
+P(V3=1 | X='
+Test accuracy: 0.25:  16%|[34m█▌        [0m| 4/25 [01:52<09:48, 28.04s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 16: Answer = 'no' CoT = 'Let V1 = jyka; V3 = zory; X = zuph; Y = glimx.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y_{X = 1} - Y_{X = 0} | X = 1]
+\sum_{V3=v} P(V3=v|X=1)*[P(Y=1|X=1,V3=v) - P(Y=1|X=0,V3=v)]
+P(Y=1 | X=0, V3=0) = 0.82
+P(Y=1 | X=0, V3=1) = 0.08
+P(Y=1 | X=1, V3=0) = 0.60
+P(Y=1 | X=1, V3=1) = 0.54
+P(V3=1 | X=0) = 0.54
+P(V3=1 | X=1) = 0.47
+0.47 * (0.54 - 0.60) + 0.54 * (0.08 - 0.82) = 0.11, 0.11 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Jyka has a direct effect on zory and zuph. Zuph has a direct effect on glimx. Zory has a direct effect on glimx.
+For those who are not zuph and are not zory, the probability of glimx is 82%. For those who are not zuph and are zory, the probability of glimx is 8%. For those who are zuph and are not zory, the probability of glimx is 60%. For those who are zuph and are zory, the probability of glimx is 54%. For those who are not zuph, the probability of zory is 54%. For those who are zuph, the probability of zory is 47%.
+For those who are zuph, would it be more likely to see glimx if the individual was not zuph?
+Let V1 = jyka; V3 = zory; X = zuph; Y = glimx.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V1=1)-P(Y=1|V1=0)]/[P(X=1|V1=1)-P(X=1|V1=0)]
+P(Y=1 | V1=0) = 0.82
+P(Y=1 | V1=1'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Jyka has a direct effect on zory and zuph. Zuph has a direct effect on glimx. Zory has a direct effect on glimx.
+For those who are not zuph and are not zory the probability of glimx is 82%. For those who are not zuph and are zory the probability of glimx is 8%. For those who are zuph and are not zory the probability of glimx is 60%. For those who are zuph and are zory the probability of glimx is 54%. For those who are not zuph the probability of zory is 54%. For those who are zuph the probability of zory is 47%.
+For those who are zuph would it be more likely to see glimx if the individual was not zuph?
+Let V1 = jyka; V3 = zory; X = zuph; Y = glimx.
+V1->V3V1->XX->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V1=1)-P(Y=1|V1=0)]/[P(X=1|V1=1)-P(X=1|V1=0)]
+P(Y=1 | V1=0) = 0.82
+P(Y=1 | V1=1'
+Test accuracy: 0.2:  20%|[34m██        [0m| 5/25 [02:20<09:20, 28.02s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.17:  24%|[34m██▍       [0m| 6/25 [02:48<08:52, 28.03s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.14:  28%|[34m██▊       [0m| 7/25 [03:16<08:23, 27.97s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.12:  32%|[34m███▏      [0m| 8/25 [03:43<07:54, 27.93s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.11:  36%|[34m███▌      [0m| 9/25 [04:11<07:26, 27.90s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.2:  40%|[34m████      [0m| 10/25 [04:39<06:58, 27.90s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.27:  44%|[34m████▍     [0m| 11/25 [05:07<06:30, 27.91s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.25:  48%|[34m████▊     [0m| 12/25 [05:35<06:02, 27.92s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.31:  52%|[34m█████▏    [0m| 13/25 [06:03<05:35, 27.93s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.29:  56%|[34m█████▌    [0m| 14/25 [06:31<05:07, 27.91s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.27:  60%|[34m██████    [0m| 15/25 [06:59<04:38, 27.88s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.25:  64%|[34m██████▍   [0m| 16/25 [07:27<04:11, 27.93s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.29:  68%|[34m██████▊   [0m| 17/25 [07:55<03:43, 27.94s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.28:  72%|[34m███████▏  [0m| 18/25 [08:23<03:15, 27.97s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.26:  76%|[34m███████▌  [0m| 19/25 [08:51<02:47, 28.00s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.25:  80%|[34m████████  [0m| 20/25 [09:19<02:19, 27.97s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.24:  84%|[34m████████▍ [0m| 21/25 [09:47<01:52, 28.02s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.27:  88%|[34m████████▊ [0m| 22/25 [10:15<01:24, 28.01s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.26:  92%|[34m█████████▏[0m| 23/25 [10:43<00:55, 27.96s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.25:  96%|[34m█████████▌[0m| 24/25 [11:11<00:27, 27.93s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.24: 100%|[34m██████████[0m| 25/25 [11:39<00:00, 27.96s/it]
+Device 0: Cor=6, CoT=0, Total=25
+Accuracy on validation set: 22 / 100 = 0.22
+CoT match on validation set: 0 / 100 = 0.0
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 195.84 examples/s]
+Map (num_proc=32): 100%|██████████| 4740/4740 [00:00<00:00, 5509.83 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 176.09 examples/s]
+Training Epoch: 5/15, batch 296/297 completed (loss: 0.0005: 100%|[34m██████████[0m| 297/297 [06:55<00:00,  1.40s/it]
+logging training data
+eval loss 1.5316081217357091
+Test Accuracy:   0%|[34m          [0m| 0/25 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 0: Answer = 'no' CoT = 'Let V1 = CEO; V3 = director; X = having visited England; Y = employee.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y_{X = 1} - Y_{X = 0} | X = 1]
+\sum_{V3=v} P(V3=v|X=1)*[P(Y=1|X=1,V3=v) - P(Y=1|X=0,V3=v)]
+P(Y=1 | X=0, V3=0) = 0.09
+P(Y=1 | X=0, V3=1) = 0.47
+P(Y=1 | X=1, V3=0) = 0.50
+P(Y=1 | X=1, V3=1) = 0.85
+P(V3=1 | X=0) = 0.66
+P(V3=1 | X=1) = 0.73
+0.73 * (0.85 - 0.50) + 0.66 * (0.47 - 0.09) = 0.39, 0.39 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: CEO has a direct effect on director and having visited England. Having visited England has a direct effect on employee. Director has a direct effect on employee.
+For people who have not visited England and directors who don't sign termination letters, the probability of employee being fired is 9%. For people who have not visited England and directors who sign termination letters, the probability of employee being fired is 47%. For people who have visited England and directors who don't sign termination letters, the probability of employee being fired is 50%. For people who have visited England and directors who sign termination letters, the probability of employee being fired is 85%. For people who have not visited England, the probability of director signing the termination letter is 66%. For people who have visited England, the probability of director signing the termination letter is 73%.
+For people who have visited England, would it be more likely to see employee being fired if the person had not visited England?
+Let V1 = CEO; V3 = director; X = having visited England; Y = employee.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V1=1)-P(Y=1|V1=0)]/[P(X=1|V1=1)-P(X=1|V1=0)]
+P(Y=1 | V1=0) = 0.09
+P(Y=1 | V1=1) = 0.'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: CEO has a direct effect on director and having visited England. Having visited England has a direct effect on employee. Director has a direct effect on employee.
+For people who have not visited England and directors who don't sign termination letters the probability of employee being fired is 9%. For people who have not visited England and directors who sign termination letters the probability of employee being fired is 47%. For people who have visited England and directors who don't sign termination letters the probability of employee being fired is 50%. For people who have visited England and directors who sign termination letters the probability of employee being fired is 85%. For people who have not visited England the probability of director signing the termination letter is 66%. For people who have visited England the probability of director signing the termination letter is 73%.
+For people who have visited England would it be more likely to see employee being fired if the person had not visited England?
+Let V1 = CEO; V3 = director; X = having visited England; Y = employee.
+V1->V3V1->XX->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V1=1)-P(Y=1|V1=0)]/[P(X=1|V1=1)-P(X=1|V1=0)]
+P(Y=1 | V1=0) = 0.09
+P(Y=1 | V1=1) = 0.'
+Test accuracy: 0.0:   4%|[34m▍         [0m| 1/25 [00:28<11:13, 28.05s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 4: Answer = 'no' CoT = 'Let V2 = residency status; X = gender; V3 = department competitiveness; Y = freckles.
+X->V3,V2->V3,X->Y,V2->Y,V3->Y
+E[Y_{X=0, V3=1} - Y_{X=0, V3=0}]
+\sum_{V3=v} [\sum_{V2=k} P(Y=1|X=0,V3=v)*[P(V3=v|X=1,V2=k)-P(V3=v|X=0,V2=k)]*P(V2=k)]
+P(Y=1 | X=0, V3=0) = 0.62
+P(Y=1 | X=0, V3=1) = 0.81
+P(Y=1 | X=1, V3=0) = 0.37
+P(Y=1 | X=1, V3=1) = 0.56
+P(V3=1 | X=0, V2=0) = 0.48
+P(V3=1 | X=0, V2=1) = 0.81
+P(V3=1 | X=1, V2=0) = 0.14
+P(V3=1 | X=1, V2=1) = 0.60
+P(V2=1) = 0.06
+0.06 * 0.81 * (0.60 - 0.14)+ 0.94 * 0.81 * (0.81 - 0.48)= -0.07, -0.07 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on department competitiveness and freckles. Residency status has a direct effect on department competitiveness and freckles. Department competitiveness has a direct effect on freckles. Residency status is unobserved.
+For individuals who are not male and applicants to a non-competitive department, the probability of freckles is 62%. For individuals who are not male and applicants to a competitive department, the probability of freckles is 81%. For individuals who are male and applicants to a non-competitive department, the probability of freckles is 37%. For individuals who are male and applicants to a competitive department, the probability of freckles is 56%. For individuals who are not male and out-of-state residents, the probability of competitive department is 48%. For individuals who are not male and in-state residents, the probability of competitive department is 81%. For individuals who are male and out-of-state residents, the probability of competitive department is 14%. For individuals who are male and in-state residents, the probability of competitive department is 60%. The overall probability of in-state residency is 6%.
+Does gender positively affect freckles through department competitiveness?
+Let V2 = residency status; X = gender; V3 = department competitiveness; Y = freckles.
+X->V3,V2->V3,X->Y,V2->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.62
+P(Y=1 | X=1) = 0.81
+P(Y=1 | X=0) = 0.37
+P'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Gender has a direct effect on department competitiveness and freckles. Residency status has a direct effect on department competitiveness and freckles. Department competitiveness has a direct effect on freckles. Residency status is unobserved.
+For individuals who are not male and applicants to a non-competitive department the probability of freckles is 62%. For individuals who are not male and applicants to a competitive department the probability of freckles is 81%. For individuals who are male and applicants to a non-competitive department the probability of freckles is 37%. For individuals who are male and applicants to a competitive department the probability of freckles is 56%. For individuals who are not male and out-of-state residents the probability of competitive department is 48%. For individuals who are not male and in-state residents the probability of competitive department is 81%. For individuals who are male and out-of-state residents the probability of competitive department is 14%. For individuals who are male and in-state residents the probability of competitive department is 60%. The overall probability of in-state residency is 6%.
+Does gender positively affect freckles through department competitiveness?
+Let V2 = residency status; X = gender; V3 = department competitiveness; Y = freckles.
+X->V3V2->V3X->YV2->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.62
+P(Y=1 | X=1) = 0.81
+P(Y=1 | X=0) = 0.37
+P'
+Test accuracy: 0.0:   8%|[34m▊         [0m| 2/25 [00:55<10:42, 27.95s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 8: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+E[Y_{X=0, V2=1} - Y_{X=0, V2=0}]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.71
+P(Y=1 | X=1) = 0.72
+0.72 - 0.71 = 0.01, 0.01 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+For those who are not pexu, the probability of rukz is 71%. For those who are pexu, the probability of rukz is 72%.
+Does pexu negatively affect rukz through hwax?
+Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.71
+P(Y=1 | X=1) = 0.72
+0.72 - 0.71 = 0.02, 0.02 > 0
+### no<|end_of_text|>'
+Extracted Output: 'no'
+Test accuracy: 0.33:  12%|[34m█▏        [0m| 3/25 [01:23<10:14, 27.93s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 12: Answer = 'yes' CoT = 'Let V1 = muvy; X = kwox; V3 = swoq; Y = kwoz.
+V1->X,X->V3,V1->Y,V3->Y
+E[Y_{X=0, V3=1} - Y_{X=0, V3=0}]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = h,V3 = v)*P(X = h)]
+P(V3=1 | X=0) = 0.57
+P(V3=1 | X=1) = 0.32
+P(Y=1 | X=0, V3=0) = 0.29
+P(Y=1 | X=0, V3=1) = 0.63
+P(Y=1 | X=1, V3=0) = 0.46
+P(Y=1 | X=1, V3=1) = 0.71
+P(X=1) = 0.78
+0.32 - 0.57 * (0.71 * 0.78 + 0.63 * 0.22)= -0.07, -0.07 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Muvy has a direct effect on kwox and kwoz. Kwox has a direct effect on swoq. Swoq has a direct effect on kwoz. Muvy is unobserved.
+For those who are not kwox, the probability of swoq is 57%. For those who are kwox, the probability of swoq is 32%. For those who are not kwox and are not swoq, the probability of kwoz is 29%. For those who are not kwox and are swoq, the probability of kwoz is 63%. For those who are kwox and are not swoq, the probability of kwoz is 46%. For those who are kwox and are swoq, the probability of kwoz is 71%. The overall probability of kwox is 78%.
+Does kwox negatively affect kwoz through swoq?
+Let V1 = muvy; X = kwox; V3 = swoq; Y = kwoz.
+V1->X,X->V3,V1->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = h,V3 = v)*P(X = h)]
+P(V3=1 | X='
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Muvy has a direct effect on kwox and kwoz. Kwox has a direct effect on swoq. Swoq has a direct effect on kwoz. Muvy is unobserved.
+For those who are not kwox the probability of swoq is 57%. For those who are kwox the probability of swoq is 32%. For those who are not kwox and are not swoq the probability of kwoz is 29%. For those who are not kwox and are swoq the probability of kwoz is 63%. For those who are kwox and are not swoq the probability of kwoz is 46%. For those who are kwox and are swoq the probability of kwoz is 71%. The overall probability of kwox is 78%.
+Does kwox negatively affect kwoz through swoq?
+Let V1 = muvy; X = kwox; V3 = swoq; Y = kwoz.
+V1->XX->V3V1->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = hV3 = v)*P(X = h)]
+P(V3=1 | X='
+Test accuracy: 0.25:  16%|[34m█▌        [0m| 4/25 [01:51<09:46, 27.95s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 16: Answer = 'no' CoT = 'Let V1 = jyka; V3 = zory; X = zuph; Y = glimx.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y_{X = 1} - Y_{X = 0} | X = 1]
+\sum_{V3=v} P(V3=v|X=1)*[P(Y=1|X=1,V3=v) - P(Y=1|X=0,V3=v)]
+P(Y=1 | X=0, V3=0) = 0.82
+P(Y=1 | X=0, V3=1) = 0.08
+P(Y=1 | X=1, V3=0) = 0.60
+P(Y=1 | X=1, V3=1) = 0.54
+P(V3=1 | X=0) = 0.54
+P(V3=1 | X=1) = 0.47
+0.47 * (0.54 - 0.60) + 0.54 * (0.08 - 0.82) = 0.11, 0.11 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Jyka has a direct effect on zory and zuph. Zuph has a direct effect on glimx. Zory has a direct effect on glimx.
+For those who are not zuph and are not zory, the probability of glimx is 82%. For those who are not zuph and are zory, the probability of glimx is 8%. For those who are zuph and are not zory, the probability of glimx is 60%. For those who are zuph and are zory, the probability of glimx is 54%. For those who are not zuph, the probability of zory is 54%. For those who are zuph, the probability of zory is 47%.
+For those who are zuph, would it be more likely to see glimx if the individual was not zuph?
+Let V1 = jyka; V3 = zory; X = zuph; Y = glimx.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V1=1)-P(Y=1|V1=0)]/[P(X=1|V1=1)-P(X=1|V1=0)]
+P(Y=1 | V1=0) = 0.82
+P(Y=1 | V1=1'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Jyka has a direct effect on zory and zuph. Zuph has a direct effect on glimx. Zory has a direct effect on glimx.
+For those who are not zuph and are not zory the probability of glimx is 82%. For those who are not zuph and are zory the probability of glimx is 8%. For those who are zuph and are not zory the probability of glimx is 60%. For those who are zuph and are zory the probability of glimx is 54%. For those who are not zuph the probability of zory is 54%. For those who are zuph the probability of zory is 47%.
+For those who are zuph would it be more likely to see glimx if the individual was not zuph?
+Let V1 = jyka; V3 = zory; X = zuph; Y = glimx.
+V1->V3V1->XX->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V1=1)-P(Y=1|V1=0)]/[P(X=1|V1=1)-P(X=1|V1=0)]
+P(Y=1 | V1=0) = 0.82
+P(Y=1 | V1=1'
+Test accuracy: 0.2:  20%|[34m██        [0m| 5/25 [02:19<09:19, 27.95s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.17:  24%|[34m██▍       [0m| 6/25 [02:47<08:50, 27.92s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.14:  28%|[34m██▊       [0m| 7/25 [03:15<08:23, 27.96s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.12:  32%|[34m███▏      [0m| 8/25 [03:43<07:54, 27.92s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.11:  36%|[34m███▌      [0m| 9/25 [04:11<07:27, 27.94s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.2:  40%|[34m████      [0m| 10/25 [04:39<06:58, 27.91s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.27:  44%|[34m████▍     [0m| 11/25 [05:07<06:31, 27.95s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.25:  48%|[34m████▊     [0m| 12/25 [05:35<06:02, 27.91s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.31:  52%|[34m█████▏    [0m| 13/25 [06:03<05:35, 27.92s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.29:  56%|[34m█████▌    [0m| 14/25 [06:31<05:07, 27.91s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.27:  60%|[34m██████    [0m| 15/25 [06:58<04:39, 27.92s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.25:  64%|[34m██████▍   [0m| 16/25 [07:26<04:10, 27.88s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.24:  68%|[34m██████▊   [0m| 17/25 [07:54<03:43, 27.88s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.22:  72%|[34m███████▏  [0m| 18/25 [08:22<03:15, 27.89s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.21:  76%|[34m███████▌  [0m| 19/25 [08:50<02:47, 27.91s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.2:  80%|[34m████████  [0m| 20/25 [09:18<02:19, 27.96s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.19:  84%|[34m████████▍ [0m| 21/25 [09:46<01:51, 27.98s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.23:  88%|[34m████████▊ [0m| 22/25 [10:14<01:23, 27.95s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.22:  92%|[34m█████████▏[0m| 23/25 [10:42<00:55, 27.95s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.21:  96%|[34m█████████▌[0m| 24/25 [11:10<00:27, 27.94s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.2: 100%|[34m██████████[0m| 25/25 [11:38<00:00, 27.93s/it] 
+Device 0: Cor=5, CoT=0, Total=25
+Accuracy on validation set: 20 / 100 = 0.2
+CoT match on validation set: 0 / 100 = 0.0
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 181.34 examples/s]
+Map (num_proc=32): 100%|██████████| 4740/4740 [00:00<00:00, 5606.82 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 176.79 examples/s]
+Training Epoch: 6/15, batch 296/297 completed (loss: 0.0002: 100%|[34m██████████[0m| 297/297 [06:56<00:00,  1.40s/it]
+logging training data
+eval loss 1.533360174724034
+Test Accuracy:   0%|[34m          [0m| 0/25 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 0: Answer = 'no' CoT = 'Let V1 = CEO; V3 = director; X = having visited England; Y = employee.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y_{X = 1} - Y_{X = 0} | X = 1]
+\sum_{V3=v} P(V3=v|X=1)*[P(Y=1|X=1,V3=v) - P(Y=1|X=0,V3=v)]
+P(Y=1 | X=0, V3=0) = 0.09
+P(Y=1 | X=0, V3=1) = 0.47
+P(Y=1 | X=1, V3=0) = 0.50
+P(Y=1 | X=1, V3=1) = 0.85
+P(V3=1 | X=0) = 0.66
+P(V3=1 | X=1) = 0.73
+0.73 * (0.85 - 0.50) + 0.66 * (0.47 - 0.09) = 0.39, 0.39 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: CEO has a direct effect on director and having visited England. Having visited England has a direct effect on employee. Director has a direct effect on employee.
+For people who have not visited England and directors who don't sign termination letters, the probability of employee being fired is 9%. For people who have not visited England and directors who sign termination letters, the probability of employee being fired is 47%. For people who have visited England and directors who don't sign termination letters, the probability of employee being fired is 50%. For people who have visited England and directors who sign termination letters, the probability of employee being fired is 85%. For people who have not visited England, the probability of director signing the termination letter is 66%. For people who have visited England, the probability of director signing the termination letter is 73%.
+For people who have visited England, would it be more likely to see employee being fired if the person had not visited England?
+Let V1 = CEO; V3 = director; X = having visited England; Y = employee.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V1=1)-P(Y=1|V1=0)]/[P(X=1|V1=1)-P(X=1|V1=0)]
+P(Y=1 | V1=0) = 0.09
+P(Y=1 | V1=1) = 0.'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: CEO has a direct effect on director and having visited England. Having visited England has a direct effect on employee. Director has a direct effect on employee.
+For people who have not visited England and directors who don't sign termination letters the probability of employee being fired is 9%. For people who have not visited England and directors who sign termination letters the probability of employee being fired is 47%. For people who have visited England and directors who don't sign termination letters the probability of employee being fired is 50%. For people who have visited England and directors who sign termination letters the probability of employee being fired is 85%. For people who have not visited England the probability of director signing the termination letter is 66%. For people who have visited England the probability of director signing the termination letter is 73%.
+For people who have visited England would it be more likely to see employee being fired if the person had not visited England?
+Let V1 = CEO; V3 = director; X = having visited England; Y = employee.
+V1->V3V1->XX->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V1=1)-P(Y=1|V1=0)]/[P(X=1|V1=1)-P(X=1|V1=0)]
+P(Y=1 | V1=0) = 0.09
+P(Y=1 | V1=1) = 0.'
+Test accuracy: 0.0:   4%|[34m▍         [0m| 1/25 [00:28<11:13, 28.06s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 4: Answer = 'no' CoT = 'Let V2 = residency status; X = gender; V3 = department competitiveness; Y = freckles.
+X->V3,V2->V3,X->Y,V2->Y,V3->Y
+E[Y_{X=0, V3=1} - Y_{X=0, V3=0}]
+\sum_{V3=v} [\sum_{V2=k} P(Y=1|X=0,V3=v)*[P(V3=v|X=1,V2=k)-P(V3=v|X=0,V2=k)]*P(V2=k)]
+P(Y=1 | X=0, V3=0) = 0.62
+P(Y=1 | X=0, V3=1) = 0.81
+P(Y=1 | X=1, V3=0) = 0.37
+P(Y=1 | X=1, V3=1) = 0.56
+P(V3=1 | X=0, V2=0) = 0.48
+P(V3=1 | X=0, V2=1) = 0.81
+P(V3=1 | X=1, V2=0) = 0.14
+P(V3=1 | X=1, V2=1) = 0.60
+P(V2=1) = 0.06
+0.06 * 0.81 * (0.60 - 0.14)+ 0.94 * 0.81 * (0.81 - 0.48)= -0.07, -0.07 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on department competitiveness and freckles. Residency status has a direct effect on department competitiveness and freckles. Department competitiveness has a direct effect on freckles. Residency status is unobserved.
+For individuals who are not male and applicants to a non-competitive department, the probability of freckles is 62%. For individuals who are not male and applicants to a competitive department, the probability of freckles is 81%. For individuals who are male and applicants to a non-competitive department, the probability of freckles is 37%. For individuals who are male and applicants to a competitive department, the probability of freckles is 56%. For individuals who are not male and out-of-state residents, the probability of competitive department is 48%. For individuals who are not male and in-state residents, the probability of competitive department is 81%. For individuals who are male and out-of-state residents, the probability of competitive department is 14%. For individuals who are male and in-state residents, the probability of competitive department is 60%. The overall probability of in-state residency is 6%.
+Does gender positively affect freckles through department competitiveness?
+Let V2 = residency status; X = gender; V3 = department competitiveness; Y = freckles.
+X->V3,V2->V3,X->Y,V2->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.62
+P(Y=1 | X=1) = 0.81
+P(Y=1 | X=0) = 0.37
+P'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Gender has a direct effect on department competitiveness and freckles. Residency status has a direct effect on department competitiveness and freckles. Department competitiveness has a direct effect on freckles. Residency status is unobserved.
+For individuals who are not male and applicants to a non-competitive department the probability of freckles is 62%. For individuals who are not male and applicants to a competitive department the probability of freckles is 81%. For individuals who are male and applicants to a non-competitive department the probability of freckles is 37%. For individuals who are male and applicants to a competitive department the probability of freckles is 56%. For individuals who are not male and out-of-state residents the probability of competitive department is 48%. For individuals who are not male and in-state residents the probability of competitive department is 81%. For individuals who are male and out-of-state residents the probability of competitive department is 14%. For individuals who are male and in-state residents the probability of competitive department is 60%. The overall probability of in-state residency is 6%.
+Does gender positively affect freckles through department competitiveness?
+Let V2 = residency status; X = gender; V3 = department competitiveness; Y = freckles.
+X->V3V2->V3X->YV2->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.62
+P(Y=1 | X=1) = 0.81
+P(Y=1 | X=0) = 0.37
+P'
+Test accuracy: 0.0:   8%|[34m▊         [0m| 2/25 [00:56<10:44, 28.00s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 8: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+E[Y_{X=0, V2=1} - Y_{X=0, V2=0}]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.71
+P(Y=1 | X=1) = 0.72
+0.72 - 0.71 = 0.01, 0.01 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+For those who are not pexu, the probability of rukz is 71%. For those who are pexu, the probability of rukz is 72%.
+Does pexu negatively affect rukz through hwax?
+Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.71
+P(Y=1 | X=1) = 0.72
+0.72 - 0.71 = 0.01, 0.01 > 0
+### no<|end_of_text|>'
+Extracted Output: 'no'
+Test accuracy: 0.33:  12%|[34m█▏        [0m| 3/25 [01:23<10:13, 27.88s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 12: Answer = 'yes' CoT = 'Let V1 = muvy; X = kwox; V3 = swoq; Y = kwoz.
+V1->X,X->V3,V1->Y,V3->Y
+E[Y_{X=0, V3=1} - Y_{X=0, V3=0}]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = h,V3 = v)*P(X = h)]
+P(V3=1 | X=0) = 0.57
+P(V3=1 | X=1) = 0.32
+P(Y=1 | X=0, V3=0) = 0.29
+P(Y=1 | X=0, V3=1) = 0.63
+P(Y=1 | X=1, V3=0) = 0.46
+P(Y=1 | X=1, V3=1) = 0.71
+P(X=1) = 0.78
+0.32 - 0.57 * (0.71 * 0.78 + 0.63 * 0.22)= -0.07, -0.07 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Muvy has a direct effect on kwox and kwoz. Kwox has a direct effect on swoq. Swoq has a direct effect on kwoz. Muvy is unobserved.
+For those who are not kwox, the probability of swoq is 57%. For those who are kwox, the probability of swoq is 32%. For those who are not kwox and are not swoq, the probability of kwoz is 29%. For those who are not kwox and are swoq, the probability of kwoz is 63%. For those who are kwox and are not swoq, the probability of kwoz is 46%. For those who are kwox and are swoq, the probability of kwoz is 71%. The overall probability of kwox is 78%.
+Does kwox negatively affect kwoz through swoq?
+Let V1 = muvy; X = kwox; V3 = swoq; Y = kwoz.
+V1->X,X->V3,V1->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = h,V3 = v)*P(X = h)]
+P(V3=1 | X='
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Muvy has a direct effect on kwox and kwoz. Kwox has a direct effect on swoq. Swoq has a direct effect on kwoz. Muvy is unobserved.
+For those who are not kwox the probability of swoq is 57%. For those who are kwox the probability of swoq is 32%. For those who are not kwox and are not swoq the probability of kwoz is 29%. For those who are not kwox and are swoq the probability of kwoz is 63%. For those who are kwox and are not swoq the probability of kwoz is 46%. For those who are kwox and are swoq the probability of kwoz is 71%. The overall probability of kwox is 78%.
+Does kwox negatively affect kwoz through swoq?
+Let V1 = muvy; X = kwox; V3 = swoq; Y = kwoz.
+V1->XX->V3V1->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = hV3 = v)*P(X = h)]
+P(V3=1 | X='
+Test accuracy: 0.25:  16%|[34m█▌        [0m| 4/25 [01:51<09:46, 27.95s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 16: Answer = 'no' CoT = 'Let V1 = jyka; V3 = zory; X = zuph; Y = glimx.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y_{X = 1} - Y_{X = 0} | X = 1]
+\sum_{V3=v} P(V3=v|X=1)*[P(Y=1|X=1,V3=v) - P(Y=1|X=0,V3=v)]
+P(Y=1 | X=0, V3=0) = 0.82
+P(Y=1 | X=0, V3=1) = 0.08
+P(Y=1 | X=1, V3=0) = 0.60
+P(Y=1 | X=1, V3=1) = 0.54
+P(V3=1 | X=0) = 0.54
+P(V3=1 | X=1) = 0.47
+0.47 * (0.54 - 0.60) + 0.54 * (0.08 - 0.82) = 0.11, 0.11 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Jyka has a direct effect on zory and zuph. Zuph has a direct effect on glimx. Zory has a direct effect on glimx.
+For those who are not zuph and are not zory, the probability of glimx is 82%. For those who are not zuph and are zory, the probability of glimx is 8%. For those who are zuph and are not zory, the probability of glimx is 60%. For those who are zuph and are zory, the probability of glimx is 54%. For those who are not zuph, the probability of zory is 54%. For those who are zuph, the probability of zory is 47%.
+For those who are zuph, would it be more likely to see glimx if the individual was not zuph?
+Let X = jyka; V3 = zory; V2 = zuph; Y = glimx.
+X->V3,X->V2,V2->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.82
+P(Y=1 | X=1) = 0.08
+P(Y=1 | X=0) = 0.54
+P(Y'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Jyka has a direct effect on zory and zuph. Zuph has a direct effect on glimx. Zory has a direct effect on glimx.
+For those who are not zuph and are not zory the probability of glimx is 82%. For those who are not zuph and are zory the probability of glimx is 8%. For those who are zuph and are not zory the probability of glimx is 60%. For those who are zuph and are zory the probability of glimx is 54%. For those who are not zuph the probability of zory is 54%. For those who are zuph the probability of zory is 47%.
+For those who are zuph would it be more likely to see glimx if the individual was not zuph?
+Let X = jyka; V3 = zory; V2 = zuph; Y = glimx.
+X->V3X->V2V2->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.82
+P(Y=1 | X=1) = 0.08
+P(Y=1 | X=0) = 0.54
+P(Y'
+Test accuracy: 0.2:  20%|[34m██        [0m| 5/25 [02:19<09:18, 27.93s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.17:  24%|[34m██▍       [0m| 6/25 [02:47<08:50, 27.91s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.14:  28%|[34m██▊       [0m| 7/25 [03:15<08:22, 27.90s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.12:  32%|[34m███▏      [0m| 8/25 [03:43<07:54, 27.90s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.11:  36%|[34m███▌      [0m| 9/25 [04:11<07:26, 27.91s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.2:  40%|[34m████      [0m| 10/25 [04:39<06:58, 27.90s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.27:  44%|[34m████▍     [0m| 11/25 [05:07<06:30, 27.89s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.25:  48%|[34m████▊     [0m| 12/25 [05:35<06:03, 27.93s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.31:  52%|[34m█████▏    [0m| 13/25 [06:02<05:34, 27.91s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.29:  56%|[34m█████▌    [0m| 14/25 [06:30<05:07, 27.92s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.27:  60%|[34m██████    [0m| 15/25 [06:58<04:39, 27.92s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.25:  64%|[34m██████▍   [0m| 16/25 [07:26<04:11, 27.91s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.29:  68%|[34m██████▊   [0m| 17/25 [07:54<03:43, 27.92s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.28:  72%|[34m███████▏  [0m| 18/25 [08:22<03:15, 27.92s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.26:  76%|[34m███████▌  [0m| 19/25 [08:50<02:47, 27.90s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.25:  80%|[34m████████  [0m| 20/25 [09:18<02:19, 27.99s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.24:  84%|[34m████████▍ [0m| 21/25 [09:46<01:52, 28.00s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.27:  88%|[34m████████▊ [0m| 22/25 [10:14<01:23, 27.93s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.26:  92%|[34m█████████▏[0m| 23/25 [10:42<00:55, 27.90s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.25:  96%|[34m█████████▌[0m| 24/25 [11:10<00:27, 27.87s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.24: 100%|[34m██████████[0m| 25/25 [11:37<00:00, 27.91s/it]
+Device 0: Cor=6, CoT=0, Total=25
+Accuracy on validation set: 22 / 100 = 0.22
+CoT match on validation set: 0 / 100 = 0.0
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 194.52 examples/s]
+Map (num_proc=32): 100%|██████████| 4740/4740 [00:00<00:00, 5870.53 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 178.09 examples/s]
+Training Epoch: 7/15, batch 75/297 completed (loss: 0.0006:  26%|[34m██▌       [0m| 76/297 [01:47<05:04,  1.38s/it]
+logging training data

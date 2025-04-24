@@ -1,0 +1,17 @@
+{"time":"2025-04-24T02:14:41.554796094+08:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/export/home2/weijie210/coconut/wandb/run-20250424_021441-7c4lw5wy/logs/debug-core.log"}
+{"time":"2025-04-24T02:14:41.900683953+08:00","level":"INFO","msg":"created new stream","id":"7c4lw5wy"}
+{"time":"2025-04-24T02:14:41.9008903+08:00","level":"INFO","msg":"stream: started","id":"7c4lw5wy"}
+{"time":"2025-04-24T02:14:41.90104508+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"7c4lw5wy"}
+{"time":"2025-04-24T02:14:41.901176567+08:00","level":"INFO","msg":"sender: started","stream_id":"7c4lw5wy"}
+{"time":"2025-04-24T02:14:41.901314325+08:00","level":"INFO","msg":"handler: started","stream_id":"7c4lw5wy"}
+{"time":"2025-04-24T02:14:42.291956203+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-24T03:47:13.189129057+08:00","level":"INFO","msg":"api: retrying HTTP error","status":502,"url":"https://api.wandb.ai/files/self_learning/coconut/7c4lw5wy/file_stream","body":"\n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>502 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The server encountered a temporary error and could not complete your request.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n"}
+{"time":"2025-04-24T05:10:00.100987168+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}
+{"time":"2025-04-24T08:52:41.85883224+08:00","level":"INFO","msg":"stream: closing","id":"7c4lw5wy"}
+{"time":"2025-04-24T08:52:41.85910409+08:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-24T08:52:41.862784161+08:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-24T08:52:43.457709289+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-24T08:52:43.782025922+08:00","level":"INFO","msg":"handler: closed","stream_id":"7c4lw5wy"}
+{"time":"2025-04-24T08:52:43.782130809+08:00","level":"INFO","msg":"writer: Close: closed","stream_id":"7c4lw5wy"}
+{"time":"2025-04-24T08:52:43.782171485+08:00","level":"INFO","msg":"sender: closed","stream_id":"7c4lw5wy"}
+{"time":"2025-04-24T08:52:43.783985937+08:00","level":"INFO","msg":"stream: closed","id":"7c4lw5wy"}

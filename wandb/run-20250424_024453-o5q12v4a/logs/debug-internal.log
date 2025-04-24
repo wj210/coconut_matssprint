@@ -1,0 +1,11 @@
+{"time":"2025-04-24T02:44:53.404259185+08:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/export/home2/weijie210/coconut/wandb/run-20250424_024453-o5q12v4a/logs/debug-core.log"}
+{"time":"2025-04-24T02:44:53.649602985+08:00","level":"INFO","msg":"created new stream","id":"o5q12v4a"}
+{"time":"2025-04-24T02:44:53.64970197+08:00","level":"INFO","msg":"stream: started","id":"o5q12v4a"}
+{"time":"2025-04-24T02:44:53.649713931+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"o5q12v4a"}
+{"time":"2025-04-24T02:44:53.649775304+08:00","level":"INFO","msg":"handler: started","stream_id":"o5q12v4a"}
+{"time":"2025-04-24T02:44:53.649811268+08:00","level":"INFO","msg":"sender: started","stream_id":"o5q12v4a"}
+{"time":"2025-04-24T02:44:54.024390829+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-24T02:45:20.733095237+08:00","level":"INFO","msg":"stream: closing","id":"o5q12v4a"}
+{"time":"2025-04-24T02:45:20.733200229+08:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-24T02:45:20.733841189+08:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-24T02:45:22.309629098+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}

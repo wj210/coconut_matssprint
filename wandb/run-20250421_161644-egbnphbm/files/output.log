@@ -1,0 +1,108 @@
+Map (num_proc=32): 100%|██████████| 500/500 [00:00<00:00, 1437.14 examples/s]
+Map (num_proc=32): 100%|██████████| 10000/10000 [00:00<00:00, 25724.84 examples/s]
+Map (num_proc=32): 100%|██████████| 500/500 [00:00<00:00, 1539.28 examples/s]
+Training Epoch: 1/5, batch 156/157 completed (loss: 0.0534: 100%|[34m██████████[0m| 157/157 [08:58<00:00,  3.43s/it]
+logging training data
+/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:690: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+  warnings.warn(
+Loading checkpoint shards: 100%|██████████| 4/4 [00:02<00:00,  1.33it/s]
+Traceback (most recent call last):
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 406, in hf_raise_for_status
+    response.raise_for_status()
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://huggingface.co/None/resolve/main/adapter_config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/peft/config.py", line 260, in _get_peft_type
+    config_file = hf_hub_download(
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 860, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 967, in _hf_hub_download_to_cache_dir
+    _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1482, in _raise_on_head_call_error
+    raise head_call_error
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1374, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1294, in get_hf_file_metadata
+    r = _request_wrapper(
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 278, in _request_wrapper
+    response = _request_wrapper(
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 302, in _request_wrapper
+    hf_raise_for_status(response)
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 454, in hf_raise_for_status
+    raise _format(RepositoryNotFoundError, message, response) from e
+huggingface_hub.errors.RepositoryNotFoundError: 404 Client Error. (Request ID: Root=1-6806011d-75e52fb347619af564abf2b5;07c04e6f-bffe-4f87-9506-e7ff6d180de5)
+
+Repository Not Found for url: https://huggingface.co/None/resolve/main/adapter_config.json.
+Please make sure you specified the correct `repo_id` and `repo_type`.
+If you are trying to access a private or gated repo, make sure you are authenticated.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/export/home2/weijie210/coconut/run.py", line 584, in <module>
+    main()
+  File "/export/home2/weijie210/coconut/run.py", line 426, in main
+    cpu_model = PeftModel.from_pretrained(cpu_model, configs.load_model_path, is_trainable=True)
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/peft/peft_model.py", line 439, in from_pretrained
+    PeftConfig._get_peft_type(
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/peft/config.py", line 266, in _get_peft_type
+    raise ValueError(f"Can't find '{CONFIG_NAME}' at '{model_id}'")
+ValueError: Can't find 'adapter_config.json' at 'None'
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 406, in hf_raise_for_status
+[rank0]:     response.raise_for_status()
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/requests/models.py", line 1024, in raise_for_status
+[rank0]:     raise HTTPError(http_error_msg, response=self)
+[rank0]: requests.exceptions.HTTPError: 404 Client Error: Not Found for url: https://huggingface.co/None/resolve/main/adapter_config.json
+
+[rank0]: The above exception was the direct cause of the following exception:
+
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/peft/config.py", line 260, in _get_peft_type
+[rank0]:     config_file = hf_hub_download(
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+[rank0]:     return fn(*args, **kwargs)
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 860, in hf_hub_download
+[rank0]:     return _hf_hub_download_to_cache_dir(
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 967, in _hf_hub_download_to_cache_dir
+[rank0]:     _raise_on_head_call_error(head_call_error, force_download, local_files_only)
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1482, in _raise_on_head_call_error
+[rank0]:     raise head_call_error
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1374, in _get_metadata_or_catch_error
+[rank0]:     metadata = get_hf_file_metadata(
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+[rank0]:     return fn(*args, **kwargs)
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1294, in get_hf_file_metadata
+[rank0]:     r = _request_wrapper(
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 278, in _request_wrapper
+[rank0]:     response = _request_wrapper(
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 302, in _request_wrapper
+[rank0]:     hf_raise_for_status(response)
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 454, in hf_raise_for_status
+[rank0]:     raise _format(RepositoryNotFoundError, message, response) from e
+[rank0]: huggingface_hub.errors.RepositoryNotFoundError: 404 Client Error. (Request ID: Root=1-6806011d-75e52fb347619af564abf2b5;07c04e6f-bffe-4f87-9506-e7ff6d180de5)
+
+[rank0]: Repository Not Found for url: https://huggingface.co/None/resolve/main/adapter_config.json.
+[rank0]: Please make sure you specified the correct `repo_id` and `repo_type`.
+[rank0]: If you are trying to access a private or gated repo, make sure you are authenticated.
+
+[rank0]: During handling of the above exception, another exception occurred:
+
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/export/home2/weijie210/coconut/run.py", line 584, in <module>
+[rank0]:     main()
+[rank0]:   File "/export/home2/weijie210/coconut/run.py", line 426, in main
+[rank0]:     cpu_model = PeftModel.from_pretrained(cpu_model, configs.load_model_path, is_trainable=True)
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/peft/peft_model.py", line 439, in from_pretrained
+[rank0]:     PeftConfig._get_peft_type(
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/peft/config.py", line 266, in _get_peft_type
+[rank0]:     raise ValueError(f"Can't find '{CONFIG_NAME}' at '{model_id}'")
+[rank0]: ValueError: Can't find 'adapter_config.json' at 'None'

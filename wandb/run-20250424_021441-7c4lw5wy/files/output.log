@@ -1,0 +1,670 @@
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 41.68 examples/s]
+Map (num_proc=32): 100%|██████████| 7932/7932 [00:07<00:00, 1005.56 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 37.89 examples/s]
+Training Epoch: 2:   0%|[34m          [0m| 0/248 [00:00<?, ?it/s]We detected that you are passing `past_key_values` as a tuple of tuples. This is deprecated and will be removed in v4.47. Please convert your cache or use an appropriate `Cache` class (https://huggingface.co/docs/transformers/kv_cache#legacy-cache-format)
+logging training data
+Training Epoch: 2/8, batch 247/248 completed (loss: 0.0063: 100%|[34m██████████[0m| 248/248 [20:42<00:00,  5.01s/it]
+saving model.
+eval loss 0.01653213147073984
+Test accuracy: 1.0:   4%|[34m▍         [0m| 1/25 [00:30<12:12, 30.50s/it]
+Question 0: Answer = 'no' CoT = 'Let V1 = tijv; X = xevo; Y = gyzp.
+V1->X,V1->Y,X->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.50, 0.50 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Tijv has a direct effect on xevo and gyzp. Xevo has a direct effect on gyzp.
+The overall probability of xevo is 21%. For those who are not xevo, the probability of gyzp is 42%. For those who are xevo, the probability of gyzp is 70%.
+Is gyzp more likely than not gyzp overall?
+<|start-latent|><|latent|><|end-latent|>V1->X,V1->Y,X->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.46, 0.46 > 0
+### no'
+Extracted Output: 'no'
+Question 4: Answer = 'yes' CoT = 'Let V1 = gender; X = treatment; Y = recovery.
+V1->X,V1->Y,X->Y
+Y_{X=1} = 1 | V1=0
+Solve for Y, given the evidence and the action
+V1 = 0
+X = not V1
+Y = V1 or X
+Y = 1 = 0 or 1, 1'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on treatment and recovery. Treatment has a direct effect on recovery.
+We know that male gender causes receives no treatment. male gender or receives treatment causes recovery. We observed the patient is not male.
+Would the patient does recover if receives treatment instead of receives no treatment?
+<|start-latent|><|latent|><|end-latent|>V1->X,V1->Y,X->Y
+Y_{X=1} = 1 | V1=0
+Solve for Y, given the evidence and the action
+V1 = 0
+X = not V1
+Y = V1 or X
+Y = 1 = 0 or 1, 1
+### yes'
+Extracted Output: 'yes'
+Question 8: Answer = 'yes' CoT = 'Let V1 = wibl; X = zuph; Y = uvzi.
+V1->X,V1->Y,X->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=v,X=1) - P(Y=1|V1=v, X=0)]
+P(Y=1 | V1=0, X=0) = 0.11
+P(Y=1 | V1=0, X=1) = 0.40
+P(Y=1 | V1=1, X=0) = 0.93
+P(Y=1 | V1=1, X=1) = 0.05
+P(V1=1) = 0.76
+0.24 * (0.40 - 0.11) + 0.76 * (0.05 - 0.93) = -0.60, -0.60 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Wibl has a direct effect on zuph and uvzi. Zuph has a direct effect on uvzi.
+For those who are not wibl and are not zuph, the probability of uvzi is 11%. For those who are not wibl and are zuph, the probability of uvzi is 40%. For those who are wibl and are not zuph, the probability of uvzi is 93%. For those who are wibl and are zuph, the probability of uvzi is 5%. The overall probability of wibl is 76%.
+Will zuph decrease the chance of uvzi?
+<|start-latent|><|latent|><|end-latent|>V1->X,V1->Y,X->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=v,X=1) - P(Y=1|V1=v, X=0)]
+P(Y=1 | V1=0, X=0) = 0.11
+P(Y=1 | V1=0, X=1) = 0.40
+P(Y=1 | V1=1, X=0) = 0.'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Wibl has a direct effect on zuph and uvzi. Zuph has a direct effect on uvzi.
+For those who are not wibl and are not zuph the probability of uvzi is 11%. For those who are not wibl and are zuph the probability of uvzi is 40%. For those who are wibl and are not zuph the probability of uvzi is 93%. For those who are wibl and are zuph the probability of uvzi is 5%. The overall probability of wibl is 76%.
+Will zuph decrease the chance of uvzi?
+<|start-latent|><|latent|><|end-latent|>V1->XV1->YX->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=vX=1) - P(Y=1|V1=v X=0)]
+P(Y=1 | V1=0 X=0) = 0.11
+P(Y=1 | V1=0 X=1) = 0.40
+P(Y=1 | V1=1 X=0) = 0.'
+Question 12: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+Y_{X=0} = 0 |
+Solve for Y, given the evidence and the action
+V2 = not X
+Y = V2
+Y = [1] = 1, 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+We know that pexu causes not hwax, and we know that hwax causes rukz.
+Would an individual is not rukz if not pexu instead of pexu?
+<|start-latent|><|latent|><|end-latent|>X->V2,V2->Y
+Y_{X=0} = 0 |
+Solve for Y, given the evidence and the action
+V2 = not X
+Y = V2
+Y = [1] = 0, 0
+### no'
+Extracted Output: 'no'
+Question 16: Answer = 'no' CoT = 'Let V2 = gwet; X = yomx; Y = xevu.
+X->Y,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y|X)
+P(Y=1 | X=0) = 0.78
+P(Y=1 | X=1) = 0.67
+0.67 - 0.78 = -0.11, -0.11 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Yomx has a direct effect on xevu. Gwet has a direct effect on xevu.
+For those who are not yomx, the probability of xevu is 78%. For those who are yomx, the probability of xevu is 67%.
+Will yomx increase the chance of xevu?
+<|start-latent|><|latent|><|end-latent|>X->Y,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y|X)
+P(Y=1 | X=0) = 0.78
+P(Y=1 | X=1) = 0.67
+0.67 - 0.78 = -0.11, -0.11 < 0
+### no'
+Extracted Output: 'no'
+Device 0: Cor=19, CoT=0, Total=25
+Accuracy on validation set: 57 / 100 = 0.57
+CoT match on validation set: 0 / 100 = 0.0
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 40.33 examples/s]
+Map (num_proc=32): 100%|██████████| 7932/7932 [00:06<00:00, 1140.15 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 37.13 examples/s]
+Training Epoch: 3/8, batch 247/248 completed (loss: 0.0035: 100%|[34m██████████[0m| 248/248 [32:50<00:00,  7.95s/it]
+logging training data
+saving model.
+eval loss 0.013981226249597967
+Test accuracy: 0.0:   4%|[34m▍         [0m| 1/25 [00:29<11:44, 29.35s/it]
+Question 0: Answer = 'no' CoT = 'Let V1 = tijv; X = xevo; Y = gyzp.
+V1->X,V1->Y,X->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.50, 0.50 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Tijv has a direct effect on xevo and gyzp. Xevo has a direct effect on gyzp.
+The overall probability of xevo is 21%. For those who are not xevo, the probability of gyzp is 42%. For those who are xevo, the probability of gyzp is 70%.
+Is gyzp more likely than not gyzp overall?
+<|start-latent|><|latent|><|latent|><|end-latent|>P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.53, 0.53 > 0
+### yes'
+Extracted Output: 'yes'
+Question 4: Answer = 'yes' CoT = 'Let V1 = gender; X = treatment; Y = recovery.
+V1->X,V1->Y,X->Y
+Y_{X=1} = 1 | V1=0
+Solve for Y, given the evidence and the action
+V1 = 0
+X = not V1
+Y = V1 or X
+Y = 1 = 0 or 1, 1'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on treatment and recovery. Treatment has a direct effect on recovery.
+We know that male gender causes receives no treatment. male gender or receives treatment causes recovery. We observed the patient is not male.
+Would the patient does recover if receives treatment instead of receives no treatment?
+<|start-latent|><|latent|><|latent|><|end-latent|>Y_{X=1} = 1 | V1=0
+Solve for Y, given the evidence and the action
+V1 = 0
+X = not V1
+Y = V1 or X
+Y = 1 = 0 or 1, 1
+### yes'
+Extracted Output: 'yes'
+Question 8: Answer = 'yes' CoT = 'Let V1 = wibl; X = zuph; Y = uvzi.
+V1->X,V1->Y,X->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=v,X=1) - P(Y=1|V1=v, X=0)]
+P(Y=1 | V1=0, X=0) = 0.11
+P(Y=1 | V1=0, X=1) = 0.40
+P(Y=1 | V1=1, X=0) = 0.93
+P(Y=1 | V1=1, X=1) = 0.05
+P(V1=1) = 0.76
+0.24 * (0.40 - 0.11) + 0.76 * (0.05 - 0.93) = -0.60, -0.60 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Wibl has a direct effect on zuph and uvzi. Zuph has a direct effect on uvzi.
+For those who are not wibl and are not zuph, the probability of uvzi is 11%. For those who are not wibl and are zuph, the probability of uvzi is 40%. For those who are wibl and are not zuph, the probability of uvzi is 93%. For those who are wibl and are zuph, the probability of uvzi is 5%. The overall probability of wibl is 76%.
+Will zuph decrease the chance of uvzi?
+<|start-latent|><|latent|><|latent|><|end-latent|>E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=v,X=1) - P(Y=1|V1=v, X=0)]
+P(Y=1 | V1=0, X=0) = 0.11
+P(Y=1 | V1=0, X=1) = 0.40
+P(Y=1 | V1=1, X=0) = 0.93
+P(Y=1 | V1=1,'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Wibl has a direct effect on zuph and uvzi. Zuph has a direct effect on uvzi.
+For those who are not wibl and are not zuph the probability of uvzi is 11%. For those who are not wibl and are zuph the probability of uvzi is 40%. For those who are wibl and are not zuph the probability of uvzi is 93%. For those who are wibl and are zuph the probability of uvzi is 5%. The overall probability of wibl is 76%.
+Will zuph decrease the chance of uvzi?
+<|start-latent|><|latent|><|latent|><|end-latent|>E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=vX=1) - P(Y=1|V1=v X=0)]
+P(Y=1 | V1=0 X=0) = 0.11
+P(Y=1 | V1=0 X=1) = 0.40
+P(Y=1 | V1=1 X=0) = 0.93
+P(Y=1 | V1=1'
+Question 12: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+Y_{X=0} = 0 |
+Solve for Y, given the evidence and the action
+V2 = not X
+Y = V2
+Y = [1] = 1, 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+We know that pexu causes not hwax, and we know that hwax causes rukz.
+Would an individual is not rukz if not pexu instead of pexu?
+<|start-latent|><|latent|><|latent|><|end-latent|>Y_{X=0} = 0 |
+Solve for Y, given the evidence and the action
+V2 = not X
+Y = V2
+Y = [1] = 1, 0
+### no'
+Extracted Output: 'no'
+Question 16: Answer = 'no' CoT = 'Let V2 = gwet; X = yomx; Y = xevu.
+X->Y,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y|X)
+P(Y=1 | X=0) = 0.78
+P(Y=1 | X=1) = 0.67
+0.67 - 0.78 = -0.11, -0.11 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Yomx has a direct effect on xevu. Gwet has a direct effect on xevu.
+For those who are not yomx, the probability of xevu is 78%. For those who are yomx, the probability of xevu is 67%.
+Will yomx increase the chance of xevu?
+<|start-latent|><|latent|><|latent|><|end-latent|>E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y|X)
+P(Y=1 | X=0) = 0.78
+P(Y=1 | X=1) = 0.67
+0.67 - 0.78 = -0.11, -0.11 < 0
+### no'
+Extracted Output: 'no'
+Device 0: Cor=18, CoT=0, Total=25
+Accuracy on validation set: 64 / 100 = 0.64
+CoT match on validation set: 0 / 100 = 0.0
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 40.68 examples/s]
+Map (num_proc=32): 100%|██████████| 7932/7932 [00:05<00:00, 1490.23 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 35.47 examples/s]
+Training Epoch: 4/8, batch 247/248 completed (loss: 0.0005: 100%|[34m██████████[0m| 248/248 [44:42<00:00, 10.82s/it]
+logging training data
+saving model.
+eval loss 0.017233990598469973
+Test accuracy: 1.0:   4%|[34m▍         [0m| 1/25 [00:26<10:37, 26.58s/it]
+Question 0: Answer = 'no' CoT = 'Let V1 = tijv; X = xevo; Y = gyzp.
+V1->X,V1->Y,X->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.50, 0.50 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Tijv has a direct effect on xevo and gyzp. Xevo has a direct effect on gyzp.
+The overall probability of xevo is 21%. For those who are not xevo, the probability of gyzp is 42%. For those who are xevo, the probability of gyzp is 70%.
+Is gyzp more likely than not gyzp overall?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.46, 0.46 > 0
+### no'
+Extracted Output: 'no'
+Question 4: Answer = 'yes' CoT = 'Let V1 = gender; X = treatment; Y = recovery.
+V1->X,V1->Y,X->Y
+Y_{X=1} = 1 | V1=0
+Solve for Y, given the evidence and the action
+V1 = 0
+X = not V1
+Y = V1 or X
+Y = 1 = 0 or 1, 1'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on treatment and recovery. Treatment has a direct effect on recovery.
+We know that male gender causes receives no treatment. male gender or receives treatment causes recovery. We observed the patient is not male.
+Would the patient does recover if receives treatment instead of receives no treatment?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>Solve for Y, given the evidence and the action
+V1 = 0
+X = not V1
+Y = V1 or X
+Y = 1 = 0 or 1, 1
+### yes'
+Extracted Output: 'yes'
+Question 8: Answer = 'yes' CoT = 'Let V1 = wibl; X = zuph; Y = uvzi.
+V1->X,V1->Y,X->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=v,X=1) - P(Y=1|V1=v, X=0)]
+P(Y=1 | V1=0, X=0) = 0.11
+P(Y=1 | V1=0, X=1) = 0.40
+P(Y=1 | V1=1, X=0) = 0.93
+P(Y=1 | V1=1, X=1) = 0.05
+P(V1=1) = 0.76
+0.24 * (0.40 - 0.11) + 0.76 * (0.05 - 0.93) = -0.60, -0.60 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Wibl has a direct effect on zuph and uvzi. Zuph has a direct effect on uvzi.
+For those who are not wibl and are not zuph, the probability of uvzi is 11%. For those who are not wibl and are zuph, the probability of uvzi is 40%. For those who are wibl and are not zuph, the probability of uvzi is 93%. For those who are wibl and are zuph, the probability of uvzi is 5%. The overall probability of wibl is 76%.
+Will zuph decrease the chance of uvzi?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>\sum_{V1=v} P(V1=v)*[P(Y=1|V1=v,X=1) - P(Y=1|V1=v, X=0)]
+P(Y=1 | V1=0, X=0) = 0.11
+P(Y=1 | V1=0, X=1) = 0.40
+P(Y=1 | V1=1, X=0) = 0.93
+P(Y=1 | V1=1, X=1) = 0.05
+P(V1=1) = 0'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Wibl has a direct effect on zuph and uvzi. Zuph has a direct effect on uvzi.
+For those who are not wibl and are not zuph the probability of uvzi is 11%. For those who are not wibl and are zuph the probability of uvzi is 40%. For those who are wibl and are not zuph the probability of uvzi is 93%. For those who are wibl and are zuph the probability of uvzi is 5%. The overall probability of wibl is 76%.
+Will zuph decrease the chance of uvzi?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>\sum_{V1=v} P(V1=v)*[P(Y=1|V1=vX=1) - P(Y=1|V1=v X=0)]
+P(Y=1 | V1=0 X=0) = 0.11
+P(Y=1 | V1=0 X=1) = 0.40
+P(Y=1 | V1=1 X=0) = 0.93
+P(Y=1 | V1=1 X=1) = 0.05
+P(V1=1) = 0'
+Question 12: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+Y_{X=0} = 0 |
+Solve for Y, given the evidence and the action
+V2 = not X
+Y = V2
+Y = [1] = 1, 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+We know that pexu causes not hwax, and we know that hwax causes rukz.
+Would an individual is not rukz if not pexu instead of pexu?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>Solve for Y, given the evidence and the action
+V2 = not X
+Y = V2
+Y = [1] = 1, 0
+### no'
+Extracted Output: 'no'
+Question 16: Answer = 'no' CoT = 'Let V2 = gwet; X = yomx; Y = xevu.
+X->Y,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y|X)
+P(Y=1 | X=0) = 0.78
+P(Y=1 | X=1) = 0.67
+0.67 - 0.78 = -0.11, -0.11 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Yomx has a direct effect on xevu. Gwet has a direct effect on xevu.
+For those who are not yomx, the probability of xevu is 78%. For those who are yomx, the probability of xevu is 67%.
+Will yomx increase the chance of xevu?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>P(Y|X)
+P(Y=1 | X=0) = 0.78
+P(Y=1 | X=1) = 0.67
+0.67 - 0.78 = -0.11, -0.11 < 0
+### no'
+Extracted Output: 'no'
+Device 0: Cor=19, CoT=0, Total=25
+Accuracy on validation set: 65 / 100 = 0.65
+CoT match on validation set: 0 / 100 = 0.0
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 34.05 examples/s]
+Map (num_proc=32): 100%|██████████| 7932/7932 [00:04<00:00, 1761.48 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 37.79 examples/s]
+Training Epoch: 5/8, batch 247/248 completed (loss: 0.0006: 100%|[34m██████████[0m| 248/248 [52:25<00:00, 12.68s/it]
+logging training data
+saving model.
+eval loss 0.022459961473941803
+Test accuracy: 1.0:   4%|[34m▍         [0m| 1/25 [00:30<12:03, 30.14s/it]
+Question 0: Answer = 'no' CoT = 'Let V1 = tijv; X = xevo; Y = gyzp.
+V1->X,V1->Y,X->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.50, 0.50 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Tijv has a direct effect on xevo and gyzp. Xevo has a direct effect on gyzp.
+The overall probability of xevo is 21%. For those who are not xevo, the probability of gyzp is 42%. For those who are xevo, the probability of gyzp is 70%.
+Is gyzp more likely than not gyzp overall?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.46, 0.46 > 0
+### no'
+Extracted Output: 'no'
+Question 4: Answer = 'yes' CoT = 'Let V1 = gender; X = treatment; Y = recovery.
+V1->X,V1->Y,X->Y
+Y_{X=1} = 1 | V1=0
+Solve for Y, given the evidence and the action
+V1 = 0
+X = not V1
+Y = V1 or X
+Y = 1 = 0 or 1, 1'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on treatment and recovery. Treatment has a direct effect on recovery.
+We know that male gender causes receives no treatment. male gender or receives treatment causes recovery. We observed the patient is not male.
+Would the patient does recover if receives treatment instead of receives no treatment?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>V1 = 0
+X = not V1
+Y = V1 or X
+Y = 1 = 0 or 1, 1
+### yes'
+Extracted Output: 'yes'
+Question 8: Answer = 'yes' CoT = 'Let V1 = wibl; X = zuph; Y = uvzi.
+V1->X,V1->Y,X->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=v,X=1) - P(Y=1|V1=v, X=0)]
+P(Y=1 | V1=0, X=0) = 0.11
+P(Y=1 | V1=0, X=1) = 0.40
+P(Y=1 | V1=1, X=0) = 0.93
+P(Y=1 | V1=1, X=1) = 0.05
+P(V1=1) = 0.76
+0.24 * (0.40 - 0.11) + 0.76 * (0.05 - 0.93) = -0.60, -0.60 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Wibl has a direct effect on zuph and uvzi. Zuph has a direct effect on uvzi.
+For those who are not wibl and are not zuph, the probability of uvzi is 11%. For those who are not wibl and are zuph, the probability of uvzi is 40%. For those who are wibl and are not zuph, the probability of uvzi is 93%. For those who are wibl and are zuph, the probability of uvzi is 5%. The overall probability of wibl is 76%.
+Will zuph decrease the chance of uvzi?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>P(Y=1 | V1=0, X=0) = 0.11
+P(Y=1 | V1=0, X=1) = 0.40
+P(Y=1 | V1=1, X=0) = 0.93
+P(Y=1 | V1=1, X=1) = 0.05
+P(V1=1) = 0.76
+0.24 * (0.40 - 0.11) + 0.76 * (0.05 - 0.93) = -0.60,'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Wibl has a direct effect on zuph and uvzi. Zuph has a direct effect on uvzi.
+For those who are not wibl and are not zuph the probability of uvzi is 11%. For those who are not wibl and are zuph the probability of uvzi is 40%. For those who are wibl and are not zuph the probability of uvzi is 93%. For those who are wibl and are zuph the probability of uvzi is 5%. The overall probability of wibl is 76%.
+Will zuph decrease the chance of uvzi?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>P(Y=1 | V1=0 X=0) = 0.11
+P(Y=1 | V1=0 X=1) = 0.40
+P(Y=1 | V1=1 X=0) = 0.93
+P(Y=1 | V1=1 X=1) = 0.05
+P(V1=1) = 0.76
+0.24 * (0.40 - 0.11) + 0.76 * (0.05 - 0.93) = -0.60'
+Question 12: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+Y_{X=0} = 0 |
+Solve for Y, given the evidence and the action
+V2 = not X
+Y = V2
+Y = [1] = 1, 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+We know that pexu causes not hwax, and we know that hwax causes rukz.
+Would an individual is not rukz if not pexu instead of pexu?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>V2 = not X
+Y = V2
+Y = [1] = 1, 0
+### no'
+Extracted Output: 'no'
+Question 16: Answer = 'no' CoT = 'Let V2 = gwet; X = yomx; Y = xevu.
+X->Y,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y|X)
+P(Y=1 | X=0) = 0.78
+P(Y=1 | X=1) = 0.67
+0.67 - 0.78 = -0.11, -0.11 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Yomx has a direct effect on xevu. Gwet has a direct effect on xevu.
+For those who are not yomx, the probability of xevu is 78%. For those who are yomx, the probability of xevu is 67%.
+Will yomx increase the chance of xevu?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>P(Y=1 | X=0) = 0.78
+P(Y=1 | X=1) = 0.67
+0.67 - 0.78 = -0.11, -0.11 < 0
+### no'
+Extracted Output: 'no'
+Device 0: Cor=19, CoT=0, Total=25
+Accuracy on validation set: 70 / 100 = 0.7
+CoT match on validation set: 0 / 100 = 0.0
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 40.08 examples/s]
+Map (num_proc=32): 100%|██████████| 7932/7932 [00:06<00:00, 1205.41 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 36.85 examples/s]
+Training Epoch: 6/8, batch 247/248 completed (loss: 0.0019: 100%|[34m██████████[0m| 248/248 [47:29<00:00, 11.49s/it]
+logging training data
+saving model.
+eval loss 0.056589740328490734
+Test accuracy: 1.0:   8%|[34m▊         [0m| 2/25 [00:58<11:09, 29.09s/it]
+Question 0: Answer = 'no' CoT = 'Let V1 = tijv; X = xevo; Y = gyzp.
+V1->X,V1->Y,X->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.50, 0.50 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Tijv has a direct effect on xevo and gyzp. Xevo has a direct effect on gyzp.
+The overall probability of xevo is 21%. For those who are not xevo, the probability of gyzp is 42%. For those who are xevo, the probability of gyzp is 70%.
+Is gyzp more likely than not gyzp overall?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>0.21*0.70 - 0.79*0.42 = 0.46, 0.46 > 0
+### no'
+Extracted Output: 'no'
+Question 4: Answer = 'yes' CoT = 'Let V1 = gender; X = treatment; Y = recovery.
+V1->X,V1->Y,X->Y
+Y_{X=1} = 1 | V1=0
+Solve for Y, given the evidence and the action
+V1 = 0
+X = not V1
+Y = V1 or X
+Y = 1 = 0 or 1, 1'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on treatment and recovery. Treatment has a direct effect on recovery.
+We know that male gender causes receives no treatment. male gender or receives treatment causes recovery. We observed the patient is not male.
+Would the patient does recover if receives treatment instead of receives no treatment?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>Y = 1 = 0 or 1, 1
+### yes'
+Extracted Output: 'yes'
+Question 8: Answer = 'yes' CoT = 'Let V1 = wibl; X = zuph; Y = uvzi.
+V1->X,V1->Y,X->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=v,X=1) - P(Y=1|V1=v, X=0)]
+P(Y=1 | V1=0, X=0) = 0.11
+P(Y=1 | V1=0, X=1) = 0.40
+P(Y=1 | V1=1, X=0) = 0.93
+P(Y=1 | V1=1, X=1) = 0.05
+P(V1=1) = 0.76
+0.24 * (0.40 - 0.11) + 0.76 * (0.05 - 0.93) = -0.60, -0.60 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Wibl has a direct effect on zuph and uvzi. Zuph has a direct effect on uvzi.
+For those who are not wibl and are not zuph, the probability of uvzi is 11%. For those who are not wibl and are zuph, the probability of uvzi is 40%. For those who are wibl and are not zuph, the probability of uvzi is 93%. For those who are wibl and are zuph, the probability of uvzi is 5%. The overall probability of wibl is 76%.
+Will zuph decrease the chance of uvzi?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>0.24 * (0.40 - 0.11) + 0.76 * (0.05 - 0.93) = -0.60, -0.60 < 0
+### yes'
+Extracted Output: 'yes'
+Question 12: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+Y_{X=0} = 0 |
+Solve for Y, given the evidence and the action
+V2 = not X
+Y = V2
+Y = [1] = 1, 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+We know that pexu causes not hwax, and we know that hwax causes rukz.
+Would an individual is not rukz if not pexu instead of pexu?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>Y = [1] = 1, 0
+### no'
+Extracted Output: 'no'
+Question 16: Answer = 'no' CoT = 'Let V2 = gwet; X = yomx; Y = xevu.
+X->Y,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y|X)
+P(Y=1 | X=0) = 0.78
+P(Y=1 | X=1) = 0.67
+0.67 - 0.78 = -0.11, -0.11 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Yomx has a direct effect on xevu. Gwet has a direct effect on xevu.
+For those who are not yomx, the probability of xevu is 78%. For those who are yomx, the probability of xevu is 67%.
+Will yomx increase the chance of xevu?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>0.67 - 0.78 = -0.11, -0.11 < 0
+### no'
+Extracted Output: 'no'
+Device 0: Cor=25, CoT=0, Total=25
+Accuracy on validation set: 92 / 100 = 0.92
+CoT match on validation set: 0 / 100 = 0.0
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 39.44 examples/s]
+Map (num_proc=32): 100%|██████████| 7932/7932 [00:03<00:00, 2052.38 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 37.15 examples/s]
+Training Epoch: 7/8, batch 247/248 completed (loss: 0.1834: 100%|[34m██████████[0m| 248/248 [49:45<00:00, 12.04s/it]
+logging training data
+saving model.
+eval loss 0.1683999802917242
+Test accuracy: 0.0:   8%|[34m▊         [0m| 2/25 [00:58<11:07, 29.02s/it]
+Question 0: Answer = 'no' CoT = 'Let V1 = tijv; X = xevo; Y = gyzp.
+V1->X,V1->Y,X->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.50, 0.50 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Tijv has a direct effect on xevo and gyzp. Xevo has a direct effect on gyzp.
+The overall probability of xevo is 21%. For those who are not xevo, the probability of gyzp is 42%. For those who are xevo, the probability of gyzp is 70%.
+Is gyzp more likely than not gyzp overall?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>### yes'
+Extracted Output: 'yes'
+Question 4: Answer = 'yes' CoT = 'Let V1 = gender; X = treatment; Y = recovery.
+V1->X,V1->Y,X->Y
+Y_{X=1} = 1 | V1=0
+Solve for Y, given the evidence and the action
+V1 = 0
+X = not V1
+Y = V1 or X
+Y = 1 = 0 or 1, 1'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on treatment and recovery. Treatment has a direct effect on recovery.
+We know that male gender causes receives no treatment. male gender or receives treatment causes recovery. We observed the patient is not male.
+Would the patient does recover if receives treatment instead of receives no treatment?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>### no'
+Extracted Output: 'no'
+Question 8: Answer = 'yes' CoT = 'Let V1 = wibl; X = zuph; Y = uvzi.
+V1->X,V1->Y,X->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=v,X=1) - P(Y=1|V1=v, X=0)]
+P(Y=1 | V1=0, X=0) = 0.11
+P(Y=1 | V1=0, X=1) = 0.40
+P(Y=1 | V1=1, X=0) = 0.93
+P(Y=1 | V1=1, X=1) = 0.05
+P(V1=1) = 0.76
+0.24 * (0.40 - 0.11) + 0.76 * (0.05 - 0.93) = -0.60, -0.60 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Wibl has a direct effect on zuph and uvzi. Zuph has a direct effect on uvzi.
+For those who are not wibl and are not zuph, the probability of uvzi is 11%. For those who are not wibl and are zuph, the probability of uvzi is 40%. For those who are wibl and are not zuph, the probability of uvzi is 93%. For those who are wibl and are zuph, the probability of uvzi is 5%. The overall probability of wibl is 76%.
+Will zuph decrease the chance of uvzi?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>### yes'
+Extracted Output: 'yes'
+Question 12: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+Y_{X=0} = 0 |
+Solve for Y, given the evidence and the action
+V2 = not X
+Y = V2
+Y = [1] = 1, 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+We know that pexu causes not hwax, and we know that hwax causes rukz.
+Would an individual is not rukz if not pexu instead of pexu?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>### no'
+Extracted Output: 'no'
+Question 16: Answer = 'no' CoT = 'Let V2 = gwet; X = yomx; Y = xevu.
+X->Y,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y|X)
+P(Y=1 | X=0) = 0.78
+P(Y=1 | X=1) = 0.67
+0.67 - 0.78 = -0.11, -0.11 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Yomx has a direct effect on xevu. Gwet has a direct effect on xevu.
+For those who are not yomx, the probability of xevu is 78%. For those who are yomx, the probability of xevu is 67%.
+Will yomx increase the chance of xevu?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>### no'
+Extracted Output: 'no'
+Device 0: Cor=19, CoT=0, Total=25
+Accuracy on validation set: 72 / 100 = 0.72
+CoT match on validation set: 0 / 100 = 0.0
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 39.91 examples/s]
+Map (num_proc=32): 100%|██████████| 7932/7932 [00:03<00:00, 2080.08 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 36.58 examples/s]
+Training Epoch: 8/8, batch 247/248 completed (loss: 0.0715: 100%|[34m██████████[0m| 248/248 [49:59<00:00, 12.09s/it]
+logging training data
+saving model.
+eval loss 0.09985074028372765
+Test accuracy: 1.0:   8%|[34m▊         [0m| 2/25 [00:58<11:11, 29.20s/it]
+Question 0: Answer = 'no' CoT = 'Let V1 = tijv; X = xevo; Y = gyzp.
+V1->X,V1->Y,X->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.50, 0.50 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Tijv has a direct effect on xevo and gyzp. Xevo has a direct effect on gyzp.
+The overall probability of xevo is 21%. For those who are not xevo, the probability of gyzp is 42%. For those who are xevo, the probability of gyzp is 70%.
+Is gyzp more likely than not gyzp overall?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>### no'
+Extracted Output: 'no'
+Question 4: Answer = 'yes' CoT = 'Let V1 = gender; X = treatment; Y = recovery.
+V1->X,V1->Y,X->Y
+Y_{X=1} = 1 | V1=0
+Solve for Y, given the evidence and the action
+V1 = 0
+X = not V1
+Y = V1 or X
+Y = 1 = 0 or 1, 1'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on treatment and recovery. Treatment has a direct effect on recovery.
+We know that male gender causes receives no treatment. male gender or receives treatment causes recovery. We observed the patient is not male.
+Would the patient does recover if receives treatment instead of receives no treatment?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>### yes'
+Extracted Output: 'yes'
+Question 8: Answer = 'yes' CoT = 'Let V1 = wibl; X = zuph; Y = uvzi.
+V1->X,V1->Y,X->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=v,X=1) - P(Y=1|V1=v, X=0)]
+P(Y=1 | V1=0, X=0) = 0.11
+P(Y=1 | V1=0, X=1) = 0.40
+P(Y=1 | V1=1, X=0) = 0.93
+P(Y=1 | V1=1, X=1) = 0.05
+P(V1=1) = 0.76
+0.24 * (0.40 - 0.11) + 0.76 * (0.05 - 0.93) = -0.60, -0.60 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Wibl has a direct effect on zuph and uvzi. Zuph has a direct effect on uvzi.
+For those who are not wibl and are not zuph, the probability of uvzi is 11%. For those who are not wibl and are zuph, the probability of uvzi is 40%. For those who are wibl and are not zuph, the probability of uvzi is 93%. For those who are wibl and are zuph, the probability of uvzi is 5%. The overall probability of wibl is 76%.
+Will zuph decrease the chance of uvzi?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>### yes'
+Extracted Output: 'yes'
+Question 12: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+Y_{X=0} = 0 |
+Solve for Y, given the evidence and the action
+V2 = not X
+Y = V2
+Y = [1] = 1, 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+We know that pexu causes not hwax, and we know that hwax causes rukz.
+Would an individual is not rukz if not pexu instead of pexu?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>### no'
+Extracted Output: 'no'
+Question 16: Answer = 'no' CoT = 'Let V2 = gwet; X = yomx; Y = xevu.
+X->Y,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y|X)
+P(Y=1 | X=0) = 0.78
+P(Y=1 | X=1) = 0.67
+0.67 - 0.78 = -0.11, -0.11 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Yomx has a direct effect on xevu. Gwet has a direct effect on xevu.
+For those who are not yomx, the probability of xevu is 78%. For those who are yomx, the probability of xevu is 67%.
+Will yomx increase the chance of xevu?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>### no'
+Extracted Output: 'no'
+Device 0: Cor=23, CoT=0, Total=25
+Accuracy on validation set: 83 / 100 = 0.83
+CoT match on validation set: 0 / 100 = 0.0

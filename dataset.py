@@ -83,8 +83,8 @@ class MyCollator:
     latent_id: Optional[int] = None
     label_pad_token_id: Optional[int] = -100
 
-    def __call__(self, features, return_tensors=None):
 
+    def __call__(self, features, return_tensors=None):
         assert self.tokenizer.padding_side == "right"
 
         """
@@ -125,6 +125,7 @@ class MyCollator:
                         "labels"
                     ]
                 feature["attention_mask"] = [0] * n_tok_pad + feature["attention_mask"]
+
 
         return_tensors = "pt"
 
@@ -184,6 +185,27 @@ class MyCollator:
 
         return batch
 
+    
+def collate_and_add_latent(questions,tokenizer,num_latent_tokens,c_thought,start_id,latent_id,end_id):
+    tokenizer.padding_side = 'left'
+    questions = [q + '\n' for q in questions]
+    tokenized = tokenizer(questions, return_tensors='pt', padding='longest', truncation=False)
+    num_pads = (tokenized['input_ids'] == tokenizer.pad_token_id).sum(dim=1)
+    k = num_latent_tokens * c_thought
+    num_latents = k + 2  # start and end id
+
+    latent_to_add = torch.tensor([start_id] + [latent_id] * k + [end_id]).unsqueeze(0).repeat(tokenized['input_ids'].shape[0],1)
+    tokenized['input_ids'] = torch.cat([tokenized['input_ids'],latent_to_add],dim=1) # add latent id
+    tokenized['attention_mask'] = torch.cat([tokenized['attention_mask'],torch.ones(tokenized['input_ids'].shape[0],num_latents)],dim=1) # add mask
+    all_pos_id = []
+    for i,num_pad in enumerate(num_pads):
+        len_inp = tokenized['input_ids'][i].shape[0] - num_pad
+        pos_id = [0] * num_pad + list(range(len_inp))
+        all_pos_id.append(pos_id)
+    tokenized['position_ids'] = torch.tensor(all_pos_id, dtype=torch.int64)
+    return tokenized
+
+    
 
 def get_question_latent_dataset(
     scheduled_stage,

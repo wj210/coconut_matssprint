@@ -1,0 +1,28 @@
+Map (num_proc=32): 100%|██████████| 500/500 [00:00<00:00, 1598.30 examples/s]
+Map (num_proc=32): 100%|██████████| 10000/10000 [00:00<00:00, 26954.54 examples/s]
+Map (num_proc=32): 100%|██████████| 500/500 [00:00<00:00, 1440.55 examples/s]
+Training Epoch: 2:   0%|[34m          [0m| 0/157 [00:00<?, ?it/s]Traceback (most recent call last):
+logging training data
+  File "/export/home2/weijie210/coconut/run.py", line 593, in <module>
+    main()
+  File "/export/home2/weijie210/coconut/run.py", line 384, in main
+    loss.backward()
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/_tensor.py", line 581, in backward
+    torch.autograd.backward(
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/autograd/__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/autograd/graph.py", line 825, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+RuntimeError: element 0 of tensors does not require grad and does not have a grad_fn
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/export/home2/weijie210/coconut/run.py", line 593, in <module>
+[rank0]:     main()
+[rank0]:   File "/export/home2/weijie210/coconut/run.py", line 384, in main
+[rank0]:     loss.backward()
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/_tensor.py", line 581, in backward
+[rank0]:     torch.autograd.backward(
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/autograd/__init__.py", line 347, in backward
+[rank0]:     _engine_run_backward(
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/autograd/graph.py", line 825, in _engine_run_backward
+[rank0]:     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[rank0]: RuntimeError: element 0 of tensors does not require grad and does not have a grad_fn

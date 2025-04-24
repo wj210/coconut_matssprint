@@ -1,0 +1,8 @@
+{"time":"2025-04-23T00:23:40.877106667+08:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/export/home2/weijie210/coconut/wandb/run-20250423_002340-uii8v0ae/logs/debug-core.log"}
+{"time":"2025-04-23T00:23:41.125613296+08:00","level":"INFO","msg":"created new stream","id":"uii8v0ae"}
+{"time":"2025-04-23T00:23:41.125676933+08:00","level":"INFO","msg":"stream: started","id":"uii8v0ae"}
+{"time":"2025-04-23T00:23:41.125689175+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"uii8v0ae"}
+{"time":"2025-04-23T00:23:41.125776498+08:00","level":"INFO","msg":"handler: started","stream_id":"uii8v0ae"}
+{"time":"2025-04-23T00:23:41.125874615+08:00","level":"INFO","msg":"sender: started","stream_id":"uii8v0ae"}
+{"time":"2025-04-23T00:23:42.026772679+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-23T00:39:47.90435761+08:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/self_learning/coconut/uii8v0ae/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}

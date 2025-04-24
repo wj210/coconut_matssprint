@@ -1,8 +1,8 @@
 # need 4 gpus
 
 project: coconut
-save_path: YOUR_PATH_TO_SAVE_THE_MODEL
-name: gsm-cot
+save_path: checkpoint
+name: gsm-cot_3_llama_1B
 
 only_eval: False
 
@@ -15,20 +15,27 @@ c_thought: 0
 epochs_per_stage: 1
 max_latent_stage: 0
 pad_latent_to_max: True
+train_size: 20000
+val_size: 100
 
 save_only_improve: True
 uniform_prob: 0.0
-model_id: openai-community/gpt2
+model_id: "meta-llama/Llama-3.2-1B"
 load_model_path: None
 seed: 0
 resume: 0
 bf16: False
-train_path: data/gsm_train.json
-val_path: data/gsm_valid.json
+train_path: data/gsm_train_3.json
+val_path: data/gsm_valid_3.json
 reset_optimizer: False
-batch_size_training: 32
+batch_size_training: 16
 debug: False
 gradient_accumulation_steps: 1
-num_epochs: 25
-lr: !!float "1e-4"
+num_epochs: 6
+lr: !!float "2e-5" # higher for LORA
 weight_decay: 0.01
+# use_lora: False
+# lora_r: 16 # taken from alignment handbook
+# lora_alpha: 16
+# lora_dropout: 0.05
+# lora_target_modules: ["q_proj", "k_proj", "v_proj", "o_proj"]

@@ -1,0 +1,50 @@
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 182.63 examples/s]
+Map (num_proc=32): 100%|██████████| 50000/50000 [00:01<00:00, 40222.54 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 182.96 examples/s]
+Training Epoch: 3:   0%|[34m          [0m| 0/782 [00:00<?, ?it/s]We detected that you are passing `past_key_values` as a tuple of tuples. This is deprecated and will be removed in v4.47. Please convert your cache or use an appropriate `Cache` class (https://huggingface.co/docs/transformers/kv_cache#legacy-cache-format)
+logging training data
+Training Epoch: 3/8, batch 0/782 completed (loss: 2.4691:   0%|[34m          [0m| 1/782 [00:04<56:47,  4.36s/it]
+eval loss 1.797592580318451
+Test accuracy: 0.33:  12%|[34m█▏        [0m| 3/25 [00:45<05:32, 15.11s/it]
+Question 0: Answer = '300' CoT = '<<4-2=2>>
+<<2/.5=4>>
+<<12/4=3>>
+<<100*3=300>>'
+Full output: '<|begin_of_text|>John cuts his grass to 2 inches.  It grows.5 inches per month.  When it gets to 4 inches he cuts it back down to 2 inches.  It cost $100 to get his grass cut.  How much does he pay per year?
+<|start-latent|><|latent|><|latent|><|end-latent|>12/2=6>>
+<<100/6=16.67>>
+### 16.67'
+Extracted Output: '16.67'
+Question 4: Answer = '240' CoT = '<<200*3=600>>
+<<600*.4=240>>'
+Full output: '<|begin_of_text|>Tom bought his games for $200.  They tripled in value and he then sold 40% of them.  How much did he sell the games for?
+<|start-latent|><|latent|><|latent|><|end-latent|>200*3=600>>
+<<600*40*.01=240>>
+### 240'
+Extracted Output: '240'
+Question 8: Answer = '25' CoT = '<<2*2.25=4.50>>
+<<2*4=8.00>>
+<<2*2.50=5.00>>
+<<4.50+8.00+.50+5.00+3.50+3.50=25.00>>'
+Full output: '<|begin_of_text|>It’s Meghan’s turn to pick up her team's coffee order.  She needs 2 drip coffees that are $2.25 each and one double shot espresso that’s $3.50.  She needs 2 lattes that are $4.00 and needs to add vanilla syrup to one of those for an additional $0.50.  She also needs 2 cold brew coffees that are $2.50 each and 1 cappuccino for $3.50.  How much is the coffee order?
+<|start-latent|><|latent|><|latent|><|end-latent|>2*2.25=4.50>>
+<<4.50+3.50=8.00>>
+<<2*4=8.00>>
+<<8+8.00=16.00>>
+### 16'
+Extracted Output: '16'
+Question 12: Answer = '10' CoT = '<<12*10=120>>
+<<130-120=10>>'
+Full output: '<|begin_of_text|>Joshua packs 12 bottles in each crate. He has a total of 130 bottles and 10 crates. How many bottles will not be placed in a crate?
+<|start-latent|><|latent|><|latent|><|end-latent|>12*10=120>>
+<<130-120=10>>
+### 10'
+Extracted Output: '10'
+Question 16: Answer = '45' CoT = '<<10+15=25>>
+<<2*10=20>>
+<<20+25=45>>'
+Full output: '<|begin_of_text|>Olivia gave William 10 napkins. Amelia also gives William twice the number of napkins Olivia gave him. If William had 15 napkins before, how many napkins does he have now?
+<|start-latent|><|latent|><|latent|><|end-latent|>10*2=20>>
+<<15+20=35>>
+### 35'
+Extracted Output: '35'

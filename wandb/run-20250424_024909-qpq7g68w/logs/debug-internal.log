@@ -1,0 +1,16 @@
+{"time":"2025-04-24T02:49:09.338964616+08:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/export/home2/weijie210/coconut/wandb/run-20250424_024909-qpq7g68w/logs/debug-core.log"}
+{"time":"2025-04-24T02:49:09.583933683+08:00","level":"INFO","msg":"created new stream","id":"qpq7g68w"}
+{"time":"2025-04-24T02:49:09.583996242+08:00","level":"INFO","msg":"stream: started","id":"qpq7g68w"}
+{"time":"2025-04-24T02:49:09.584008513+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"qpq7g68w"}
+{"time":"2025-04-24T02:49:09.584016951+08:00","level":"INFO","msg":"handler: started","stream_id":"qpq7g68w"}
+{"time":"2025-04-24T02:49:09.584038315+08:00","level":"INFO","msg":"sender: started","stream_id":"qpq7g68w"}
+{"time":"2025-04-24T02:49:09.939237692+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-24T02:50:56.4351121+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": read tcp 10.141.0.14:49326->35.186.228.49:443: read: connection reset by peer"}
+{"time":"2025-04-24T04:48:42.374419361+08:00","level":"INFO","msg":"stream: closing","id":"qpq7g68w"}
+{"time":"2025-04-24T04:48:42.374557934+08:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-24T04:48:42.376354294+08:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-24T04:48:43.904998607+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-24T04:48:44.429535289+08:00","level":"INFO","msg":"handler: closed","stream_id":"qpq7g68w"}
+{"time":"2025-04-24T04:48:44.429588806+08:00","level":"INFO","msg":"writer: Close: closed","stream_id":"qpq7g68w"}
+{"time":"2025-04-24T04:48:44.429594424+08:00","level":"INFO","msg":"sender: closed","stream_id":"qpq7g68w"}
+{"time":"2025-04-24T04:48:44.430513571+08:00","level":"INFO","msg":"stream: closed","id":"qpq7g68w"}

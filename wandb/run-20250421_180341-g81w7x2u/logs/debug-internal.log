@@ -1,0 +1,7 @@
+{"time":"2025-04-21T18:03:41.414424513+08:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/export/home2/weijie210/coconut/wandb/run-20250421_180341-g81w7x2u/logs/debug-core.log"}
+{"time":"2025-04-21T18:03:41.622976906+08:00","level":"INFO","msg":"created new stream","id":"g81w7x2u"}
+{"time":"2025-04-21T18:03:41.623006876+08:00","level":"INFO","msg":"stream: started","id":"g81w7x2u"}
+{"time":"2025-04-21T18:03:41.623042577+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"g81w7x2u"}
+{"time":"2025-04-21T18:03:41.623102697+08:00","level":"INFO","msg":"handler: started","stream_id":"g81w7x2u"}
+{"time":"2025-04-21T18:03:41.623057987+08:00","level":"INFO","msg":"sender: started","stream_id":"g81w7x2u"}
+{"time":"2025-04-21T18:03:41.963863664+08:00","level":"INFO","msg":"Starting system monitor"}

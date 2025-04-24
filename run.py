@@ -202,16 +202,18 @@ def main():
     cot_val = ["\n".join(d["steps"]) for d in json.load(open(configs.val_path))]
 
     base_dataset_valid = get_dataset(
-        configs.val_path, tokenizer, max_size=32 if configs.debug else 100000000
+        configs.val_path, tokenizer, max_size=32 if configs.debug else configs.val_size
     )
 
     if not configs.only_eval:
         base_dataset_train = get_dataset(
-            configs.train_path, tokenizer, max_size=5000 if configs.debug else 100000000
+            configs.train_path, tokenizer, max_size=5000 if configs.debug else configs.train_size
         )
 
     if "gsm" in configs.val_path:
         max_new_tokens = 64
+    elif 'cladder' in configs.val_path:
+        max_new_tokens = 200
     else:
         max_new_tokens = 128
 
@@ -383,6 +385,7 @@ def main():
                     f"Training Epoch: {epoch+1}/{configs.num_epochs}, batch {step}/{len(train_dataloader)} "
                     f"completed (loss: {round(float(loss.detach().float() * configs.gradient_accumulation_steps), 4)}"
                 )
+
             pbar.close()
             dist.barrier()
 

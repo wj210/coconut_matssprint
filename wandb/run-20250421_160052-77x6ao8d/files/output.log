@@ -1,0 +1,75 @@
+Map (num_proc=32): 100%|██████████| 500/500 [00:00<00:00, 1707.39 examples/s]
+Map (num_proc=32): 100%|██████████| 10000/10000 [00:00<00:00, 27575.80 examples/s]
+Map (num_proc=32): 100%|██████████| 500/500 [00:00<00:00, 1519.78 examples/s]
+Training Epoch: 1/5, batch 156/157 completed (loss: 0.0534: 100%|[34m██████████[0m| 157/157 [08:59<00:00,  3.43s/it]
+logging training data
+eval loss 0.30276015773415565
+Test Accuracy:   0%|[34m          [0m| 0/125 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Traceback (most recent call last):
+  File "/export/home2/weijie210/coconut/run.py", line 580, in <module>
+    main()
+  File "/export/home2/weijie210/coconut/run.py", line 494, in main
+    outputs = parallel_model.module.generate(
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/peft/peft_model.py", line 1875, in generate
+    outputs = self.base_model.generate(*args, **kwargs)
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/transformers/generation/utils.py", line 2252, in generate
+    result = self._sample(
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/transformers/generation/utils.py", line 3251, in _sample
+    outputs = self(**model_inputs, return_dict=True)
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 1163, in forward
+    outputs = self.model(
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 859, in forward
+    inputs_embeds = self.embed_tokens(input_ids)
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/sparse.py", line 190, in forward
+    return F.embedding(
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/functional.py", line 2551, in embedding
+    return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+RuntimeError: 'weight' must be 2-D
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/export/home2/weijie210/coconut/run.py", line 580, in <module>
+[rank0]:     main()
+[rank0]:   File "/export/home2/weijie210/coconut/run.py", line 494, in main
+[rank0]:     outputs = parallel_model.module.generate(
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/peft/peft_model.py", line 1875, in generate
+[rank0]:     outputs = self.base_model.generate(*args, **kwargs)
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/transformers/generation/utils.py", line 2252, in generate
+[rank0]:     result = self._sample(
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/transformers/generation/utils.py", line 3251, in _sample
+[rank0]:     outputs = self(**model_inputs, return_dict=True)
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 1163, in forward
+[rank0]:     outputs = self.model(
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 859, in forward
+[rank0]:     inputs_embeds = self.embed_tokens(input_ids)
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/sparse.py", line 190, in forward
+[rank0]:     return F.embedding(
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/functional.py", line 2551, in embedding
+[rank0]:     return torch.embedding(weight, input, padding_idx, scale_grad_by_freq, sparse)
+[rank0]: RuntimeError: 'weight' must be 2-D

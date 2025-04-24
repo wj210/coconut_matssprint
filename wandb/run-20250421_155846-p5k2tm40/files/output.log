@@ -1,0 +1,5 @@
+Map (num_proc=32): 100%|██████████| 500/500 [00:00<00:00, 1659.68 examples/s]
+Map (num_proc=32): 100%|██████████| 10000/10000 [00:00<00:00, 27652.56 examples/s]
+Map (num_proc=32): 100%|██████████| 500/500 [00:00<00:00, 1452.24 examples/s]
+Training Epoch: 1:   0%|[34m          [0m| 0/79 [00:00<?, ?it/s]wandb: WARNING Serializing object of type str that is 161894 bytes
+logging training data

@@ -1,0 +1,8 @@
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 209.78 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 201.31 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 194.78 examples/s]
+Training Epoch: 1/5, batch 1/2 completed (loss: 2.8567: 100%|[34m██████████[0m| 2/2 [00:24<00:00, 12.19s/it]
+logging training data
+eval loss 2.2253133058547974
+Test Accuracy:   0%|[34m          [0m| 0/2 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+A decoder-only architecture is being used, but right-padding was detected! For correct generation results, please set `padding_side='left'` when initializing the tokenizer.

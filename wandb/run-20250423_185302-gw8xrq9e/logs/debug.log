@@ -1,0 +1,23 @@
+2025-04-23 18:53:02,892 INFO    MainThread:860193 [wandb_setup.py:_flush():68] Current SDK version is 0.19.6
+2025-04-23 18:53:02,893 INFO    MainThread:860193 [wandb_setup.py:_flush():68] Configure stats pid to 860193
+2025-04-23 18:53:02,893 INFO    MainThread:860193 [wandb_setup.py:_flush():68] Loading settings from /export/home2/weijie210/.config/wandb/settings
+2025-04-23 18:53:02,893 INFO    MainThread:860193 [wandb_setup.py:_flush():68] Loading settings from /export/home2/weijie210/coconut/wandb/settings
+2025-04-23 18:53:02,893 INFO    MainThread:860193 [wandb_setup.py:_flush():68] Loading settings from environment variables
+2025-04-23 18:53:02,894 INFO    MainThread:860193 [wandb_init.py:setup_run_log_directory():637] Logging user logs to /export/home2/weijie210/coconut/wandb/run-20250423_185302-gw8xrq9e/logs/debug.log
+2025-04-23 18:53:02,894 INFO    MainThread:860193 [wandb_init.py:setup_run_log_directory():638] Logging internal logs to /export/home2/weijie210/coconut/wandb/run-20250423_185302-gw8xrq9e/logs/debug-internal.log
+2025-04-23 18:53:02,895 INFO    MainThread:860193 [wandb_init.py:init():756] calling init triggers
+2025-04-23 18:53:02,895 INFO    MainThread:860193 [wandb_init.py:init():761] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-04-23 18:53:02,895 INFO    MainThread:860193 [wandb_init.py:init():789] starting backend
+2025-04-23 18:53:03,477 INFO    MainThread:860193 [wandb_init.py:init():793] sending inform_init request
+2025-04-23 18:53:03,564 INFO    MainThread:860193 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-04-23 18:53:03,602 INFO    MainThread:860193 [wandb_init.py:init():808] backend started and connected
+2025-04-23 18:53:03,632 INFO    MainThread:860193 [wandb_init.py:init():901] updated telemetry
+2025-04-23 18:53:03,734 INFO    MainThread:860193 [wandb_init.py:init():936] communicating run to backend with 90.0 second timeout
+2025-04-23 18:53:04,533 INFO    MainThread:860193 [wandb_init.py:init():994] starting run threads in backend
+2025-04-23 18:53:07,306 INFO    MainThread:860193 [wandb_run.py:_console_start():2385] atexit reg
+2025-04-23 18:53:07,310 INFO    MainThread:860193 [wandb_run.py:_redirect():2235] redirect: wrap_raw
+2025-04-23 18:53:07,313 INFO    MainThread:860193 [wandb_run.py:_redirect():2300] Wrapping output streams.
+2025-04-23 18:53:07,313 INFO    MainThread:860193 [wandb_run.py:_redirect():2325] Redirects installed.
+2025-04-23 18:53:07,334 INFO    MainThread:860193 [wandb_init.py:init():1036] run started, returning control to user process
+2025-04-23 18:53:07,341 INFO    MainThread:860193 [wandb_run.py:_config_callback():1253] config_cb None None {'project': 'coconut', 'save_path': 'checkpoint', 'name': 'cladder-cot_llama_1B', 'only_eval': False, 'coconut': False, 'cot': True, 'no_thoughts': False, 'no_cot': False, 'c_thought': 0, 'epochs_per_stage': 1, 'max_latent_stage': 0, 'pad_latent_to_max': True, 'train_size': 10000, 'val_size': 100, 'save_only_improve': True, 'uniform_prob': 0.0, 'model_id': 'meta-llama/Llama-3.2-1B', 'load_model_path': 'None', 'seed': 0, 'resume': 0, 'bf16': False, 'train_path': 'data/cladder_train.json', 'val_path': 'data/cladder_valid.json', 'reset_optimizer': False, 'batch_size_training': 8, 'debug': False, 'gradient_accumulation_steps': 1, 'num_epochs': 20, 'lr': 2e-05, 'weight_decay': 0.01}

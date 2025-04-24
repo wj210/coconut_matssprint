@@ -1,0 +1,53 @@
+Map (num_proc=32): 100%|██████████| 500/500 [00:00<00:00, 1520.07 examples/s]
+Map (num_proc=32): 100%|██████████| 385620/385620 [00:04<00:00, 79289.52 examples/s] 
+Map (num_proc=32): 100%|██████████| 500/500 [00:00<00:00, 1264.58 examples/s]
+Training Epoch: 1:   0%|[34m          [0m| 0/3013 [00:00<?, ?it/s]wandb: WARNING Serializing object of type str that is 112012 bytes
+logging training data
+Traceback (most recent call last):
+  File "/export/home2/weijie210/coconut/run.py", line 533, in <module>
+    main()
+  File "/export/home2/weijie210/coconut/run.py", line 361, in main
+    outputs = parallel_model(**batch)
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py", line 864, in forward
+    output = self._fsdp_wrapped_module(*args, **kwargs)
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 1179, in forward
+    logits = self.lm_head(hidden_states[:, -num_logits_to_keep:, :])
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/linear.py", line 125, in forward
+    return F.linear(input, self.weight, self.bias)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.42 GiB. GPU 0 has a total capacity of 79.33 GiB of which 858.94 MiB is free. Including non-PyTorch memory, this process has 78.48 GiB memory in use. Of the allocated memory 72.45 GiB is allocated by PyTorch, and 4.97 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/export/home2/weijie210/coconut/run.py", line 533, in <module>
+[rank0]:     main()
+[rank0]:   File "/export/home2/weijie210/coconut/run.py", line 361, in main
+[rank0]:     outputs = parallel_model(**batch)
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py", line 864, in forward
+[rank0]:     output = self._fsdp_wrapped_module(*args, **kwargs)
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 1179, in forward
+[rank0]:     logits = self.lm_head(hidden_states[:, -num_logits_to_keep:, :])
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:   File "/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/nn/modules/linear.py", line 125, in forward
+[rank0]:     return F.linear(input, self.weight, self.bias)
+[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.42 GiB. GPU 0 has a total capacity of 79.33 GiB of which 858.94 MiB is free. Including non-PyTorch memory, this process has 78.48 GiB memory in use. Of the allocated memory 72.45 GiB is allocated by PyTorch, and 4.97 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

@@ -1,0 +1,7 @@
+{"time":"2025-04-22T23:50:08.854157891+08:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/export/home2/weijie210/coconut/wandb/run-20250422_235008-iyzm95ok/logs/debug-core.log"}
+{"time":"2025-04-22T23:50:09.098248517+08:00","level":"INFO","msg":"created new stream","id":"iyzm95ok"}
+{"time":"2025-04-22T23:50:09.098297407+08:00","level":"INFO","msg":"stream: started","id":"iyzm95ok"}
+{"time":"2025-04-22T23:50:09.098321285+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"iyzm95ok"}
+{"time":"2025-04-22T23:50:09.098340331+08:00","level":"INFO","msg":"sender: started","stream_id":"iyzm95ok"}
+{"time":"2025-04-22T23:50:09.098462408+08:00","level":"INFO","msg":"handler: started","stream_id":"iyzm95ok"}
+{"time":"2025-04-22T23:50:09.473802065+08:00","level":"INFO","msg":"Starting system monitor"}

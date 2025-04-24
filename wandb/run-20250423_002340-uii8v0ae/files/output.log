@@ -1,0 +1,255 @@
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 196.37 examples/s]
+Map (num_proc=32): 100%|██████████| 20000/20000 [00:00<00:00, 21120.50 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 188.64 examples/s]
+Training Epoch: 1/8, batch 312/313 completed (loss: 0.264: 100%|[34m██████████[0m| 313/313 [08:52<00:00,  1.70s/it] 
+logging training data
+eval loss 0.459102988243103
+Test Accuracy:   0%|[34m          [0m| 0/25 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 0: Answer = '300' CoT = '<<4-2=2>>
+<<2/.5=4>>
+<<12/4=3>>
+<<100*3=300>>'
+Full output: '<|begin_of_text|>John cuts his grass to 2 inches.  It grows.5 inches per month.  When it gets to 4 inches he cuts it back down to 2 inches.  It cost $100 to get his grass cut.  How much does he pay per year?
+<<12*0.5=6>>
+<<2*12=24>>
+<<24+2=26>>
+<<26*100=2600>>
+### 2600<|end_of_text|>'
+Extracted Output: '2600'
+Test accuracy: 0.0:   4%|[34m▍         [0m| 1/25 [00:14<05:40, 14.19s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 4: Answer = '240' CoT = '<<200*3=600>>
+<<600*.4=240>>'
+Full output: '<|begin_of_text|>Tom bought his games for $200.  They tripled in value and he then sold 40% of them.  How much did he sell the games for?
+<<200*3=600>>
+<<200+600=1000>>
+<<1000*0.40=400>>
+<<1000-400=600>>
+### 600<|end_of_text|>'
+Extracted Output: '600'
+Test accuracy: 0.0:   8%|[34m▊         [0m| 2/25 [00:29<05:48, 15.13s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 8: Answer = '25' CoT = '<<2*2.25=4.50>>
+<<2*4=8.00>>
+<<2*2.50=5.00>>
+<<4.50+8.00+.50+5.00+3.50+3.50=25.00>>'
+Full output: '<|begin_of_text|>It’s Meghan’s turn to pick up her team's coffee order.  She needs 2 drip coffees that are $2.25 each and one double shot espresso that’s $3.50.  She needs 2 lattes that are $4.00 and needs to add vanilla syrup to one of those for an additional $0.50.  She also needs 2 cold brew coffees that are $2.50 each and 1 cappuccino for $3.50.  How much is the coffee order?
+<<2*2.25=4.5>>
+<<2*3.5=7>>
+<<2*4=8>>
+<<2*2.5=5>>
+<<1*3.5=3.5>>
+<<4.5+7+8+5+3.5=24.'
+Extracted Output: 'It’s Meghan’s turn to pick up her team's coffee order.  She needs 2 drip coffees that are $2.25 each and one double shot espresso that’s $3.50.  She needs 2 lattes that are $4.00 and needs to add vanilla syrup to one of those for an additional $0.50.  She also needs 2 cold brew coffees that are $2.50 each and 1 cappuccino for $3.50.  How much is the coffee order?
+<<2*2.25=4.5>>
+<<2*3.5=7>>
+<<2*4=8>>
+<<2*2.5=5>>
+<<1*3.5=3.5>>
+<<4.5+7+8+5+3.5=24.'
+Test accuracy: 0.0:  12%|[34m█▏        [0m| 3/25 [00:52<06:47, 18.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 12: Answer = '10' CoT = '<<12*10=120>>
+<<130-120=10>>'
+Full output: '<|begin_of_text|>Joshua packs 12 bottles in each crate. He has a total of 130 bottles and 10 crates. How many bottles will not be placed in a crate?
+<<130/10=13>>
+<<12*13=156>>
+### 156<|end_of_text|>'
+Extracted Output: '156'
+Test accuracy: 0.0:  16%|[34m█▌        [0m| 4/25 [01:06<05:49, 16.64s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 16: Answer = '45' CoT = '<<10+15=25>>
+<<2*10=20>>
+<<20+25=45>>'
+Full output: '<|begin_of_text|>Olivia gave William 10 napkins. Amelia also gives William twice the number of napkins Olivia gave him. If William had 15 napkins before, how many napkins does he have now?
+<<10*2=20>>
+<<15+20=35>>
+### 35<|end_of_text|>'
+Extracted Output: '35'
+Test accuracy: 0.0:  20%|[34m██        [0m| 5/25 [01:17<04:54, 14.74s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.0:  24%|[34m██▍       [0m| 6/25 [01:33<04:49, 15.23s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.0:  28%|[34m██▊       [0m| 7/25 [01:46<04:19, 14.43s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.0:  32%|[34m███▏      [0m| 8/25 [01:57<03:47, 13.41s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.0:  36%|[34m███▌      [0m| 9/25 [02:09<03:24, 12.77s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.0:  40%|[34m████      [0m| 10/25 [02:18<02:56, 11.75s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.0:  44%|[34m████▍     [0m| 11/25 [02:41<03:30, 15.06s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.08:  48%|[34m████▊     [0m| 12/25 [02:59<03:30, 16.16s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.08:  52%|[34m█████▏    [0m| 13/25 [03:13<03:05, 15.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.07:  56%|[34m█████▌    [0m| 14/25 [03:26<02:40, 14.60s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.07:  60%|[34m██████    [0m| 15/25 [03:46<02:43, 16.36s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.12:  64%|[34m██████▍   [0m| 16/25 [04:03<02:28, 16.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.18:  68%|[34m██████▊   [0m| 17/25 [04:15<01:59, 14.95s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.22:  72%|[34m███████▏  [0m| 18/25 [04:27<01:39, 14.28s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.21:  76%|[34m███████▌  [0m| 19/25 [04:44<01:30, 15.07s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.2:  80%|[34m████████  [0m| 20/25 [04:53<01:06, 13.29s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.19:  84%|[34m████████▍ [0m| 21/25 [05:15<01:02, 15.68s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.18:  88%|[34m████████▊ [0m| 22/25 [05:26<00:43, 14.37s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.17:  92%|[34m█████████▏[0m| 23/25 [05:35<00:25, 12.70s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.17:  96%|[34m█████████▌[0m| 24/25 [05:47<00:12, 12.68s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.16: 100%|[34m██████████[0m| 25/25 [05:59<00:00, 14.37s/it]
+Device 0: Cor=4, CoT=0, Total=25
+Accuracy on validation set: 21 / 100 = 0.21
+CoT match on validation set: 6 / 100 = 0.06
+saving model.
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 185.30 examples/s]
+Map (num_proc=32): 100%|██████████| 20000/20000 [00:00<00:00, 22918.40 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 181.74 examples/s]
+Training Epoch: 2/8, batch 312/313 completed (loss: 0.1418: 100%|[34m██████████[0m| 313/313 [08:52<00:00,  1.70s/it]
+logging training data
+eval loss 0.4750111401081085
+Test Accuracy:   0%|[34m          [0m| 0/25 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 0: Answer = '300' CoT = '<<4-2=2>>
+<<2/.5=4>>
+<<12/4=3>>
+<<100*3=300>>'
+Full output: '<|begin_of_text|>John cuts his grass to 2 inches.  It grows.5 inches per month.  When it gets to 4 inches he cuts it back down to 2 inches.  It cost $100 to get his grass cut.  How much does he pay per year?
+<<4-2=2>>
+<<2*12=24>>
+<<24*0.5=12>>
+<<12*100=1200>>
+### 1200<|end_of_text|>'
+Extracted Output: '1200'
+Test accuracy: 0.0:   4%|[34m▍         [0m| 1/25 [00:17<07:04, 17.71s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 4: Answer = '240' CoT = '<<200*3=600>>
+<<600*.4=240>>'
+Full output: '<|begin_of_text|>Tom bought his games for $200.  They tripled in value and he then sold 40% of them.  How much did he sell the games for?
+<<200*3=600>>
+<<600*40*.01=240>>
+<<600-240=360>>
+### 360<|end_of_text|>'
+Extracted Output: '360'
+Test accuracy: 0.0:   8%|[34m▊         [0m| 2/25 [00:33<06:23, 16.66s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 8: Answer = '25' CoT = '<<2*2.25=4.50>>
+<<2*4=8.00>>
+<<2*2.50=5.00>>
+<<4.50+8.00+.50+5.00+3.50+3.50=25.00>>'
+Full output: '<|begin_of_text|>It’s Meghan’s turn to pick up her team's coffee order.  She needs 2 drip coffees that are $2.25 each and one double shot espresso that’s $3.50.  She needs 2 lattes that are $4.00 and needs to add vanilla syrup to one of those for an additional $0.50.  She also needs 2 cold brew coffees that are $2.50 each and 1 cappuccino for $3.50.  How much is the coffee order?
+<<2*2.25=4.5>>
+<<2*4=8>>
+<<2*2.5=5>>
+<<1*3.5=3.5>>
+<<4+8+5+3.5=18.50>>
+### 18.50<|end_of_text|>'
+Extracted Output: '18.50'
+Test accuracy: 0.0:  12%|[34m█▏        [0m| 3/25 [00:54<06:48, 18.55s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 12: Answer = '10' CoT = '<<12*10=120>>
+<<130-120=10>>'
+Full output: '<|begin_of_text|>Joshua packs 12 bottles in each crate. He has a total of 130 bottles and 10 crates. How many bottles will not be placed in a crate?
+<<130/10=13>>
+<<12*13=156>>
+### 156<|end_of_text|>'
+Extracted Output: '156'
+Test accuracy: 0.0:  16%|[34m█▌        [0m| 4/25 [01:10<06:09, 17.61s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 16: Answer = '45' CoT = '<<10+15=25>>
+<<2*10=20>>
+<<20+25=45>>'
+Full output: '<|begin_of_text|>Olivia gave William 10 napkins. Amelia also gives William twice the number of napkins Olivia gave him. If William had 15 napkins before, how many napkins does he have now?
+<<15+10=25>>
+<<2*25=50>>
+<<25+50=75>>
+### 75<|end_of_text|>'
+Extracted Output: '75'
+Test accuracy: 0.0:  20%|[34m██        [0m| 5/25 [01:26<05:41, 17.09s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.0:  24%|[34m██▍       [0m| 6/25 [01:41<05:10, 16.33s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.14:  28%|[34m██▊       [0m| 7/25 [01:56<04:42, 15.70s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.12:  32%|[34m███▏      [0m| 8/25 [02:08<04:07, 14.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.11:  36%|[34m███▌      [0m| 9/25 [02:19<03:35, 13.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.1:  40%|[34m████      [0m| 10/25 [02:28<03:00, 12.05s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.09:  44%|[34m████▍     [0m| 11/25 [02:47<03:20, 14.29s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.17:  48%|[34m████▊     [0m| 12/25 [02:56<02:44, 12.62s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.15:  52%|[34m█████▏    [0m| 13/25 [03:05<02:17, 11.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.21:  56%|[34m█████▌    [0m| 14/25 [03:21<02:23, 13.01s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.2:  60%|[34m██████    [0m| 15/25 [03:40<02:27, 14.72s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.19:  64%|[34m██████▍   [0m| 16/25 [03:59<02:24, 16.00s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.24:  68%|[34m██████▊   [0m| 17/25 [04:11<01:58, 14.80s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.22:  72%|[34m███████▏  [0m| 18/25 [04:26<01:43, 14.79s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.21:  76%|[34m███████▌  [0m| 19/25 [04:48<01:42, 17.11s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.25:  80%|[34m████████  [0m| 20/25 [04:59<01:16, 15.38s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.24:  84%|[34m████████▍ [0m| 21/25 [05:15<01:01, 15.40s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.23:  88%|[34m████████▊ [0m| 22/25 [05:27<00:43, 14.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.22:  92%|[34m█████████▏[0m| 23/25 [05:38<00:27, 13.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.21:  96%|[34m█████████▌[0m| 24/25 [05:55<00:14, 14.33s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.24: 100%|[34m██████████[0m| 25/25 [06:13<00:00, 14.96s/it]
+Device 0: Cor=6, CoT=0, Total=25
+Accuracy on validation set: 29 / 100 = 0.29
+CoT match on validation set: 8 / 100 = 0.08
+saving model.
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 182.25 examples/s]
+Map (num_proc=32): 100%|██████████| 20000/20000 [00:00<00:00, 22004.99 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 180.50 examples/s]
+Training Epoch: 3/8, batch 312/313 completed (loss: 0.1576: 100%|[34m██████████[0m| 313/313 [08:52<00:00,  1.70s/it]
+logging training data
+eval loss 0.5226436257362366
+Test Accuracy:   0%|[34m          [0m| 0/25 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 0: Answer = '300' CoT = '<<4-2=2>>
+<<2/.5=4>>
+<<12/4=3>>
+<<100*3=300>>'
+Full output: '<|begin_of_text|>John cuts his grass to 2 inches.  It grows.5 inches per month.  When it gets to 4 inches he cuts it back down to 2 inches.  It cost $100 to get his grass cut.  How much does he pay per year?
+<<4-2=2>>
+<<2*12=24>>
+<<100*24=2400>>
+### 2400<|end_of_text|>'
+Extracted Output: '2400'
+Test accuracy: 0.0:   4%|[34m▍         [0m| 1/25 [00:14<05:50, 14.59s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 4: Answer = '240' CoT = '<<200*3=600>>
+<<600*.4=240>>'
+Full output: '<|begin_of_text|>Tom bought his games for $200.  They tripled in value and he then sold 40% of them.  How much did he sell the games for?
+<<200*3=600>>
+<<600*.40=240>>
+<<600-240=360>>
+### 360<|end_of_text|>'
+Extracted Output: '360'
+Test accuracy: 0.0:   8%|[34m▊         [0m| 2/25 [00:24<04:26, 11.59s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 8: Answer = '25' CoT = '<<2*2.25=4.50>>
+<<2*4=8.00>>
+<<2*2.50=5.00>>
+<<4.50+8.00+.50+5.00+3.50+3.50=25.00>>'
+Full output: '<|begin_of_text|>It’s Meghan’s turn to pick up her team's coffee order.  She needs 2 drip coffees that are $2.25 each and one double shot espresso that’s $3.50.  She needs 2 lattes that are $4.00 and needs to add vanilla syrup to one of those for an additional $0.50.  She also needs 2 cold brew coffees that are $2.50 each and 1 cappuccino for $3.50.  How much is the coffee order?
+<<2*2.25+3.5=7.00>>
+<<2*4+0.50=5.50>>
+<<7+5.50+2.50+3.50=19.50>>
+### 19.50<|end_of_text|>'
+Extracted Output: '19.50'
+Test accuracy: 0.0:  12%|[34m█▏        [0m| 3/25 [00:42<05:26, 14.85s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 12: Answer = '10' CoT = '<<12*10=120>>
+<<130-120=10>>'
+Full output: '<|begin_of_text|>Joshua packs 12 bottles in each crate. He has a total of 130 bottles and 10 crates. How many bottles will not be placed in a crate?
+<<12*10=120>>
+<<130-120=-10>>
+### -10<|end_of_text|>'
+Extracted Output: '-10'
+Test accuracy: 0.0:  16%|[34m█▌        [0m| 4/25 [00:55<04:53, 13.98s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 16: Answer = '45' CoT = '<<10+15=25>>
+<<2*10=20>>
+<<20+25=45>>'
+Full output: '<|begin_of_text|>Olivia gave William 10 napkins. Amelia also gives William twice the number of napkins Olivia gave him. If William had 15 napkins before, how many napkins does he have now?
+<<2*10=20>>
+<<15+20=35>>
+### 35<|end_of_text|>'
+Extracted Output: '35'
+Test accuracy: 0.0:  20%|[34m██        [0m| 5/25 [01:11<04:52, 14.65s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.0:  24%|[34m██▍       [0m| 6/25 [01:25<04:37, 14.59s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.14:  28%|[34m██▊       [0m| 7/25 [01:38<04:11, 13.96s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.12:  32%|[34m███▏      [0m| 8/25 [01:51<03:52, 13.67s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.22:  36%|[34m███▌      [0m| 9/25 [02:03<03:28, 13.02s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.2:  40%|[34m████      [0m| 10/25 [02:12<02:58, 11.92s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.18:  44%|[34m████▍     [0m| 11/25 [02:26<02:57, 12.69s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.25:  48%|[34m████▊     [0m| 12/25 [02:37<02:38, 12.15s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.23:  52%|[34m█████▏    [0m| 13/25 [02:47<02:16, 11.35s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.29:  56%|[34m█████▌    [0m| 14/25 [02:58<02:04, 11.33s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.27:  60%|[34m██████    [0m| 15/25 [03:18<02:18, 13.86s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.25:  64%|[34m██████▍   [0m| 16/25 [03:32<02:05, 13.93s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.29:  68%|[34m██████▊   [0m| 17/25 [03:43<01:45, 13.14s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.33:  72%|[34m███████▏  [0m| 18/25 [03:58<01:34, 13.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.32:  76%|[34m███████▌  [0m| 19/25 [04:16<01:30, 15.07s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.3:  80%|[34m████████  [0m| 20/25 [04:25<01:05, 13.19s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.29:  84%|[34m████████▍ [0m| 21/25 [04:38<00:52, 13.04s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.27:  88%|[34m████████▊ [0m| 22/25 [04:52<00:39, 13.26s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.3:  92%|[34m█████████▏[0m| 23/25 [05:00<00:23, 11.92s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.29:  96%|[34m█████████▌[0m| 24/25 [05:14<00:12, 12.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.28: 100%|[34m██████████[0m| 25/25 [05:26<00:00, 13.04s/it]
+Device 0: Cor=7, CoT=1, Total=25
+Accuracy on validation set: 26 / 100 = 0.26
+CoT match on validation set: 6 / 100 = 0.06
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 185.06 examples/s]
+Map (num_proc=32): 100%|██████████| 20000/20000 [00:00<00:00, 21706.07 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 173.81 examples/s]
+Training Epoch: 4/8, batch 296/313 completed (loss: 0.0772:  95%|[34m█████████▍[0m| 297/313 [08:26<00:27,  1.73s/it]
+logging training data

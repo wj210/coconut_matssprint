@@ -1,0 +1,113 @@
+_wandb:
+    value:
+        cli_version: 0.19.6
+        m: []
+        python_version: 3.10.0
+        t:
+            "1":
+                - 1
+                - 5
+                - 11
+                - 41
+                - 49
+                - 51
+                - 53
+                - 55
+                - 71
+                - 98
+                - 105
+            "2":
+                - 1
+                - 5
+                - 11
+                - 41
+                - 49
+                - 51
+                - 53
+                - 55
+                - 71
+                - 98
+                - 105
+            "3":
+                - 13
+                - 23
+                - 55
+            "4": 3.10.0
+            "5": 0.19.6
+            "6": 4.47.1
+            "8":
+                - 5
+            "12": 0.19.6
+            "13": linux-x86_64
+batch_size_training:
+    value: 16
+bf16:
+    value: false
+c_thought:
+    value: 0
+coconut:
+    value: false
+cot:
+    value: true
+debug:
+    value: false
+epochs_per_stage:
+    value: 1
+gradient_accumulation_steps:
+    value: 1
+load_model_path:
+    value: None
+lora_alpha:
+    value: 16
+lora_dropout:
+    value: 0.05
+lora_r:
+    value: 16
+lora_target_modules:
+    value:
+        - q_proj
+        - k_proj
+        - v_proj
+        - o_proj
+lr:
+    value: 0.0001
+max_latent_stage:
+    value: 0
+model_id:
+    value: meta-llama/Llama-3.1-8B
+name:
+    value: gsm-cot
+no_cot:
+    value: false
+no_thoughts:
+    value: false
+num_epochs:
+    value: 5
+only_eval:
+    value: false
+pad_latent_to_max:
+    value: true
+project:
+    value: coconut
+reset_optimizer:
+    value: false
+resume:
+    value: 0
+save_only_improve:
+    value: true
+save_path:
+    value: checkpoint
+seed:
+    value: 0
+train_path:
+    value: data/gsm_train.json
+train_size:
+    value: 10000
+uniform_prob:
+    value: 0
+use_lora:
+    value: true
+val_path:
+    value: data/gsm_valid.json
+weight_decay:
+    value: 0.01

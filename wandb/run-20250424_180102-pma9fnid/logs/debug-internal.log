@@ -1,0 +1,15 @@
+{"time":"2025-04-24T18:01:02.448366351+08:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/export/home2/weijie210/coconut/wandb/run-20250424_180102-pma9fnid/logs/debug-core.log"}
+{"time":"2025-04-24T18:01:02.667140764+08:00","level":"INFO","msg":"created new stream","id":"pma9fnid"}
+{"time":"2025-04-24T18:01:02.667253604+08:00","level":"INFO","msg":"stream: started","id":"pma9fnid"}
+{"time":"2025-04-24T18:01:02.667278174+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"pma9fnid"}
+{"time":"2025-04-24T18:01:02.667286724+08:00","level":"INFO","msg":"handler: started","stream_id":"pma9fnid"}
+{"time":"2025-04-24T18:01:02.667301384+08:00","level":"INFO","msg":"sender: started","stream_id":"pma9fnid"}
+{"time":"2025-04-24T18:01:03.00995486+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-24T21:02:23.597292541+08:00","level":"INFO","msg":"stream: closing","id":"pma9fnid"}
+{"time":"2025-04-24T21:02:23.59741253+08:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-24T21:02:23.598469035+08:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-24T21:02:25.319325493+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-24T21:02:25.58271585+08:00","level":"INFO","msg":"handler: closed","stream_id":"pma9fnid"}
+{"time":"2025-04-24T21:02:25.582800859+08:00","level":"INFO","msg":"sender: closed","stream_id":"pma9fnid"}
+{"time":"2025-04-24T21:02:25.582812439+08:00","level":"INFO","msg":"writer: Close: closed","stream_id":"pma9fnid"}
+{"time":"2025-04-24T21:02:25.585683476+08:00","level":"INFO","msg":"stream: closed","id":"pma9fnid"}

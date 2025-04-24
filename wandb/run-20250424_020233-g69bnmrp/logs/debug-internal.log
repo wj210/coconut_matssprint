@@ -1,0 +1,11 @@
+{"time":"2025-04-24T02:02:33.863586726+08:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/export/home2/weijie210/coconut/wandb/run-20250424_020233-g69bnmrp/logs/debug-core.log"}
+{"time":"2025-04-24T02:02:34.088431479+08:00","level":"INFO","msg":"created new stream","id":"g69bnmrp"}
+{"time":"2025-04-24T02:02:34.088576928+08:00","level":"INFO","msg":"stream: started","id":"g69bnmrp"}
+{"time":"2025-04-24T02:02:34.088599588+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"g69bnmrp"}
+{"time":"2025-04-24T02:02:34.088614338+08:00","level":"INFO","msg":"handler: started","stream_id":"g69bnmrp"}
+{"time":"2025-04-24T02:02:34.088640708+08:00","level":"INFO","msg":"sender: started","stream_id":"g69bnmrp"}
+{"time":"2025-04-24T02:02:34.469748682+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-24T03:58:36.787950702+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)"}
+{"time":"2025-04-24T08:56:14.392931513+08:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/self_learning/coconut/g69bnmrp/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2025-04-24T10:00:00.717882086+08:00","level":"INFO","msg":"api: retrying HTTP error","status":500,"url":"https://api.wandb.ai/files/self_learning/coconut/g69bnmrp/file_stream","body":"{\"error\":\"context deadline exceeded\"}"}
+{"time":"2025-04-24T13:29:41.578037572+08:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": context deadline exceeded"}

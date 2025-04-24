@@ -1,0 +1,865 @@
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 185.55 examples/s]
+Map (num_proc=32): 100%|██████████| 4740/4740 [00:00<00:00, 5591.94 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 180.85 examples/s]
+Training Epoch: 2:   0%|[34m          [0m| 0/297 [00:00<?, ?it/s]We detected that you are passing `past_key_values` as a tuple of tuples. This is deprecated and will be removed in v4.47. Please convert your cache or use an appropriate `Cache` class (https://huggingface.co/docs/transformers/kv_cache#legacy-cache-format)
+logging training data
+Training Epoch: 2/8, batch 296/297 completed (loss: 0.0214: 100%|[34m██████████[0m| 297/297 [08:38<00:00,  1.75s/it]
+saving model.
+eval loss 1.8855685336249215
+Test accuracy: 0.0:   4%|[34m▍         [0m| 1/25 [00:31<12:22, 30.94s/it]
+Question 0: Answer = 'no' CoT = 'Let V1 = CEO; V3 = director; X = having visited England; Y = employee.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y_{X = 1} - Y_{X = 0} | X = 1]
+\sum_{V3=v} P(V3=v|X=1)*[P(Y=1|X=1,V3=v) - P(Y=1|X=0,V3=v)]
+P(Y=1 | X=0, V3=0) = 0.09
+P(Y=1 | X=0, V3=1) = 0.47
+P(Y=1 | X=1, V3=0) = 0.50
+P(Y=1 | X=1, V3=1) = 0.85
+P(V3=1 | X=0) = 0.66
+P(V3=1 | X=1) = 0.73
+0.73 * (0.85 - 0.50) + 0.66 * (0.47 - 0.09) = 0.39, 0.39 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: CEO has a direct effect on director and having visited England. Having visited England has a direct effect on employee. Director has a direct effect on employee.
+For people who have not visited England and directors who don't sign termination letters, the probability of employee being fired is 9%. For people who have not visited England and directors who sign termination letters, the probability of employee being fired is 47%. For people who have visited England and directors who don't sign termination letters, the probability of employee being fired is 50%. For people who have visited England and directors who sign termination letters, the probability of employee being fired is 85%. For people who have not visited England, the probability of director signing the termination letter is 66%. For people who have visited England, the probability of director signing the termination letter is 73%.
+For people who have visited England, would it be more likely to see employee being fired if the person had not visited England?
+<|start-latent|><|latent|><|end-latent|>V1->V3,V1->X,X->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V1=1)-P(Y=1|V1=0)]/[P(X=1|V1=1)-P(X=1|V1=0)]
+P(Y=1 | V1=0) = 0.09
+P(Y=1 | V1=1) = 0.47
+P(X=1 | V1=0) = 0.50
+P(X='
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: CEO has a direct effect on director and having visited England. Having visited England has a direct effect on employee. Director has a direct effect on employee.
+For people who have not visited England and directors who don't sign termination letters the probability of employee being fired is 9%. For people who have not visited England and directors who sign termination letters the probability of employee being fired is 47%. For people who have visited England and directors who don't sign termination letters the probability of employee being fired is 50%. For people who have visited England and directors who sign termination letters the probability of employee being fired is 85%. For people who have not visited England the probability of director signing the termination letter is 66%. For people who have visited England the probability of director signing the termination letter is 73%.
+For people who have visited England would it be more likely to see employee being fired if the person had not visited England?
+<|start-latent|><|latent|><|end-latent|>V1->V3V1->XX->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V1=1)-P(Y=1|V1=0)]/[P(X=1|V1=1)-P(X=1|V1=0)]
+P(Y=1 | V1=0) = 0.09
+P(Y=1 | V1=1) = 0.47
+P(X=1 | V1=0) = 0.50
+P(X='
+Question 4: Answer = 'no' CoT = 'Let V2 = residency status; X = gender; V3 = department competitiveness; Y = freckles.
+X->V3,V2->V3,X->Y,V2->Y,V3->Y
+E[Y_{X=0, V3=1} - Y_{X=0, V3=0}]
+\sum_{V3=v} [\sum_{V2=k} P(Y=1|X=0,V3=v)*[P(V3=v|X=1,V2=k)-P(V3=v|X=0,V2=k)]*P(V2=k)]
+P(Y=1 | X=0, V3=0) = 0.62
+P(Y=1 | X=0, V3=1) = 0.81
+P(Y=1 | X=1, V3=0) = 0.37
+P(Y=1 | X=1, V3=1) = 0.56
+P(V3=1 | X=0, V2=0) = 0.48
+P(V3=1 | X=0, V2=1) = 0.81
+P(V3=1 | X=1, V2=0) = 0.14
+P(V3=1 | X=1, V2=1) = 0.60
+P(V2=1) = 0.06
+0.06 * 0.81 * (0.60 - 0.14)+ 0.94 * 0.81 * (0.81 - 0.48)= -0.07, -0.07 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on department competitiveness and freckles. Residency status has a direct effect on department competitiveness and freckles. Department competitiveness has a direct effect on freckles. Residency status is unobserved.
+For individuals who are not male and applicants to a non-competitive department, the probability of freckles is 62%. For individuals who are not male and applicants to a competitive department, the probability of freckles is 81%. For individuals who are male and applicants to a non-competitive department, the probability of freckles is 37%. For individuals who are male and applicants to a competitive department, the probability of freckles is 56%. For individuals who are not male and out-of-state residents, the probability of competitive department is 48%. For individuals who are not male and in-state residents, the probability of competitive department is 81%. For individuals who are male and out-of-state residents, the probability of competitive department is 14%. For individuals who are male and in-state residents, the probability of competitive department is 60%. The overall probability of in-state residency is 6%.
+Does gender positively affect freckles through department competitiveness?
+<|start-latent|><|latent|><|end-latent|>X->V3,V2->V3,X->Y,V2->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = h,V3 = v)*P(X = h)]
+P(V3=1 | X=0) = 0.62
+P(V3=1 | X=1) = 0'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Gender has a direct effect on department competitiveness and freckles. Residency status has a direct effect on department competitiveness and freckles. Department competitiveness has a direct effect on freckles. Residency status is unobserved.
+For individuals who are not male and applicants to a non-competitive department the probability of freckles is 62%. For individuals who are not male and applicants to a competitive department the probability of freckles is 81%. For individuals who are male and applicants to a non-competitive department the probability of freckles is 37%. For individuals who are male and applicants to a competitive department the probability of freckles is 56%. For individuals who are not male and out-of-state residents the probability of competitive department is 48%. For individuals who are not male and in-state residents the probability of competitive department is 81%. For individuals who are male and out-of-state residents the probability of competitive department is 14%. For individuals who are male and in-state residents the probability of competitive department is 60%. The overall probability of in-state residency is 6%.
+Does gender positively affect freckles through department competitiveness?
+<|start-latent|><|latent|><|end-latent|>X->V3V2->V3X->YV2->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = hV3 = v)*P(X = h)]
+P(V3=1 | X=0) = 0.62
+P(V3=1 | X=1) = 0'
+Question 8: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+E[Y_{X=0, V2=1} - Y_{X=0, V2=0}]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.71
+P(Y=1 | X=1) = 0.72
+0.72 - 0.71 = 0.01, 0.01 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+For those who are not pexu, the probability of rukz is 71%. For those who are pexu, the probability of rukz is 72%.
+Does pexu negatively affect rukz through hwax?
+<|start-latent|><|latent|><|end-latent|>X->V2,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.71
+P(Y=1 | X=1) = 0.72
+0.72 - 0.71 = 0.01, 0.01 > 0
+### no'
+Extracted Output: 'no'
+Question 12: Answer = 'yes' CoT = 'Let V1 = muvy; X = kwox; V3 = swoq; Y = kwoz.
+V1->X,X->V3,V1->Y,V3->Y
+E[Y_{X=0, V3=1} - Y_{X=0, V3=0}]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = h,V3 = v)*P(X = h)]
+P(V3=1 | X=0) = 0.57
+P(V3=1 | X=1) = 0.32
+P(Y=1 | X=0, V3=0) = 0.29
+P(Y=1 | X=0, V3=1) = 0.63
+P(Y=1 | X=1, V3=0) = 0.46
+P(Y=1 | X=1, V3=1) = 0.71
+P(X=1) = 0.78
+0.32 - 0.57 * (0.71 * 0.78 + 0.63 * 0.22)= -0.07, -0.07 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Muvy has a direct effect on kwox and kwoz. Kwox has a direct effect on swoq. Swoq has a direct effect on kwoz. Muvy is unobserved.
+For those who are not kwox, the probability of swoq is 57%. For those who are kwox, the probability of swoq is 32%. For those who are not kwox and are not swoq, the probability of kwoz is 29%. For those who are not kwox and are swoq, the probability of kwoz is 63%. For those who are kwox and are not swoq, the probability of kwoz is 46%. For those who are kwox and are swoq, the probability of kwoz is 71%. The overall probability of kwox is 78%.
+Does kwox negatively affect kwoz through swoq?
+<|start-latent|><|latent|><|end-latent|>V1->X,X->V3,V1->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = h,V3 = v)*P(X = h)]
+P(V3=1 | X=0) = 0.57
+P(V3=1 | X=1) = 0.32
+P'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Muvy has a direct effect on kwox and kwoz. Kwox has a direct effect on swoq. Swoq has a direct effect on kwoz. Muvy is unobserved.
+For those who are not kwox the probability of swoq is 57%. For those who are kwox the probability of swoq is 32%. For those who are not kwox and are not swoq the probability of kwoz is 29%. For those who are not kwox and are swoq the probability of kwoz is 63%. For those who are kwox and are not swoq the probability of kwoz is 46%. For those who are kwox and are swoq the probability of kwoz is 71%. The overall probability of kwox is 78%.
+Does kwox negatively affect kwoz through swoq?
+<|start-latent|><|latent|><|end-latent|>V1->XX->V3V1->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = hV3 = v)*P(X = h)]
+P(V3=1 | X=0) = 0.57
+P(V3=1 | X=1) = 0.32
+P'
+Question 16: Answer = 'no' CoT = 'Let V1 = jyka; V3 = zory; X = zuph; Y = glimx.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y_{X = 1} - Y_{X = 0} | X = 1]
+\sum_{V3=v} P(V3=v|X=1)*[P(Y=1|X=1,V3=v) - P(Y=1|X=0,V3=v)]
+P(Y=1 | X=0, V3=0) = 0.82
+P(Y=1 | X=0, V3=1) = 0.08
+P(Y=1 | X=1, V3=0) = 0.60
+P(Y=1 | X=1, V3=1) = 0.54
+P(V3=1 | X=0) = 0.54
+P(V3=1 | X=1) = 0.47
+0.47 * (0.54 - 0.60) + 0.54 * (0.08 - 0.82) = 0.11, 0.11 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Jyka has a direct effect on zory and zuph. Zuph has a direct effect on glimx. Zory has a direct effect on glimx.
+For those who are not zuph and are not zory, the probability of glimx is 82%. For those who are not zuph and are zory, the probability of glimx is 8%. For those who are zuph and are not zory, the probability of glimx is 60%. For those who are zuph and are zory, the probability of glimx is 54%. For those who are not zuph, the probability of zory is 54%. For those who are zuph, the probability of zory is 47%.
+For those who are zuph, would it be more likely to see glimx if the individual was not zuph?
+<|start-latent|><|latent|><|end-latent|>V1->V3,V1->X,X->Y,V3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V1=1)-P(Y=1|V1=0)]/[P(X=1|V1=1)-P(X=1|V1=0)]
+P(Y=1 | V1=0) = 0.82
+P(Y=1 | V1=1) = 0.08
+P(X=1 | V1=0) = 0.54
+P(X='
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Jyka has a direct effect on zory and zuph. Zuph has a direct effect on glimx. Zory has a direct effect on glimx.
+For those who are not zuph and are not zory the probability of glimx is 82%. For those who are not zuph and are zory the probability of glimx is 8%. For those who are zuph and are not zory the probability of glimx is 60%. For those who are zuph and are zory the probability of glimx is 54%. For those who are not zuph the probability of zory is 54%. For those who are zuph the probability of zory is 47%.
+For those who are zuph would it be more likely to see glimx if the individual was not zuph?
+<|start-latent|><|latent|><|end-latent|>V1->V3V1->XX->YV3->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V1=1)-P(Y=1|V1=0)]/[P(X=1|V1=1)-P(X=1|V1=0)]
+P(Y=1 | V1=0) = 0.82
+P(Y=1 | V1=1) = 0.08
+P(X=1 | V1=0) = 0.54
+P(X='
+Device 0: Cor=10, CoT=0, Total=25
+Accuracy on validation set: 39 / 100 = 0.39
+CoT match on validation set: 0 / 100 = 0.0
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 181.27 examples/s]
+Map (num_proc=32): 100%|██████████| 4740/4740 [00:00<00:00, 6600.54 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 163.44 examples/s]
+Training Epoch: 3/8, batch 296/297 completed (loss: 0.0093: 100%|[34m██████████[0m| 297/297 [10:19<00:00,  2.09s/it]
+logging training data
+saving model.
+eval loss 1.854795183454241
+Test accuracy: 0.0:   4%|[34m▍         [0m| 1/25 [00:31<12:25, 31.06s/it]
+Question 0: Answer = 'no' CoT = 'Let V1 = CEO; V3 = director; X = having visited England; Y = employee.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y_{X = 1} - Y_{X = 0} | X = 1]
+\sum_{V3=v} P(V3=v|X=1)*[P(Y=1|X=1,V3=v) - P(Y=1|X=0,V3=v)]
+P(Y=1 | X=0, V3=0) = 0.09
+P(Y=1 | X=0, V3=1) = 0.47
+P(Y=1 | X=1, V3=0) = 0.50
+P(Y=1 | X=1, V3=1) = 0.85
+P(V3=1 | X=0) = 0.66
+P(V3=1 | X=1) = 0.73
+0.73 * (0.85 - 0.50) + 0.66 * (0.47 - 0.09) = 0.39, 0.39 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: CEO has a direct effect on director and having visited England. Having visited England has a direct effect on employee. Director has a direct effect on employee.
+For people who have not visited England and directors who don't sign termination letters, the probability of employee being fired is 9%. For people who have not visited England and directors who sign termination letters, the probability of employee being fired is 47%. For people who have visited England and directors who don't sign termination letters, the probability of employee being fired is 50%. For people who have visited England and directors who sign termination letters, the probability of employee being fired is 85%. For people who have not visited England, the probability of director signing the termination letter is 66%. For people who have visited England, the probability of director signing the termination letter is 73%.
+For people who have visited England, would it be more likely to see employee being fired if the person had not visited England?
+<|start-latent|><|latent|><|latent|><|end-latent|>E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V2=1)-P(Y=1|V2=0)]/[P(X=1|V2=1)-P(X=1|V2=0)]
+P(Y=1 | V2=0) = 0.09
+P(Y=1 | V2=1) = 0.47
+P(X=1 | V2=0) = 0.66
+P(X=1 | V2=1) = 0.85
+(0.47'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: CEO has a direct effect on director and having visited England. Having visited England has a direct effect on employee. Director has a direct effect on employee.
+For people who have not visited England and directors who don't sign termination letters the probability of employee being fired is 9%. For people who have not visited England and directors who sign termination letters the probability of employee being fired is 47%. For people who have visited England and directors who don't sign termination letters the probability of employee being fired is 50%. For people who have visited England and directors who sign termination letters the probability of employee being fired is 85%. For people who have not visited England the probability of director signing the termination letter is 66%. For people who have visited England the probability of director signing the termination letter is 73%.
+For people who have visited England would it be more likely to see employee being fired if the person had not visited England?
+<|start-latent|><|latent|><|latent|><|end-latent|>E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V2=1)-P(Y=1|V2=0)]/[P(X=1|V2=1)-P(X=1|V2=0)]
+P(Y=1 | V2=0) = 0.09
+P(Y=1 | V2=1) = 0.47
+P(X=1 | V2=0) = 0.66
+P(X=1 | V2=1) = 0.85
+(0.47'
+Question 4: Answer = 'no' CoT = 'Let V2 = residency status; X = gender; V3 = department competitiveness; Y = freckles.
+X->V3,V2->V3,X->Y,V2->Y,V3->Y
+E[Y_{X=0, V3=1} - Y_{X=0, V3=0}]
+\sum_{V3=v} [\sum_{V2=k} P(Y=1|X=0,V3=v)*[P(V3=v|X=1,V2=k)-P(V3=v|X=0,V2=k)]*P(V2=k)]
+P(Y=1 | X=0, V3=0) = 0.62
+P(Y=1 | X=0, V3=1) = 0.81
+P(Y=1 | X=1, V3=0) = 0.37
+P(Y=1 | X=1, V3=1) = 0.56
+P(V3=1 | X=0, V2=0) = 0.48
+P(V3=1 | X=0, V2=1) = 0.81
+P(V3=1 | X=1, V2=0) = 0.14
+P(V3=1 | X=1, V2=1) = 0.60
+P(V2=1) = 0.06
+0.06 * 0.81 * (0.60 - 0.14)+ 0.94 * 0.81 * (0.81 - 0.48)= -0.07, -0.07 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on department competitiveness and freckles. Residency status has a direct effect on department competitiveness and freckles. Department competitiveness has a direct effect on freckles. Residency status is unobserved.
+For individuals who are not male and applicants to a non-competitive department, the probability of freckles is 62%. For individuals who are not male and applicants to a competitive department, the probability of freckles is 81%. For individuals who are male and applicants to a non-competitive department, the probability of freckles is 37%. For individuals who are male and applicants to a competitive department, the probability of freckles is 56%. For individuals who are not male and out-of-state residents, the probability of competitive department is 48%. For individuals who are not male and in-state residents, the probability of competitive department is 81%. For individuals who are male and out-of-state residents, the probability of competitive department is 14%. For individuals who are male and in-state residents, the probability of competitive department is 60%. The overall probability of in-state residency is 6%.
+Does gender positively affect freckles through department competitiveness?
+<|start-latent|><|latent|><|latent|><|end-latent|>E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=v,X=1) - P(Y=1|V1=v, X=0)]
+P(Y=1 | V1=0, X=0) = 0.62
+P(Y=1 | V1=0, X=1) = 0.81
+P(Y=1 | V1=1, X=0) = 0.37
+P(Y=1 | V1=1,'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Gender has a direct effect on department competitiveness and freckles. Residency status has a direct effect on department competitiveness and freckles. Department competitiveness has a direct effect on freckles. Residency status is unobserved.
+For individuals who are not male and applicants to a non-competitive department the probability of freckles is 62%. For individuals who are not male and applicants to a competitive department the probability of freckles is 81%. For individuals who are male and applicants to a non-competitive department the probability of freckles is 37%. For individuals who are male and applicants to a competitive department the probability of freckles is 56%. For individuals who are not male and out-of-state residents the probability of competitive department is 48%. For individuals who are not male and in-state residents the probability of competitive department is 81%. For individuals who are male and out-of-state residents the probability of competitive department is 14%. For individuals who are male and in-state residents the probability of competitive department is 60%. The overall probability of in-state residency is 6%.
+Does gender positively affect freckles through department competitiveness?
+<|start-latent|><|latent|><|latent|><|end-latent|>E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=vX=1) - P(Y=1|V1=v X=0)]
+P(Y=1 | V1=0 X=0) = 0.62
+P(Y=1 | V1=0 X=1) = 0.81
+P(Y=1 | V1=1 X=0) = 0.37
+P(Y=1 | V1=1'
+Question 8: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+E[Y_{X=0, V2=1} - Y_{X=0, V2=0}]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.71
+P(Y=1 | X=1) = 0.72
+0.72 - 0.71 = 0.01, 0.01 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+For those who are not pexu, the probability of rukz is 71%. For those who are pexu, the probability of rukz is 72%.
+Does pexu negatively affect rukz through hwax?
+<|start-latent|><|latent|><|latent|><|end-latent|>E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.71
+P(Y=1 | X=1) = 0.72
+0.72 - 0.71 = 0.01, 0.01 > 0
+### no'
+Extracted Output: 'no'
+Question 12: Answer = 'yes' CoT = 'Let V1 = muvy; X = kwox; V3 = swoq; Y = kwoz.
+V1->X,X->V3,V1->Y,V3->Y
+E[Y_{X=0, V3=1} - Y_{X=0, V3=0}]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = h,V3 = v)*P(X = h)]
+P(V3=1 | X=0) = 0.57
+P(V3=1 | X=1) = 0.32
+P(Y=1 | X=0, V3=0) = 0.29
+P(Y=1 | X=0, V3=1) = 0.63
+P(Y=1 | X=1, V3=0) = 0.46
+P(Y=1 | X=1, V3=1) = 0.71
+P(X=1) = 0.78
+0.32 - 0.57 * (0.71 * 0.78 + 0.63 * 0.22)= -0.07, -0.07 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Muvy has a direct effect on kwox and kwoz. Kwox has a direct effect on swoq. Swoq has a direct effect on kwoz. Muvy is unobserved.
+For those who are not kwox, the probability of swoq is 57%. For those who are kwox, the probability of swoq is 32%. For those who are not kwox and are not swoq, the probability of kwoz is 29%. For those who are not kwox and are swoq, the probability of kwoz is 63%. For those who are kwox and are not swoq, the probability of kwoz is 46%. For those who are kwox and are swoq, the probability of kwoz is 71%. The overall probability of kwox is 78%.
+Does kwox negatively affect kwoz through swoq?
+<|start-latent|><|latent|><|latent|><|end-latent|>E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = h,V3 = v)*P(X = h)]
+P(V3=1 | X=0) = 0.57
+P(V3=1 | X=1) = 0.32
+P(Y=1 | X=0, V3=0) = 0.'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Muvy has a direct effect on kwox and kwoz. Kwox has a direct effect on swoq. Swoq has a direct effect on kwoz. Muvy is unobserved.
+For those who are not kwox the probability of swoq is 57%. For those who are kwox the probability of swoq is 32%. For those who are not kwox and are not swoq the probability of kwoz is 29%. For those who are not kwox and are swoq the probability of kwoz is 63%. For those who are kwox and are not swoq the probability of kwoz is 46%. For those who are kwox and are swoq the probability of kwoz is 71%. The overall probability of kwox is 78%.
+Does kwox negatively affect kwoz through swoq?
+<|start-latent|><|latent|><|latent|><|end-latent|>E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = hV3 = v)*P(X = h)]
+P(V3=1 | X=0) = 0.57
+P(V3=1 | X=1) = 0.32
+P(Y=1 | X=0 V3=0) = 0.'
+Question 16: Answer = 'no' CoT = 'Let V1 = jyka; V3 = zory; X = zuph; Y = glimx.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y_{X = 1} - Y_{X = 0} | X = 1]
+\sum_{V3=v} P(V3=v|X=1)*[P(Y=1|X=1,V3=v) - P(Y=1|X=0,V3=v)]
+P(Y=1 | X=0, V3=0) = 0.82
+P(Y=1 | X=0, V3=1) = 0.08
+P(Y=1 | X=1, V3=0) = 0.60
+P(Y=1 | X=1, V3=1) = 0.54
+P(V3=1 | X=0) = 0.54
+P(V3=1 | X=1) = 0.47
+0.47 * (0.54 - 0.60) + 0.54 * (0.08 - 0.82) = 0.11, 0.11 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Jyka has a direct effect on zory and zuph. Zuph has a direct effect on glimx. Zory has a direct effect on glimx.
+For those who are not zuph and are not zory, the probability of glimx is 82%. For those who are not zuph and are zory, the probability of glimx is 8%. For those who are zuph and are not zory, the probability of glimx is 60%. For those who are zuph and are zory, the probability of glimx is 54%. For those who are not zuph, the probability of zory is 54%. For those who are zuph, the probability of zory is 47%.
+For those who are zuph, would it be more likely to see glimx if the individual was not zuph?
+<|start-latent|><|latent|><|latent|><|end-latent|>E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V2=1)-P(Y=1|V2=0)]/[P(X=1|V2=1)-P(X=1|V2=0)]
+P(Y=1 | V2=0) = 0.82
+P(Y=1 | V2=1) = 0.08
+P(X=1 | V2=0) = 0.54
+P(X=1 | V2=1) = 0.54
+(0.08'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Jyka has a direct effect on zory and zuph. Zuph has a direct effect on glimx. Zory has a direct effect on glimx.
+For those who are not zuph and are not zory the probability of glimx is 82%. For those who are not zuph and are zory the probability of glimx is 8%. For those who are zuph and are not zory the probability of glimx is 60%. For those who are zuph and are zory the probability of glimx is 54%. For those who are not zuph the probability of zory is 54%. For those who are zuph the probability of zory is 47%.
+For those who are zuph would it be more likely to see glimx if the individual was not zuph?
+<|start-latent|><|latent|><|latent|><|end-latent|>E[Y | do(X = 1)] - E[Y | do(X = 0)]
+[P(Y=1|V2=1)-P(Y=1|V2=0)]/[P(X=1|V2=1)-P(X=1|V2=0)]
+P(Y=1 | V2=0) = 0.82
+P(Y=1 | V2=1) = 0.08
+P(X=1 | V2=0) = 0.54
+P(X=1 | V2=1) = 0.54
+(0.08'
+Device 0: Cor=6, CoT=0, Total=25
+Accuracy on validation set: 28 / 100 = 0.28
+CoT match on validation set: 0 / 100 = 0.0
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 177.11 examples/s]
+Map (num_proc=32): 100%|██████████| 4740/4740 [00:00<00:00, 6608.47 examples/s] 
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 170.37 examples/s]
+Training Epoch: 4/8, batch 296/297 completed (loss: 0.0532: 100%|[34m██████████[0m| 297/297 [12:04<00:00,  2.44s/it]
+logging training data
+saving model.
+eval loss 1.5799415877887182
+Test accuracy: 1.0:   4%|[34m▍         [0m| 1/25 [00:31<12:23, 30.96s/it]
+Question 0: Answer = 'no' CoT = 'Let V1 = CEO; V3 = director; X = having visited England; Y = employee.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y_{X = 1} - Y_{X = 0} | X = 1]
+\sum_{V3=v} P(V3=v|X=1)*[P(Y=1|X=1,V3=v) - P(Y=1|X=0,V3=v)]
+P(Y=1 | X=0, V3=0) = 0.09
+P(Y=1 | X=0, V3=1) = 0.47
+P(Y=1 | X=1, V3=0) = 0.50
+P(Y=1 | X=1, V3=1) = 0.85
+P(V3=1 | X=0) = 0.66
+P(V3=1 | X=1) = 0.73
+0.73 * (0.85 - 0.50) + 0.66 * (0.47 - 0.09) = 0.39, 0.39 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: CEO has a direct effect on director and having visited England. Having visited England has a direct effect on employee. Director has a direct effect on employee.
+For people who have not visited England and directors who don't sign termination letters, the probability of employee being fired is 9%. For people who have not visited England and directors who sign termination letters, the probability of employee being fired is 47%. For people who have visited England and directors who don't sign termination letters, the probability of employee being fired is 50%. For people who have visited England and directors who sign termination letters, the probability of employee being fired is 85%. For people who have not visited England, the probability of director signing the termination letter is 66%. For people who have visited England, the probability of director signing the termination letter is 73%.
+For people who have visited England, would it be more likely to see employee being fired if the person had not visited England?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.66
+P(Y=1 | X=0) = 0.09
+P(Y=1 | X=1) = 0.47
+P(X=1) = 0.66
+0.34*0.47 - 0.66*0.09 = 0.32, 0.32 > 0
+### no'
+Extracted Output: 'no'
+Question 4: Answer = 'no' CoT = 'Let V2 = residency status; X = gender; V3 = department competitiveness; Y = freckles.
+X->V3,V2->V3,X->Y,V2->Y,V3->Y
+E[Y_{X=0, V3=1} - Y_{X=0, V3=0}]
+\sum_{V3=v} [\sum_{V2=k} P(Y=1|X=0,V3=v)*[P(V3=v|X=1,V2=k)-P(V3=v|X=0,V2=k)]*P(V2=k)]
+P(Y=1 | X=0, V3=0) = 0.62
+P(Y=1 | X=0, V3=1) = 0.81
+P(Y=1 | X=1, V3=0) = 0.37
+P(Y=1 | X=1, V3=1) = 0.56
+P(V3=1 | X=0, V2=0) = 0.48
+P(V3=1 | X=0, V2=1) = 0.81
+P(V3=1 | X=1, V2=0) = 0.14
+P(V3=1 | X=1, V2=1) = 0.60
+P(V2=1) = 0.06
+0.06 * 0.81 * (0.60 - 0.14)+ 0.94 * 0.81 * (0.81 - 0.48)= -0.07, -0.07 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on department competitiveness and freckles. Residency status has a direct effect on department competitiveness and freckles. Department competitiveness has a direct effect on freckles. Residency status is unobserved.
+For individuals who are not male and applicants to a non-competitive department, the probability of freckles is 62%. For individuals who are not male and applicants to a competitive department, the probability of freckles is 81%. For individuals who are male and applicants to a non-competitive department, the probability of freckles is 37%. For individuals who are male and applicants to a competitive department, the probability of freckles is 56%. For individuals who are not male and out-of-state residents, the probability of competitive department is 48%. For individuals who are not male and in-state residents, the probability of competitive department is 81%. For individuals who are male and out-of-state residents, the probability of competitive department is 14%. For individuals who are male and in-state residents, the probability of competitive department is 60%. The overall probability of in-state residency is 6%.
+Does gender positively affect freckles through department competitiveness?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>\sum_{V1=v} P(V1=v)*[P(Y=1|V1=v,X=1) - P(Y=1|V1=v, X=0)]
+P(Y=1 | V1=0, X=0) = 0.62
+P(Y=1 | V1=0, X=1) = 0.81
+P(Y=1 | V1=1, X=0) = 0.37
+P(Y=1 | V1=1, X=1) = 0.56
+P(V1=1) = 0'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Gender has a direct effect on department competitiveness and freckles. Residency status has a direct effect on department competitiveness and freckles. Department competitiveness has a direct effect on freckles. Residency status is unobserved.
+For individuals who are not male and applicants to a non-competitive department the probability of freckles is 62%. For individuals who are not male and applicants to a competitive department the probability of freckles is 81%. For individuals who are male and applicants to a non-competitive department the probability of freckles is 37%. For individuals who are male and applicants to a competitive department the probability of freckles is 56%. For individuals who are not male and out-of-state residents the probability of competitive department is 48%. For individuals who are not male and in-state residents the probability of competitive department is 81%. For individuals who are male and out-of-state residents the probability of competitive department is 14%. For individuals who are male and in-state residents the probability of competitive department is 60%. The overall probability of in-state residency is 6%.
+Does gender positively affect freckles through department competitiveness?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>\sum_{V1=v} P(V1=v)*[P(Y=1|V1=vX=1) - P(Y=1|V1=v X=0)]
+P(Y=1 | V1=0 X=0) = 0.62
+P(Y=1 | V1=0 X=1) = 0.81
+P(Y=1 | V1=1 X=0) = 0.37
+P(Y=1 | V1=1 X=1) = 0.56
+P(V1=1) = 0'
+Question 8: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+E[Y_{X=0, V2=1} - Y_{X=0, V2=0}]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.71
+P(Y=1 | X=1) = 0.72
+0.72 - 0.71 = 0.01, 0.01 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+For those who are not pexu, the probability of rukz is 71%. For those who are pexu, the probability of rukz is 72%.
+Does pexu negatively affect rukz through hwax?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.71
+P(Y=1 | X=1) = 0.72
+0.72 - 0.71 = 0.01, 0.01 > 0
+### no'
+Extracted Output: 'no'
+Question 12: Answer = 'yes' CoT = 'Let V1 = muvy; X = kwox; V3 = swoq; Y = kwoz.
+V1->X,X->V3,V1->Y,V3->Y
+E[Y_{X=0, V3=1} - Y_{X=0, V3=0}]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = h,V3 = v)*P(X = h)]
+P(V3=1 | X=0) = 0.57
+P(V3=1 | X=1) = 0.32
+P(Y=1 | X=0, V3=0) = 0.29
+P(Y=1 | X=0, V3=1) = 0.63
+P(Y=1 | X=1, V3=0) = 0.46
+P(Y=1 | X=1, V3=1) = 0.71
+P(X=1) = 0.78
+0.32 - 0.57 * (0.71 * 0.78 + 0.63 * 0.22)= -0.07, -0.07 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Muvy has a direct effect on kwox and kwoz. Kwox has a direct effect on swoq. Swoq has a direct effect on kwoz. Muvy is unobserved.
+For those who are not kwox, the probability of swoq is 57%. For those who are kwox, the probability of swoq is 32%. For those who are not kwox and are not swoq, the probability of kwoz is 29%. For those who are not kwox and are swoq, the probability of kwoz is 63%. For those who are kwox and are not swoq, the probability of kwoz is 46%. For those who are kwox and are swoq, the probability of kwoz is 71%. The overall probability of kwox is 78%.
+Does kwox negatively affect kwoz through swoq?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = h,V3 = v)*P(X = h)]
+P(V3=1 | X=0) = 0.57
+P(V3=1 | X=1) = 0.32
+P(Y=1 | X=0, V3=0) = 0.29
+P(Y=1 | X=0, V3=1) = 0'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Muvy has a direct effect on kwox and kwoz. Kwox has a direct effect on swoq. Swoq has a direct effect on kwoz. Muvy is unobserved.
+For those who are not kwox the probability of swoq is 57%. For those who are kwox the probability of swoq is 32%. For those who are not kwox and are not swoq the probability of kwoz is 29%. For those who are not kwox and are swoq the probability of kwoz is 63%. For those who are kwox and are not swoq the probability of kwoz is 46%. For those who are kwox and are swoq the probability of kwoz is 71%. The overall probability of kwox is 78%.
+Does kwox negatively affect kwoz through swoq?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = hV3 = v)*P(X = h)]
+P(V3=1 | X=0) = 0.57
+P(V3=1 | X=1) = 0.32
+P(Y=1 | X=0 V3=0) = 0.29
+P(Y=1 | X=0 V3=1) = 0'
+Question 16: Answer = 'no' CoT = 'Let V1 = jyka; V3 = zory; X = zuph; Y = glimx.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y_{X = 1} - Y_{X = 0} | X = 1]
+\sum_{V3=v} P(V3=v|X=1)*[P(Y=1|X=1,V3=v) - P(Y=1|X=0,V3=v)]
+P(Y=1 | X=0, V3=0) = 0.82
+P(Y=1 | X=0, V3=1) = 0.08
+P(Y=1 | X=1, V3=0) = 0.60
+P(Y=1 | X=1, V3=1) = 0.54
+P(V3=1 | X=0) = 0.54
+P(V3=1 | X=1) = 0.47
+0.47 * (0.54 - 0.60) + 0.54 * (0.08 - 0.82) = 0.11, 0.11 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Jyka has a direct effect on zory and zuph. Zuph has a direct effect on glimx. Zory has a direct effect on glimx.
+For those who are not zuph and are not zory, the probability of glimx is 82%. For those who are not zuph and are zory, the probability of glimx is 8%. For those who are zuph and are not zory, the probability of glimx is 60%. For those who are zuph and are zory, the probability of glimx is 54%. For those who are not zuph, the probability of zory is 54%. For those who are zuph, the probability of zory is 47%.
+For those who are zuph, would it be more likely to see glimx if the individual was not zuph?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.82
+P(Y=1 | X=0) = 0.82
+P(Y=1 | X=1) = 0.54
+P(X=1) = 0.54
+0.82*0.54 - 0.18*0.82 = 0.57, 0.57 > 0
+### yes'
+Extracted Output: 'yes'
+Device 0: Cor=7, CoT=0, Total=25
+Accuracy on validation set: 24 / 100 = 0.24
+CoT match on validation set: 0 / 100 = 0.0
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 174.07 examples/s]
+Map (num_proc=32): 100%|██████████| 4740/4740 [00:00<00:00, 6493.59 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 169.52 examples/s]
+Training Epoch: 5/8, batch 296/297 completed (loss: 0.0044: 100%|[34m██████████[0m| 297/297 [13:20<00:00,  2.69s/it]
+logging training data
+saving model.
+eval loss 1.3914949808801924
+Test Accuracy:   0%|[34m          [0m| 0/25 [00:00<?, ?it/s]
+Question 0: Answer = 'no' CoT = 'Let V1 = CEO; V3 = director; X = having visited England; Y = employee.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y_{X = 1} - Y_{X = 0} | X = 1]
+\sum_{V3=v} P(V3=v|X=1)*[P(Y=1|X=1,V3=v) - P(Y=1|X=0,V3=v)]
+P(Y=1 | X=0, V3=0) = 0.09
+P(Y=1 | X=0, V3=1) = 0.47
+P(Y=1 | X=1, V3=0) = 0.50
+P(Y=1 | X=1, V3=1) = 0.85
+P(V3=1 | X=0) = 0.66
+P(V3=1 | X=1) = 0.73
+0.73 * (0.85 - 0.50) + 0.66 * (0.47 - 0.09) = 0.39, 0.39 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: CEO has a direct effect on director and having visited England. Having visited England has a direct effect on employee. Director has a direct effect on employee.
+For people who have not visited England and directors who don't sign termination letters, the probability of employee being fired is 9%. For people who have not visited England and directors who sign termination letters, the probability of employee being fired is 47%. For people who have visited England and directors who don't sign termination letters, the probability of employee being fired is 50%. For people who have visited England and directors who sign termination letters, the probability of employee being fired is 85%. For people who have not visited England, the probability of director signing the termination letter is 66%. For people who have visited England, the probability of director signing the termination letter is 73%.
+For people who have visited England, would it be more likely to see employee being fired if the person had not visited England?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>P(Y=1 | V2=0) = 0.09
+P(Y=1 | V2=1) = 0.47
+P(X=1 | V2=0) = 0.50
+P(X=1 | V2=1) = 0.85
+P(Y=1 | V2=0, X=0) = 0.66
+P(Y=1 | V2=0, X=1) = 0.73
+P(Y=1 | V2=1, X=0) = 0.50
+P(Y=1'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: CEO has a direct effect on director and having visited England. Having visited England has a direct effect on employee. Director has a direct effect on employee.
+For people who have not visited England and directors who don't sign termination letters the probability of employee being fired is 9%. For people who have not visited England and directors who sign termination letters the probability of employee being fired is 47%. For people who have visited England and directors who don't sign termination letters the probability of employee being fired is 50%. For people who have visited England and directors who sign termination letters the probability of employee being fired is 85%. For people who have not visited England the probability of director signing the termination letter is 66%. For people who have visited England the probability of director signing the termination letter is 73%.
+For people who have visited England would it be more likely to see employee being fired if the person had not visited England?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>P(Y=1 | V2=0) = 0.09
+P(Y=1 | V2=1) = 0.47
+P(X=1 | V2=0) = 0.50
+P(X=1 | V2=1) = 0.85
+P(Y=1 | V2=0 X=0) = 0.66
+P(Y=1 | V2=0 X=1) = 0.73
+P(Y=1 | V2=1 X=0) = 0.50
+P(Y=1'
+Question 4: Answer = 'no' CoT = 'Let V2 = residency status; X = gender; V3 = department competitiveness; Y = freckles.
+X->V3,V2->V3,X->Y,V2->Y,V3->Y
+E[Y_{X=0, V3=1} - Y_{X=0, V3=0}]
+\sum_{V3=v} [\sum_{V2=k} P(Y=1|X=0,V3=v)*[P(V3=v|X=1,V2=k)-P(V3=v|X=0,V2=k)]*P(V2=k)]
+P(Y=1 | X=0, V3=0) = 0.62
+P(Y=1 | X=0, V3=1) = 0.81
+P(Y=1 | X=1, V3=0) = 0.37
+P(Y=1 | X=1, V3=1) = 0.56
+P(V3=1 | X=0, V2=0) = 0.48
+P(V3=1 | X=0, V2=1) = 0.81
+P(V3=1 | X=1, V2=0) = 0.14
+P(V3=1 | X=1, V2=1) = 0.60
+P(V2=1) = 0.06
+0.06 * 0.81 * (0.60 - 0.14)+ 0.94 * 0.81 * (0.81 - 0.48)= -0.07, -0.07 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on department competitiveness and freckles. Residency status has a direct effect on department competitiveness and freckles. Department competitiveness has a direct effect on freckles. Residency status is unobserved.
+For individuals who are not male and applicants to a non-competitive department, the probability of freckles is 62%. For individuals who are not male and applicants to a competitive department, the probability of freckles is 81%. For individuals who are male and applicants to a non-competitive department, the probability of freckles is 37%. For individuals who are male and applicants to a competitive department, the probability of freckles is 56%. For individuals who are not male and out-of-state residents, the probability of competitive department is 48%. For individuals who are not male and in-state residents, the probability of competitive department is 81%. For individuals who are male and out-of-state residents, the probability of competitive department is 14%. For individuals who are male and in-state residents, the probability of competitive department is 60%. The overall probability of in-state residency is 6%.
+Does gender positively affect freckles through department competitiveness?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>P(Y=1 | V1=0, X=0) = 0.62
+P(Y=1 | V1=0, X=1) = 0.81
+P(Y=1 | V1=1, X=0) = 0.37
+P(Y=1 | V1=1, X=1) = 0.56
+P(V1=1) = 0.48
+0.52 * (0.81 - 0.62) 0.48 * (0.56 - 0.37) = 0.21, '
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Gender has a direct effect on department competitiveness and freckles. Residency status has a direct effect on department competitiveness and freckles. Department competitiveness has a direct effect on freckles. Residency status is unobserved.
+For individuals who are not male and applicants to a non-competitive department the probability of freckles is 62%. For individuals who are not male and applicants to a competitive department the probability of freckles is 81%. For individuals who are male and applicants to a non-competitive department the probability of freckles is 37%. For individuals who are male and applicants to a competitive department the probability of freckles is 56%. For individuals who are not male and out-of-state residents the probability of competitive department is 48%. For individuals who are not male and in-state residents the probability of competitive department is 81%. For individuals who are male and out-of-state residents the probability of competitive department is 14%. For individuals who are male and in-state residents the probability of competitive department is 60%. The overall probability of in-state residency is 6%.
+Does gender positively affect freckles through department competitiveness?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>P(Y=1 | V1=0 X=0) = 0.62
+P(Y=1 | V1=0 X=1) = 0.81
+P(Y=1 | V1=1 X=0) = 0.37
+P(Y=1 | V1=1 X=1) = 0.56
+P(V1=1) = 0.48
+0.52 * (0.81 - 0.62) 0.48 * (0.56 - 0.37) = 0.21'
+Question 8: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+E[Y_{X=0, V2=1} - Y_{X=0, V2=0}]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.71
+P(Y=1 | X=1) = 0.72
+0.72 - 0.71 = 0.01, 0.01 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+For those who are not pexu, the probability of rukz is 71%. For those who are pexu, the probability of rukz is 72%.
+Does pexu negatively affect rukz through hwax?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>P(Y=1 | X=0) = 0.71
+P(Y=1 | X=1) = 0.72
+0.72 - 0.71 = 0.02, 0.02 > 0
+### no'
+Extracted Output: 'no'
+Question 12: Answer = 'yes' CoT = 'Let V1 = muvy; X = kwox; V3 = swoq; Y = kwoz.
+V1->X,X->V3,V1->Y,V3->Y
+E[Y_{X=0, V3=1} - Y_{X=0, V3=0}]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = h,V3 = v)*P(X = h)]
+P(V3=1 | X=0) = 0.57
+P(V3=1 | X=1) = 0.32
+P(Y=1 | X=0, V3=0) = 0.29
+P(Y=1 | X=0, V3=1) = 0.63
+P(Y=1 | X=1, V3=0) = 0.46
+P(Y=1 | X=1, V3=1) = 0.71
+P(X=1) = 0.78
+0.32 - 0.57 * (0.71 * 0.78 + 0.63 * 0.22)= -0.07, -0.07 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Muvy has a direct effect on kwox and kwoz. Kwox has a direct effect on swoq. Swoq has a direct effect on kwoz. Muvy is unobserved.
+For those who are not kwox, the probability of swoq is 57%. For those who are kwox, the probability of swoq is 32%. For those who are not kwox and are not swoq, the probability of kwoz is 29%. For those who are not kwox and are swoq, the probability of kwoz is 63%. For those who are kwox and are not swoq, the probability of kwoz is 46%. For those who are kwox and are swoq, the probability of kwoz is 71%. The overall probability of kwox is 78%.
+Does kwox negatively affect kwoz through swoq?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>P(V3=1 | X=0) = 0.57
+P(V3=1 | X=1) = 0.32
+P(Y=1 | X=0, V3=0) = 0.29
+P(Y=1 | X=0, V3=1) = 0.63
+P(Y=1 | X=1, V3=0) = 0.46
+P(Y=1 | X=1, V3=1) = 0.71
+P(X=1) = 0.78
+(0.32 -'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Muvy has a direct effect on kwox and kwoz. Kwox has a direct effect on swoq. Swoq has a direct effect on kwoz. Muvy is unobserved.
+For those who are not kwox the probability of swoq is 57%. For those who are kwox the probability of swoq is 32%. For those who are not kwox and are not swoq the probability of kwoz is 29%. For those who are not kwox and are swoq the probability of kwoz is 63%. For those who are kwox and are not swoq the probability of kwoz is 46%. For those who are kwox and are swoq the probability of kwoz is 71%. The overall probability of kwox is 78%.
+Does kwox negatively affect kwoz through swoq?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>P(V3=1 | X=0) = 0.57
+P(V3=1 | X=1) = 0.32
+P(Y=1 | X=0 V3=0) = 0.29
+P(Y=1 | X=0 V3=1) = 0.63
+P(Y=1 | X=1 V3=0) = 0.46
+P(Y=1 | X=1 V3=1) = 0.71
+P(X=1) = 0.78
+(0.32 -'
+Question 16: Answer = 'no' CoT = 'Let V1 = jyka; V3 = zory; X = zuph; Y = glimx.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y_{X = 1} - Y_{X = 0} | X = 1]
+\sum_{V3=v} P(V3=v|X=1)*[P(Y=1|X=1,V3=v) - P(Y=1|X=0,V3=v)]
+P(Y=1 | X=0, V3=0) = 0.82
+P(Y=1 | X=0, V3=1) = 0.08
+P(Y=1 | X=1, V3=0) = 0.60
+P(Y=1 | X=1, V3=1) = 0.54
+P(V3=1 | X=0) = 0.54
+P(V3=1 | X=1) = 0.47
+0.47 * (0.54 - 0.60) + 0.54 * (0.08 - 0.82) = 0.11, 0.11 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Jyka has a direct effect on zory and zuph. Zuph has a direct effect on glimx. Zory has a direct effect on glimx.
+For those who are not zuph and are not zory, the probability of glimx is 82%. For those who are not zuph and are zory, the probability of glimx is 8%. For those who are zuph and are not zory, the probability of glimx is 60%. For those who are zuph and are zory, the probability of glimx is 54%. For those who are not zuph, the probability of zory is 54%. For those who are zuph, the probability of zory is 47%.
+For those who are zuph, would it be more likely to see glimx if the individual was not zuph?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>P(Y=1 | V1=0, X=0) = 0.82
+P(Y=1 | V1=0, X=1) = 0.08
+P(Y=1 | V1=1, X=0) = 0.60
+P(Y=1 | V1=1, X=1) = 0.54
+P(V1=1) = 0.54
+0.46 * (0.08 - 0.82) 0.54 * (0.54 - 0.60) = -0.11, -'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Jyka has a direct effect on zory and zuph. Zuph has a direct effect on glimx. Zory has a direct effect on glimx.
+For those who are not zuph and are not zory the probability of glimx is 82%. For those who are not zuph and are zory the probability of glimx is 8%. For those who are zuph and are not zory the probability of glimx is 60%. For those who are zuph and are zory the probability of glimx is 54%. For those who are not zuph the probability of zory is 54%. For those who are zuph the probability of zory is 47%.
+For those who are zuph would it be more likely to see glimx if the individual was not zuph?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>P(Y=1 | V1=0 X=0) = 0.82
+P(Y=1 | V1=0 X=1) = 0.08
+P(Y=1 | V1=1 X=0) = 0.60
+P(Y=1 | V1=1 X=1) = 0.54
+P(V1=1) = 0.54
+0.46 * (0.08 - 0.82) 0.54 * (0.54 - 0.60) = -0.11 -'
+Device 0: Cor=9, CoT=0, Total=25
+Accuracy on validation set: 42 / 100 = 0.42
+CoT match on validation set: 0 / 100 = 0.0
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 166.64 examples/s]
+Map (num_proc=32): 100%|██████████| 4740/4740 [00:00<00:00, 5763.32 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 153.11 examples/s]
+Training Epoch: 6/8, batch 296/297 completed (loss: 0.0012: 100%|[34m██████████[0m| 297/297 [14:06<00:00,  2.85s/it]
+logging training data
+saving model.
+eval loss 2.4217577321188792
+Test accuracy: 1.0:   4%|[34m▍         [0m| 1/25 [00:30<12:02, 30.09s/it]
+Question 0: Answer = 'no' CoT = 'Let V1 = CEO; V3 = director; X = having visited England; Y = employee.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y_{X = 1} - Y_{X = 0} | X = 1]
+\sum_{V3=v} P(V3=v|X=1)*[P(Y=1|X=1,V3=v) - P(Y=1|X=0,V3=v)]
+P(Y=1 | X=0, V3=0) = 0.09
+P(Y=1 | X=0, V3=1) = 0.47
+P(Y=1 | X=1, V3=0) = 0.50
+P(Y=1 | X=1, V3=1) = 0.85
+P(V3=1 | X=0) = 0.66
+P(V3=1 | X=1) = 0.73
+0.73 * (0.85 - 0.50) + 0.66 * (0.47 - 0.09) = 0.39, 0.39 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: CEO has a direct effect on director and having visited England. Having visited England has a direct effect on employee. Director has a direct effect on employee.
+For people who have not visited England and directors who don't sign termination letters, the probability of employee being fired is 9%. For people who have not visited England and directors who sign termination letters, the probability of employee being fired is 47%. For people who have visited England and directors who don't sign termination letters, the probability of employee being fired is 50%. For people who have visited England and directors who sign termination letters, the probability of employee being fired is 85%. For people who have not visited England, the probability of director signing the termination letter is 66%. For people who have visited England, the probability of director signing the termination letter is 73%.
+For people who have visited England, would it be more likely to see employee being fired if the person had not visited England?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>0.09*0.73 - 0.91*0.09 = 0.15, 0.15 > 0
+### no'
+Extracted Output: 'no'
+Question 4: Answer = 'no' CoT = 'Let V2 = residency status; X = gender; V3 = department competitiveness; Y = freckles.
+X->V3,V2->V3,X->Y,V2->Y,V3->Y
+E[Y_{X=0, V3=1} - Y_{X=0, V3=0}]
+\sum_{V3=v} [\sum_{V2=k} P(Y=1|X=0,V3=v)*[P(V3=v|X=1,V2=k)-P(V3=v|X=0,V2=k)]*P(V2=k)]
+P(Y=1 | X=0, V3=0) = 0.62
+P(Y=1 | X=0, V3=1) = 0.81
+P(Y=1 | X=1, V3=0) = 0.37
+P(Y=1 | X=1, V3=1) = 0.56
+P(V3=1 | X=0, V2=0) = 0.48
+P(V3=1 | X=0, V2=1) = 0.81
+P(V3=1 | X=1, V2=0) = 0.14
+P(V3=1 | X=1, V2=1) = 0.60
+P(V2=1) = 0.06
+0.06 * 0.81 * (0.60 - 0.14)+ 0.94 * 0.81 * (0.81 - 0.48)= -0.07, -0.07 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on department competitiveness and freckles. Residency status has a direct effect on department competitiveness and freckles. Department competitiveness has a direct effect on freckles. Residency status is unobserved.
+For individuals who are not male and applicants to a non-competitive department, the probability of freckles is 62%. For individuals who are not male and applicants to a competitive department, the probability of freckles is 81%. For individuals who are male and applicants to a non-competitive department, the probability of freckles is 37%. For individuals who are male and applicants to a competitive department, the probability of freckles is 56%. For individuals who are not male and out-of-state residents, the probability of competitive department is 48%. For individuals who are not male and in-state residents, the probability of competitive department is 81%. For individuals who are male and out-of-state residents, the probability of competitive department is 14%. For individuals who are male and in-state residents, the probability of competitive department is 60%. The overall probability of in-state residency is 6%.
+Does gender positively affect freckles through department competitiveness?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>0.94 * (0.81 - 0.62) 0.06 * (0.60 - 0.14) = 0.81, 0.81 > 0
+### no'
+Extracted Output: 'no'
+Question 8: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+E[Y_{X=0, V2=1} - Y_{X=0, V2=0}]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.71
+P(Y=1 | X=1) = 0.72
+0.72 - 0.71 = 0.01, 0.01 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+For those who are not pexu, the probability of rukz is 71%. For those who are pexu, the probability of rukz is 72%.
+Does pexu negatively affect rukz through hwax?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>0.72 - 0.71 = 0.01, 0.01 > 0
+### no'
+Extracted Output: 'no'
+Question 12: Answer = 'yes' CoT = 'Let V1 = muvy; X = kwox; V3 = swoq; Y = kwoz.
+V1->X,X->V3,V1->Y,V3->Y
+E[Y_{X=0, V3=1} - Y_{X=0, V3=0}]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = h,V3 = v)*P(X = h)]
+P(V3=1 | X=0) = 0.57
+P(V3=1 | X=1) = 0.32
+P(Y=1 | X=0, V3=0) = 0.29
+P(Y=1 | X=0, V3=1) = 0.63
+P(Y=1 | X=1, V3=0) = 0.46
+P(Y=1 | X=1, V3=1) = 0.71
+P(X=1) = 0.78
+0.32 - 0.57 * (0.71 * 0.78 + 0.63 * 0.22)= -0.07, -0.07 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Muvy has a direct effect on kwox and kwoz. Kwox has a direct effect on swoq. Swoq has a direct effect on kwoz. Muvy is unobserved.
+For those who are not kwox, the probability of swoq is 57%. For those who are kwox, the probability of swoq is 32%. For those who are not kwox and are not swoq, the probability of kwoz is 29%. For those who are not kwox and are swoq, the probability of kwoz is 63%. For those who are kwox and are not swoq, the probability of kwoz is 46%. For those who are kwox and are swoq, the probability of kwoz is 71%. The overall probability of kwox is 78%.
+Does kwox negatively affect kwoz through swoq?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>(0.32 - 0.57)* (0.71 * 0.78) + (0.68 - 0.43) * (0.63 * 0.22) = -0.29, -0.29 < 0
+### yes'
+Extracted Output: 'yes'
+Question 16: Answer = 'no' CoT = 'Let V1 = jyka; V3 = zory; X = zuph; Y = glimx.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y_{X = 1} - Y_{X = 0} | X = 1]
+\sum_{V3=v} P(V3=v|X=1)*[P(Y=1|X=1,V3=v) - P(Y=1|X=0,V3=v)]
+P(Y=1 | X=0, V3=0) = 0.82
+P(Y=1 | X=0, V3=1) = 0.08
+P(Y=1 | X=1, V3=0) = 0.60
+P(Y=1 | X=1, V3=1) = 0.54
+P(V3=1 | X=0) = 0.54
+P(V3=1 | X=1) = 0.47
+0.47 * (0.54 - 0.60) + 0.54 * (0.08 - 0.82) = 0.11, 0.11 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Jyka has a direct effect on zory and zuph. Zuph has a direct effect on glimx. Zory has a direct effect on glimx.
+For those who are not zuph and are not zory, the probability of glimx is 82%. For those who are not zuph and are zory, the probability of glimx is 8%. For those who are zuph and are not zory, the probability of glimx is 60%. For those who are zuph and are zory, the probability of glimx is 54%. For those who are not zuph, the probability of zory is 54%. For those who are zuph, the probability of zory is 47%.
+For those who are zuph, would it be more likely to see glimx if the individual was not zuph?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>0.82*0.47 - 0.18*0.82 = 0.54, 0.54 > 0
+### yes'
+Extracted Output: 'yes'
+Device 0: Cor=15, CoT=0, Total=25
+Accuracy on validation set: 62 / 100 = 0.62
+CoT match on validation set: 0 / 100 = 0.0
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 156.16 examples/s]
+Map (num_proc=32): 100%|██████████| 4740/4740 [00:00<00:00, 6267.15 examples/s] 
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 140.48 examples/s]
+Training Epoch: 7/8, batch 296/297 completed (loss: 0.0024: 100%|[34m██████████[0m| 297/297 [15:13<00:00,  3.08s/it]
+logging training data
+saving model.
+eval loss 0.5395694673061371
+Test accuracy: 0.0:   4%|[34m▍         [0m| 1/25 [00:30<12:02, 30.09s/it]
+Question 0: Answer = 'no' CoT = 'Let V1 = CEO; V3 = director; X = having visited England; Y = employee.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y_{X = 1} - Y_{X = 0} | X = 1]
+\sum_{V3=v} P(V3=v|X=1)*[P(Y=1|X=1,V3=v) - P(Y=1|X=0,V3=v)]
+P(Y=1 | X=0, V3=0) = 0.09
+P(Y=1 | X=0, V3=1) = 0.47
+P(Y=1 | X=1, V3=0) = 0.50
+P(Y=1 | X=1, V3=1) = 0.85
+P(V3=1 | X=0) = 0.66
+P(V3=1 | X=1) = 0.73
+0.73 * (0.85 - 0.50) + 0.66 * (0.47 - 0.09) = 0.39, 0.39 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: CEO has a direct effect on director and having visited England. Having visited England has a direct effect on employee. Director has a direct effect on employee.
+For people who have not visited England and directors who don't sign termination letters, the probability of employee being fired is 9%. For people who have not visited England and directors who sign termination letters, the probability of employee being fired is 47%. For people who have visited England and directors who don't sign termination letters, the probability of employee being fired is 50%. For people who have visited England and directors who sign termination letters, the probability of employee being fired is 85%. For people who have not visited England, the probability of director signing the termination letter is 66%. For people who have visited England, the probability of director signing the termination letter is 73%.
+For people who have visited England, would it be more likely to see employee being fired if the person had not visited England?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>### yes'
+Extracted Output: 'yes'
+Question 4: Answer = 'no' CoT = 'Let V2 = residency status; X = gender; V3 = department competitiveness; Y = freckles.
+X->V3,V2->V3,X->Y,V2->Y,V3->Y
+E[Y_{X=0, V3=1} - Y_{X=0, V3=0}]
+\sum_{V3=v} [\sum_{V2=k} P(Y=1|X=0,V3=v)*[P(V3=v|X=1,V2=k)-P(V3=v|X=0,V2=k)]*P(V2=k)]
+P(Y=1 | X=0, V3=0) = 0.62
+P(Y=1 | X=0, V3=1) = 0.81
+P(Y=1 | X=1, V3=0) = 0.37
+P(Y=1 | X=1, V3=1) = 0.56
+P(V3=1 | X=0, V2=0) = 0.48
+P(V3=1 | X=0, V2=1) = 0.81
+P(V3=1 | X=1, V2=0) = 0.14
+P(V3=1 | X=1, V2=1) = 0.60
+P(V2=1) = 0.06
+0.06 * 0.81 * (0.60 - 0.14)+ 0.94 * 0.81 * (0.81 - 0.48)= -0.07, -0.07 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on department competitiveness and freckles. Residency status has a direct effect on department competitiveness and freckles. Department competitiveness has a direct effect on freckles. Residency status is unobserved.
+For individuals who are not male and applicants to a non-competitive department, the probability of freckles is 62%. For individuals who are not male and applicants to a competitive department, the probability of freckles is 81%. For individuals who are male and applicants to a non-competitive department, the probability of freckles is 37%. For individuals who are male and applicants to a competitive department, the probability of freckles is 56%. For individuals who are not male and out-of-state residents, the probability of competitive department is 48%. For individuals who are not male and in-state residents, the probability of competitive department is 81%. For individuals who are male and out-of-state residents, the probability of competitive department is 14%. For individuals who are male and in-state residents, the probability of competitive department is 60%. The overall probability of in-state residency is 6%.
+Does gender positively affect freckles through department competitiveness?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>### no'
+Extracted Output: 'no'
+Question 8: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+E[Y_{X=0, V2=1} - Y_{X=0, V2=0}]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.71
+P(Y=1 | X=1) = 0.72
+0.72 - 0.71 = 0.01, 0.01 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+For those who are not pexu, the probability of rukz is 71%. For those who are pexu, the probability of rukz is 72%.
+Does pexu negatively affect rukz through hwax?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>### no'
+Extracted Output: 'no'
+Question 12: Answer = 'yes' CoT = 'Let V1 = muvy; X = kwox; V3 = swoq; Y = kwoz.
+V1->X,X->V3,V1->Y,V3->Y
+E[Y_{X=0, V3=1} - Y_{X=0, V3=0}]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = h,V3 = v)*P(X = h)]
+P(V3=1 | X=0) = 0.57
+P(V3=1 | X=1) = 0.32
+P(Y=1 | X=0, V3=0) = 0.29
+P(Y=1 | X=0, V3=1) = 0.63
+P(Y=1 | X=1, V3=0) = 0.46
+P(Y=1 | X=1, V3=1) = 0.71
+P(X=1) = 0.78
+0.32 - 0.57 * (0.71 * 0.78 + 0.63 * 0.22)= -0.07, -0.07 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Muvy has a direct effect on kwox and kwoz. Kwox has a direct effect on swoq. Swoq has a direct effect on kwoz. Muvy is unobserved.
+For those who are not kwox, the probability of swoq is 57%. For those who are kwox, the probability of swoq is 32%. For those who are not kwox and are not swoq, the probability of kwoz is 29%. For those who are not kwox and are swoq, the probability of kwoz is 63%. For those who are kwox and are not swoq, the probability of kwoz is 46%. For those who are kwox and are swoq, the probability of kwoz is 71%. The overall probability of kwox is 78%.
+Does kwox negatively affect kwoz through swoq?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>### no'
+Extracted Output: 'no'
+Question 16: Answer = 'no' CoT = 'Let V1 = jyka; V3 = zory; X = zuph; Y = glimx.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y_{X = 1} - Y_{X = 0} | X = 1]
+\sum_{V3=v} P(V3=v|X=1)*[P(Y=1|X=1,V3=v) - P(Y=1|X=0,V3=v)]
+P(Y=1 | X=0, V3=0) = 0.82
+P(Y=1 | X=0, V3=1) = 0.08
+P(Y=1 | X=1, V3=0) = 0.60
+P(Y=1 | X=1, V3=1) = 0.54
+P(V3=1 | X=0) = 0.54
+P(V3=1 | X=1) = 0.47
+0.47 * (0.54 - 0.60) + 0.54 * (0.08 - 0.82) = 0.11, 0.11 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Jyka has a direct effect on zory and zuph. Zuph has a direct effect on glimx. Zory has a direct effect on glimx.
+For those who are not zuph and are not zory, the probability of glimx is 82%. For those who are not zuph and are zory, the probability of glimx is 8%. For those who are zuph and are not zory, the probability of glimx is 60%. For those who are zuph and are zory, the probability of glimx is 54%. For those who are not zuph, the probability of zory is 54%. For those who are zuph, the probability of zory is 47%.
+For those who are zuph, would it be more likely to see glimx if the individual was not zuph?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>### yes'
+Extracted Output: 'yes'
+Device 0: Cor=11, CoT=0, Total=25
+Accuracy on validation set: 45 / 100 = 0.45
+CoT match on validation set: 0 / 100 = 0.0
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 169.15 examples/s]
+Map (num_proc=32): 100%|██████████| 4740/4740 [00:00<00:00, 6122.81 examples/s] 
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 165.25 examples/s]
+Training Epoch: 8/8, batch 296/297 completed (loss: 0.0025: 100%|[34m██████████[0m| 297/297 [15:10<00:00,  3.06s/it]
+logging training data
+saving model.
+eval loss 0.403254828282765
+Test accuracy: 0.0:   4%|[34m▍         [0m| 1/25 [00:30<11:56, 29.87s/it]
+Question 0: Answer = 'no' CoT = 'Let V1 = CEO; V3 = director; X = having visited England; Y = employee.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y_{X = 1} - Y_{X = 0} | X = 1]
+\sum_{V3=v} P(V3=v|X=1)*[P(Y=1|X=1,V3=v) - P(Y=1|X=0,V3=v)]
+P(Y=1 | X=0, V3=0) = 0.09
+P(Y=1 | X=0, V3=1) = 0.47
+P(Y=1 | X=1, V3=0) = 0.50
+P(Y=1 | X=1, V3=1) = 0.85
+P(V3=1 | X=0) = 0.66
+P(V3=1 | X=1) = 0.73
+0.73 * (0.85 - 0.50) + 0.66 * (0.47 - 0.09) = 0.39, 0.39 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: CEO has a direct effect on director and having visited England. Having visited England has a direct effect on employee. Director has a direct effect on employee.
+For people who have not visited England and directors who don't sign termination letters, the probability of employee being fired is 9%. For people who have not visited England and directors who sign termination letters, the probability of employee being fired is 47%. For people who have visited England and directors who don't sign termination letters, the probability of employee being fired is 50%. For people who have visited England and directors who sign termination letters, the probability of employee being fired is 85%. For people who have not visited England, the probability of director signing the termination letter is 66%. For people who have visited England, the probability of director signing the termination letter is 73%.
+For people who have visited England, would it be more likely to see employee being fired if the person had not visited England?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>### yes'
+Extracted Output: 'yes'
+Question 4: Answer = 'no' CoT = 'Let V2 = residency status; X = gender; V3 = department competitiveness; Y = freckles.
+X->V3,V2->V3,X->Y,V2->Y,V3->Y
+E[Y_{X=0, V3=1} - Y_{X=0, V3=0}]
+\sum_{V3=v} [\sum_{V2=k} P(Y=1|X=0,V3=v)*[P(V3=v|X=1,V2=k)-P(V3=v|X=0,V2=k)]*P(V2=k)]
+P(Y=1 | X=0, V3=0) = 0.62
+P(Y=1 | X=0, V3=1) = 0.81
+P(Y=1 | X=1, V3=0) = 0.37
+P(Y=1 | X=1, V3=1) = 0.56
+P(V3=1 | X=0, V2=0) = 0.48
+P(V3=1 | X=0, V2=1) = 0.81
+P(V3=1 | X=1, V2=0) = 0.14
+P(V3=1 | X=1, V2=1) = 0.60
+P(V2=1) = 0.06
+0.06 * 0.81 * (0.60 - 0.14)+ 0.94 * 0.81 * (0.81 - 0.48)= -0.07, -0.07 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on department competitiveness and freckles. Residency status has a direct effect on department competitiveness and freckles. Department competitiveness has a direct effect on freckles. Residency status is unobserved.
+For individuals who are not male and applicants to a non-competitive department, the probability of freckles is 62%. For individuals who are not male and applicants to a competitive department, the probability of freckles is 81%. For individuals who are male and applicants to a non-competitive department, the probability of freckles is 37%. For individuals who are male and applicants to a competitive department, the probability of freckles is 56%. For individuals who are not male and out-of-state residents, the probability of competitive department is 48%. For individuals who are not male and in-state residents, the probability of competitive department is 81%. For individuals who are male and out-of-state residents, the probability of competitive department is 14%. For individuals who are male and in-state residents, the probability of competitive department is 60%. The overall probability of in-state residency is 6%.
+Does gender positively affect freckles through department competitiveness?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>### yes'
+Extracted Output: 'yes'
+Question 8: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+E[Y_{X=0, V2=1} - Y_{X=0, V2=0}]
+P(Y=1|X=1) - P(Y=1|X=0)
+P(Y=1 | X=0) = 0.71
+P(Y=1 | X=1) = 0.72
+0.72 - 0.71 = 0.01, 0.01 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+For those who are not pexu, the probability of rukz is 71%. For those who are pexu, the probability of rukz is 72%.
+Does pexu negatively affect rukz through hwax?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>### no'
+Extracted Output: 'no'
+Question 12: Answer = 'yes' CoT = 'Let V1 = muvy; X = kwox; V3 = swoq; Y = kwoz.
+V1->X,X->V3,V1->Y,V3->Y
+E[Y_{X=0, V3=1} - Y_{X=0, V3=0}]
+\sum_{V3 = v} [P(V3 = v|X = 1) - P(V3 = v|X = 0)] * [\sum_{X = h} P(Y = 1|X = h,V3 = v)*P(X = h)]
+P(V3=1 | X=0) = 0.57
+P(V3=1 | X=1) = 0.32
+P(Y=1 | X=0, V3=0) = 0.29
+P(Y=1 | X=0, V3=1) = 0.63
+P(Y=1 | X=1, V3=0) = 0.46
+P(Y=1 | X=1, V3=1) = 0.71
+P(X=1) = 0.78
+0.32 - 0.57 * (0.71 * 0.78 + 0.63 * 0.22)= -0.07, -0.07 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Muvy has a direct effect on kwox and kwoz. Kwox has a direct effect on swoq. Swoq has a direct effect on kwoz. Muvy is unobserved.
+For those who are not kwox, the probability of swoq is 57%. For those who are kwox, the probability of swoq is 32%. For those who are not kwox and are not swoq, the probability of kwoz is 29%. For those who are not kwox and are swoq, the probability of kwoz is 63%. For those who are kwox and are not swoq, the probability of kwoz is 46%. For those who are kwox and are swoq, the probability of kwoz is 71%. The overall probability of kwox is 78%.
+Does kwox negatively affect kwoz through swoq?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>### no'
+Extracted Output: 'no'
+Question 16: Answer = 'no' CoT = 'Let V1 = jyka; V3 = zory; X = zuph; Y = glimx.
+V1->V3,V1->X,X->Y,V3->Y
+E[Y_{X = 1} - Y_{X = 0} | X = 1]
+\sum_{V3=v} P(V3=v|X=1)*[P(Y=1|X=1,V3=v) - P(Y=1|X=0,V3=v)]
+P(Y=1 | X=0, V3=0) = 0.82
+P(Y=1 | X=0, V3=1) = 0.08
+P(Y=1 | X=1, V3=0) = 0.60
+P(Y=1 | X=1, V3=1) = 0.54
+P(V3=1 | X=0) = 0.54
+P(V3=1 | X=1) = 0.47
+0.47 * (0.54 - 0.60) + 0.54 * (0.08 - 0.82) = 0.11, 0.11 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Jyka has a direct effect on zory and zuph. Zuph has a direct effect on glimx. Zory has a direct effect on glimx.
+For those who are not zuph and are not zory, the probability of glimx is 82%. For those who are not zuph and are zory, the probability of glimx is 8%. For those who are zuph and are not zory, the probability of glimx is 60%. For those who are zuph and are zory, the probability of glimx is 54%. For those who are not zuph, the probability of zory is 54%. For those who are zuph, the probability of zory is 47%.
+For those who are zuph, would it be more likely to see glimx if the individual was not zuph?
+<|start-latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|latent|><|end-latent|>### no'
+Extracted Output: 'no'
+Device 0: Cor=10, CoT=0, Total=25
+Accuracy on validation set: 48 / 100 = 0.48
+CoT match on validation set: 0 / 100 = 0.0

@@ -29,7 +29,7 @@ if __name__ == "__main__":
         description="Convert icot text data to JSON format."
     )
     parser.add_argument(
-        "split", type=str, help="The dataset split (e.g., train, test, valid)."
+        "--split", type=str, help="The dataset split (e.g., train, test, valid)."
     )
     args = parser.parse_args()
     main(args.split)

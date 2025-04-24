@@ -1,0 +1,18 @@
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 201.50 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 186.03 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 202.56 examples/s]
+Training Epoch: 1/5, batch 1/2 completed (loss: 2.8567: 100%|[34m██████████[0m| 2/2 [00:20<00:00, 10.10s/it]
+logging training data
+eval loss 2.225313425064087
+Test Accuracy:   0%|[34m          [0m| 0/2 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "/export/home2/weijie210/coconut/run.py", line 607, in <module>
+    main()
+  File "/export/home2/weijie210/coconut/run.py", line 497, in main
+    answer = [answers_val[j] for j in test_idx.cpu().tolist()]
+TypeError: 'int' object is not iterable
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/export/home2/weijie210/coconut/run.py", line 607, in <module>
+[rank0]:     main()
+[rank0]:   File "/export/home2/weijie210/coconut/run.py", line 497, in main
+[rank0]:     answer = [answers_val[j] for j in test_idx.cpu().tolist()]
+[rank0]: TypeError: 'int' object is not iterable

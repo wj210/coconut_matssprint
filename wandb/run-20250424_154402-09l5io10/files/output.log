@@ -1,0 +1,180 @@
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 174.69 examples/s]
+Map (num_proc=32): 100%|██████████| 20000/20000 [00:00<00:00, 21334.98 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 169.16 examples/s]
+Training Epoch: 2:   0%|[34m          [0m| 0/313 [00:00<?, ?it/s]We detected that you are passing `past_key_values` as a tuple of tuples. This is deprecated and will be removed in v4.47. Please convert your cache or use an appropriate `Cache` class (https://huggingface.co/docs/transformers/kv_cache#legacy-cache-format)
+logging training data
+Training Epoch: 2/5, batch 312/313 completed (loss: 0.136: 100%|[34m██████████[0m| 313/313 [10:54<00:00,  2.09s/it] 
+saving model.
+eval loss 0.4893859773874283
+Test accuracy: 0.0:  12%|[34m█▏        [0m| 3/25 [01:16<09:21, 25.52s/it]
+Question 0: Answer = '10' CoT = '<<1.5*2=3>>
+<<3+2.5=5.5>>
+<<1.5+3+5.5=10>>'
+Full output: '<|begin_of_text|>Hannah has three dogs. The first dog eats 1.5 cups of dog food a day. The second dog eats twice as much while the third dog eats 2.5 cups more than the second dog. How many cups of dog food should Hannah prepare in a day for her three dogs?
+<|start-latent|><|latent|><|end-latent|><<3+2.5=5.5>>
+<<1.5+3+5.5=11>>
+### 11'
+Extracted Output: '11'
+Question 4: Answer = '3' CoT = '<<2+1+3=6>>
+<<6*8=48>>
+<<48/16=3>>'
+Full output: '<|begin_of_text|>Stephanie is planning dinners to cook for the week and needs to figure out how much of each ingredient she should buy at the grocery store. She is making three recipes that call for lower sodium soy sauce as a main ingredient. One bottle of lower sodium soy sauce holds 16 ounces. There are 8 ounces in 1 cup. The first recipe Stephanie is going to cook calls for 2 cups of lower sodium soy sauce. The second recipe calls for 1 cup. The third recipe calls for 3 cups. If Stephanie can only buy 1 whole bottle of soy sauce no matter how much she needs exactly, how many bottles of lower sodium soy sauce should Stephanie buy to allow for all three recipes?
+<|start-latent|><|latent|><|end-latent|><<16/16=1>>
+<<1/1=1>>
+### 1'
+Extracted Output: '1'
+Question 8: Answer = '55' CoT = '<<90/5=18>>
+<<18-5-2=11>>
+<<11*5=55>>'
+Full output: '<|begin_of_text|>Romeo buys five bars of chocolate at $5 each and sells these chocolates for a total of $90. If he uses packaging material that costs him $2 for each bar of chocolate, how much profit does he make for all the chocolates he sells?
+<|start-latent|><|latent|><|end-latent|><<90-10=80>>
+<<80*5=400>>
+### 400'
+Extracted Output: '400'
+Question 12: Answer = '6' CoT = '<<4*2=8>>
+<<26-8=18>>
+<<18/3=6>>'
+Full output: '<|begin_of_text|>Wade has called into a rest stop and decides to get food for the road. He buys a sandwich to eat now, one for the road, and one for in the evening. He also buys 2 drinks. If the drinks cost $4 each and Wade spends a total of $26 then how much, in dollars, did the sandwiches each cost?
+<|start-latent|><|latent|><|end-latent|><<26-10=16>>
+<<16/2=8>>
+### 8'
+Extracted Output: '8'
+Question 16: Answer = '450' CoT = '<<45*3=135>>
+<<135*2=270>>
+<<135+270+45=450>>'
+Full output: '<|begin_of_text|>Jackson collects 45 hermit crabs, 3 spiral shells per hermit crab, and 2 starfish per spiral shell. How many souvenirs does he collect total?
+<|start-latent|><|latent|><|end-latent|><<3*2=6>>
+<<45+3+6=54>>
+### 54'
+Extracted Output: '54'
+Device 0: Cor=4, CoT=0, Total=25
+Accuracy on validation set: 21 / 100 = 0.21
+CoT match on validation set: 0 / 100 = 0.0
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 161.63 examples/s]
+Map (num_proc=32): 100%|██████████| 20000/20000 [00:00<00:00, 20506.62 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 159.18 examples/s]
+Training Epoch: 3/5, batch 312/313 completed (loss: 0.3811: 100%|[34m██████████[0m| 313/313 [13:23<00:00,  2.57s/it]
+logging training data
+saving model.
+eval loss 0.6735801696777344
+Test accuracy: 0.0:  16%|[34m█▌        [0m| 4/25 [01:42<08:56, 25.57s/it]
+Question 0: Answer = '10' CoT = '<<1.5*2=3>>
+<<3+2.5=5.5>>
+<<1.5+3+5.5=10>>'
+Full output: '<|begin_of_text|>Hannah has three dogs. The first dog eats 1.5 cups of dog food a day. The second dog eats twice as much while the third dog eats 2.5 cups more than the second dog. How many cups of dog food should Hannah prepare in a day for her three dogs?
+<|start-latent|><|latent|><|latent|><|end-latent|><<1.5+3+5+5=12>>
+### 12'
+Extracted Output: '12'
+Question 4: Answer = '3' CoT = '<<2+1+3=6>>
+<<6*8=48>>
+<<48/16=3>>'
+Full output: '<|begin_of_text|>Stephanie is planning dinners to cook for the week and needs to figure out how much of each ingredient she should buy at the grocery store. She is making three recipes that call for lower sodium soy sauce as a main ingredient. One bottle of lower sodium soy sauce holds 16 ounces. There are 8 ounces in 1 cup. The first recipe Stephanie is going to cook calls for 2 cups of lower sodium soy sauce. The second recipe calls for 1 cup. The third recipe calls for 3 cups. If Stephanie can only buy 1 whole bottle of soy sauce no matter how much she needs exactly, how many bottles of lower sodium soy sauce should Stephanie buy to allow for all three recipes?
+<|start-latent|><|latent|><|latent|><|end-latent|><<24/16=1.5>>
+### 2'
+Extracted Output: '2'
+Question 8: Answer = '55' CoT = '<<90/5=18>>
+<<18-5-2=11>>
+<<11*5=55>>'
+Full output: '<|begin_of_text|>Romeo buys five bars of chocolate at $5 each and sells these chocolates for a total of $90. If he uses packaging material that costs him $2 for each bar of chocolate, how much profit does he make for all the chocolates he sells?
+<|start-latent|><|latent|><|latent|><|end-latent|><<90-10=80>>
+### 80'
+Extracted Output: '80'
+Question 12: Answer = '6' CoT = '<<4*2=8>>
+<<26-8=18>>
+<<18/3=6>>'
+Full output: '<|begin_of_text|>Wade has called into a rest stop and decides to get food for the road. He buys a sandwich to eat now, one for the road, and one for in the evening. He also buys 2 drinks. If the drinks cost $4 each and Wade spends a total of $26 then how much, in dollars, did the sandwiches each cost?
+<|start-latent|><|latent|><|latent|><|end-latent|><<10/2=5>>
+### 5'
+Extracted Output: '5'
+Question 16: Answer = '450' CoT = '<<45*3=135>>
+<<135*2=270>>
+<<135+270+45=450>>'
+Full output: '<|begin_of_text|>Jackson collects 45 hermit crabs, 3 spiral shells per hermit crab, and 2 starfish per spiral shell. How many souvenirs does he collect total?
+<|start-latent|><|latent|><|latent|><|end-latent|><<225+90+30=345>>
+### 345'
+Extracted Output: '345'
+Device 0: Cor=4, CoT=0, Total=25
+Accuracy on validation set: 14 / 100 = 0.14
+CoT match on validation set: 0 / 100 = 0.0
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 151.07 examples/s]
+Map (num_proc=32): 100%|██████████| 20000/20000 [00:01<00:00, 19861.26 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 139.58 examples/s]
+Training Epoch: 4/5, batch 312/313 completed (loss: 0.7731: 100%|[34m██████████[0m| 313/313 [15:49<00:00,  3.03s/it]
+logging training data
+saving model.
+eval loss 1.0388126969337463
+Test accuracy: 0.08: 100%|[34m██████████[0m| 25/25 [10:40<00:00, 25.60s/it]
+Question 0: Answer = '10' CoT = '<<1.5*2=3>>
+<<3+2.5=5.5>>
+<<1.5+3+5.5=10>>'
+Full output: '<|begin_of_text|>Hannah has three dogs. The first dog eats 1.5 cups of dog food a day. The second dog eats twice as much while the third dog eats 2.5 cups more than the second dog. How many cups of dog food should Hannah prepare in a day for her three dogs?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>### 12'
+Extracted Output: '12'
+Question 4: Answer = '3' CoT = '<<2+1+3=6>>
+<<6*8=48>>
+<<48/16=3>>'
+Full output: '<|begin_of_text|>Stephanie is planning dinners to cook for the week and needs to figure out how much of each ingredient she should buy at the grocery store. She is making three recipes that call for lower sodium soy sauce as a main ingredient. One bottle of lower sodium soy sauce holds 16 ounces. There are 8 ounces in 1 cup. The first recipe Stephanie is going to cook calls for 2 cups of lower sodium soy sauce. The second recipe calls for 1 cup. The third recipe calls for 3 cups. If Stephanie can only buy 1 whole bottle of soy sauce no matter how much she needs exactly, how many bottles of lower sodium soy sauce should Stephanie buy to allow for all three recipes?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>### 2'
+Extracted Output: '2'
+Question 8: Answer = '55' CoT = '<<90/5=18>>
+<<18-5-2=11>>
+<<11*5=55>>'
+Full output: '<|begin_of_text|>Romeo buys five bars of chocolate at $5 each and sells these chocolates for a total of $90. If he uses packaging material that costs him $2 for each bar of chocolate, how much profit does he make for all the chocolates he sells?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>### 25'
+Extracted Output: '25'
+Question 12: Answer = '6' CoT = '<<4*2=8>>
+<<26-8=18>>
+<<18/3=6>>'
+Full output: '<|begin_of_text|>Wade has called into a rest stop and decides to get food for the road. He buys a sandwich to eat now, one for the road, and one for in the evening. He also buys 2 drinks. If the drinks cost $4 each and Wade spends a total of $26 then how much, in dollars, did the sandwiches each cost?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>### 3'
+Extracted Output: '3'
+Question 16: Answer = '450' CoT = '<<45*3=135>>
+<<135*2=270>>
+<<135+270+45=450>>'
+Full output: '<|begin_of_text|>Jackson collects 45 hermit crabs, 3 spiral shells per hermit crab, and 2 starfish per spiral shell. How many souvenirs does he collect total?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>### 171'
+Extracted Output: '171'
+Device 0: Cor=2, CoT=0, Total=25
+Accuracy on validation set: 9 / 100 = 0.09
+CoT match on validation set: 0 / 100 = 0.0
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 151.97 examples/s]
+Map (num_proc=32): 100%|██████████| 20000/20000 [00:00<00:00, 21364.06 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 150.75 examples/s]
+Training Epoch: 5/5, batch 312/313 completed (loss: 0.7407: 100%|[34m██████████[0m| 313/313 [15:48<00:00,  3.03s/it]
+logging training data
+saving model.
+eval loss 1.124131202697754
+Test accuracy: 0.08: 100%|[34m██████████[0m| 25/25 [10:39<00:00, 25.57s/it]
+Question 0: Answer = '10' CoT = '<<1.5*2=3>>
+<<3+2.5=5.5>>
+<<1.5+3+5.5=10>>'
+Full output: '<|begin_of_text|>Hannah has three dogs. The first dog eats 1.5 cups of dog food a day. The second dog eats twice as much while the third dog eats 2.5 cups more than the second dog. How many cups of dog food should Hannah prepare in a day for her three dogs?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>### 10'
+Extracted Output: '10'
+Question 4: Answer = '3' CoT = '<<2+1+3=6>>
+<<6*8=48>>
+<<48/16=3>>'
+Full output: '<|begin_of_text|>Stephanie is planning dinners to cook for the week and needs to figure out how much of each ingredient she should buy at the grocery store. She is making three recipes that call for lower sodium soy sauce as a main ingredient. One bottle of lower sodium soy sauce holds 16 ounces. There are 8 ounces in 1 cup. The first recipe Stephanie is going to cook calls for 2 cups of lower sodium soy sauce. The second recipe calls for 1 cup. The third recipe calls for 3 cups. If Stephanie can only buy 1 whole bottle of soy sauce no matter how much she needs exactly, how many bottles of lower sodium soy sauce should Stephanie buy to allow for all three recipes?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>### 2'
+Extracted Output: '2'
+Question 8: Answer = '55' CoT = '<<90/5=18>>
+<<18-5-2=11>>
+<<11*5=55>>'
+Full output: '<|begin_of_text|>Romeo buys five bars of chocolate at $5 each and sells these chocolates for a total of $90. If he uses packaging material that costs him $2 for each bar of chocolate, how much profit does he make for all the chocolates he sells?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>### 20'
+Extracted Output: '20'
+Question 12: Answer = '6' CoT = '<<4*2=8>>
+<<26-8=18>>
+<<18/3=6>>'
+Full output: '<|begin_of_text|>Wade has called into a rest stop and decides to get food for the road. He buys a sandwich to eat now, one for the road, and one for in the evening. He also buys 2 drinks. If the drinks cost $4 each and Wade spends a total of $26 then how much, in dollars, did the sandwiches each cost?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>### 4'
+Extracted Output: '4'
+Question 16: Answer = '450' CoT = '<<45*3=135>>
+<<135*2=270>>
+<<135+270+45=450>>'
+Full output: '<|begin_of_text|>Jackson collects 45 hermit crabs, 3 spiral shells per hermit crab, and 2 starfish per spiral shell. How many souvenirs does he collect total?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>### 225'
+Extracted Output: '225'
+Device 0: Cor=2, CoT=0, Total=25
+Accuracy on validation set: 6 / 100 = 0.06
+CoT match on validation set: 0 / 100 = 0.0

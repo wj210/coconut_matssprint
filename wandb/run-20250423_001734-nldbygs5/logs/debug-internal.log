@@ -1,0 +1,7 @@
+{"time":"2025-04-23T00:17:34.578632921+08:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/export/home2/weijie210/coconut/wandb/run-20250423_001734-nldbygs5/logs/debug-core.log"}
+{"time":"2025-04-23T00:17:34.825814838+08:00","level":"INFO","msg":"created new stream","id":"nldbygs5"}
+{"time":"2025-04-23T00:17:34.825916034+08:00","level":"INFO","msg":"stream: started","id":"nldbygs5"}
+{"time":"2025-04-23T00:17:34.826009791+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"nldbygs5"}
+{"time":"2025-04-23T00:17:34.826033274+08:00","level":"INFO","msg":"handler: started","stream_id":"nldbygs5"}
+{"time":"2025-04-23T00:17:34.826162176+08:00","level":"INFO","msg":"sender: started","stream_id":"nldbygs5"}
+{"time":"2025-04-23T00:17:35.207568089+08:00","level":"INFO","msg":"Starting system monitor"}

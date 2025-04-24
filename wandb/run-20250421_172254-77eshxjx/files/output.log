@@ -1,0 +1,174 @@
+Map (num_proc=32): 100%|██████████| 500/500 [00:00<00:00, 1530.89 examples/s]
+Map (num_proc=32): 100%|██████████| 10000/10000 [00:00<00:00, 26087.78 examples/s]
+Map (num_proc=32): 100%|██████████| 500/500 [00:00<00:00, 1566.64 examples/s]
+Training Epoch: 1/5, batch 156/157 completed (loss: 0.0534: 100%|[34m██████████[0m| 157/157 [08:59<00:00,  3.44s/it]
+logging training data
+/export/home2/weijie210/miniconda3/envs/cot/lib/python3.10/site-packages/torch/distributed/fsdp/fully_sharded_data_parallel.py:690: FutureWarning: FSDP.state_dict_type() and FSDP.set_state_dict_type() are being deprecated. Please use APIs, get_state_dict() and set_state_dict(), which can support different parallelisms, FSDP1, FSDP2, DDP. API doc: https://pytorch.org/docs/stable/distributed.checkpoint.html#torch.distributed.checkpoint.state_dict.get_state_dict .Tutorial: https://pytorch.org/tutorials/recipes/distributed_checkpoint_recipe.html .
+  warnings.warn(
+Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.14s/it]
+saving model.
+eval loss 0.3027671128511429
+Test Accuracy:   0%|[34m          [0m| 0/125 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 0: Answer = '300' CoT = '<<4-2=2>>
+<<2/.5=4>>
+<<12/4=3>>
+<<100*3=300>>'
+Full output: '<|begin_of_text|>John cuts his grass to 2 inches.  It grows.5 inches per month.  When it gets to 4 inches he cuts it back down to 2 inches.  It cost $100 to get his grass cut.  How much does he pay per year?
+<<4-2=.5>>
+<<.5/.5=1>>
+<<100/1=100>>
+### 100<|end_of_text|>'
+Extracted Output: '100'
+Test accuracy: 0.0:   1%|[34m          [0m| 1/125 [00:07<15:35,  7.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 4: Answer = '240' CoT = '<<200*3=600>>
+<<600*.4=240>>'
+Full output: '<|begin_of_text|>Tom bought his games for $200.  They tripled in value and he then sold 40% of them.  How much did he sell the games for?
+<<200*3=600>>
+<<600*40/100=240>>
+### 240<|end_of_text|>'
+Extracted Output: '240'
+Test accuracy: 0.5:   2%|[34m▏         [0m| 2/125 [00:13<13:01,  6.35s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 8: Answer = '25' CoT = '<<2*2.25=4.50>>
+<<2*4=8.00>>
+<<2*2.50=5.00>>
+<<4.50+8.00+.50+5.00+3.50+3.50=25.00>>'
+Full output: '<|begin_of_text|>It’s Meghan’s turn to pick up her team's coffee order.  She needs 2 drip coffees that are $2.25 each and one double shot espresso that’s $3.50.  She needs 2 lattes that are $4.00 and needs to add vanilla syrup to one of those for an additional $0.50.  She also needs 2 cold brew coffees that are $2.50 each and 1 cappuccino for $3.50.  How much is the coffee order?
+<<2*2.25+3.50+2*4+0.50+2*2.50+3.50=25.00>>
+### 25<|end_of_text|>'
+Extracted Output: '25'
+Test accuracy: 0.67:   2%|[34m▏         [0m| 3/125 [00:23<16:27,  8.09s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 12: Answer = '10' CoT = '<<12*10=120>>
+<<130-120=10>>'
+Full output: '<|begin_of_text|>Joshua packs 12 bottles in each crate. He has a total of 130 bottles and 10 crates. How many bottles will not be placed in a crate?
+<<12*10=120>>
+<<130-120=10>>
+### 10<|end_of_text|>'
+Extracted Output: '10'
+Test accuracy: 0.75:   3%|[34m▎         [0m| 4/125 [00:28<13:49,  6.86s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 16: Answer = '45' CoT = '<<10+15=25>>
+<<2*10=20>>
+<<20+25=45>>'
+Full output: '<|begin_of_text|>Olivia gave William 10 napkins. Amelia also gives William twice the number of napkins Olivia gave him. If William had 15 napkins before, how many napkins does he have now?
+<<10*2=20>>
+<<10+20=30>>
+<<30+15=45>>
+### 45<|end_of_text|>'
+Extracted Output: '45'
+Test accuracy: 0.8:   4%|[34m▍         [0m| 5/125 [00:35<13:43,  6.86s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.83:   5%|[34m▍         [0m| 6/125 [00:44<15:18,  7.72s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.86:   6%|[34m▌         [0m| 7/125 [00:53<16:03,  8.16s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.75:   6%|[34m▋         [0m| 8/125 [01:00<15:07,  7.76s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.78:   7%|[34m▋         [0m| 9/125 [01:09<15:37,  8.08s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.7:   8%|[34m▊         [0m| 10/125 [01:16<14:47,  7.72s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.64:   9%|[34m▉         [0m| 11/125 [01:33<20:24, 10.74s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.67:  10%|[34m▉         [0m| 12/125 [01:38<17:04,  9.06s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.62:  10%|[34m█         [0m| 13/125 [01:45<15:41,  8.40s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.64:  11%|[34m█         [0m| 14/125 [01:52<14:32,  7.86s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.6:  12%|[34m█▏        [0m| 15/125 [02:09<19:29, 10.63s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.56:  13%|[34m█▎        [0m| 16/125 [02:14<16:12,  8.92s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  14%|[34m█▎        [0m| 17/125 [02:23<16:17,  9.05s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.56:  14%|[34m█▍        [0m| 18/125 [02:30<14:49,  8.31s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.58:  15%|[34m█▌        [0m| 19/125 [02:37<13:55,  7.88s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.55:  16%|[34m█▌        [0m| 20/125 [02:44<13:15,  7.58s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.52:  17%|[34m█▋        [0m| 21/125 [02:52<13:46,  7.94s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  18%|[34m█▊        [0m| 22/125 [03:00<13:22,  7.79s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.48:  18%|[34m█▊        [0m| 23/125 [03:09<13:45,  8.09s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.46:  19%|[34m█▉        [0m| 24/125 [03:19<14:48,  8.80s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.44:  20%|[34m██        [0m| 25/125 [03:31<16:19,  9.80s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.46:  21%|[34m██        [0m| 26/125 [03:38<14:43,  8.92s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.48:  22%|[34m██▏       [0m| 27/125 [03:45<13:34,  8.31s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  22%|[34m██▏       [0m| 28/125 [03:50<11:48,  7.30s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.52:  23%|[34m██▎       [0m| 29/125 [03:58<12:16,  7.67s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  24%|[34m██▍       [0m| 30/125 [04:06<12:01,  7.60s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.52:  25%|[34m██▍       [0m| 31/125 [04:11<10:54,  6.97s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  26%|[34m██▌       [0m| 32/125 [04:24<13:26,  8.67s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.55:  26%|[34m██▋       [0m| 33/125 [04:34<13:51,  9.04s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  27%|[34m██▋       [0m| 34/125 [04:39<11:51,  7.82s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.54:  28%|[34m██▊       [0m| 35/125 [04:47<11:47,  7.86s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  29%|[34m██▉       [0m| 36/125 [04:56<12:05,  8.15s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.54:  30%|[34m██▉       [0m| 37/125 [05:01<10:32,  7.19s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.55:  30%|[34m███       [0m| 38/125 [05:06<09:27,  6.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.56:  31%|[34m███       [0m| 39/125 [05:11<08:40,  6.05s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.57:  32%|[34m███▏      [0m| 40/125 [05:15<08:05,  5.72s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.59:  33%|[34m███▎      [0m| 41/125 [05:29<11:08,  7.96s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.6:  34%|[34m███▎      [0m| 42/125 [05:37<11:01,  7.96s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.58:  34%|[34m███▍      [0m| 43/125 [05:46<11:26,  8.38s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.57:  35%|[34m███▌      [0m| 44/125 [05:53<10:41,  7.93s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.56:  36%|[34m███▌      [0m| 45/125 [05:59<09:48,  7.36s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.54:  37%|[34m███▋      [0m| 46/125 [06:04<08:44,  6.64s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.55:  38%|[34m███▊      [0m| 47/125 [06:09<08:11,  6.30s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.54:  38%|[34m███▊      [0m| 48/125 [06:16<08:11,  6.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  39%|[34m███▉      [0m| 49/125 [06:34<12:21,  9.75s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.54:  40%|[34m████      [0m| 50/125 [06:39<10:23,  8.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  41%|[34m████      [0m| 51/125 [06:43<09:00,  7.31s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.54:  42%|[34m████▏     [0m| 52/125 [06:50<08:43,  7.17s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.55:  42%|[34m████▏     [0m| 53/125 [06:56<08:12,  6.84s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.54:  43%|[34m████▎     [0m| 54/125 [07:05<08:47,  7.43s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.55:  44%|[34m████▍     [0m| 55/125 [07:12<08:22,  7.19s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.54:  45%|[34m████▍     [0m| 56/125 [07:17<07:41,  6.68s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  46%|[34m████▌     [0m| 57/125 [07:23<07:10,  6.33s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.52:  46%|[34m████▋     [0m| 58/125 [07:31<07:37,  6.82s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.51:  47%|[34m████▋     [0m| 59/125 [07:40<08:09,  7.42s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.52:  48%|[34m████▊     [0m| 60/125 [07:45<07:13,  6.68s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.51:  49%|[34m████▉     [0m| 61/125 [07:58<09:23,  8.80s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  50%|[34m████▉     [0m| 62/125 [08:04<08:11,  7.81s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.49:  50%|[34m█████     [0m| 63/125 [08:11<07:51,  7.61s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  51%|[34m█████     [0m| 64/125 [08:18<07:25,  7.31s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.51:  52%|[34m█████▏    [0m| 65/125 [08:25<07:20,  7.35s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  53%|[34m█████▎    [0m| 66/125 [08:37<08:42,  8.85s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.51:  54%|[34m█████▎    [0m| 67/125 [08:43<07:35,  7.85s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  54%|[34m█████▍    [0m| 68/125 [08:52<07:48,  8.21s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.51:  55%|[34m█████▌    [0m| 69/125 [08:57<06:45,  7.24s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.51:  56%|[34m█████▌    [0m| 70/125 [09:03<06:27,  7.05s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.52:  57%|[34m█████▋    [0m| 71/125 [09:15<07:38,  8.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  58%|[34m█████▊    [0m| 72/125 [09:25<07:43,  8.75s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  58%|[34m█████▊    [0m| 73/125 [09:32<07:14,  8.35s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.54:  59%|[34m█████▉    [0m| 74/125 [09:37<06:13,  7.33s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  60%|[34m██████    [0m| 75/125 [09:44<05:59,  7.20s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.54:  61%|[34m██████    [0m| 76/125 [09:53<06:24,  7.84s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  62%|[34m██████▏   [0m| 77/125 [10:00<06:06,  7.64s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  62%|[34m██████▏   [0m| 78/125 [10:08<05:56,  7.58s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  63%|[34m██████▎   [0m| 79/125 [10:19<06:40,  8.70s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.52:  64%|[34m██████▍   [0m| 80/125 [10:32<07:24,  9.89s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.52:  65%|[34m██████▍   [0m| 81/125 [10:39<06:42,  9.15s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.52:  66%|[34m██████▌   [0m| 82/125 [10:48<06:32,  9.13s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  66%|[34m██████▋   [0m| 83/125 [10:56<06:01,  8.62s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.54:  67%|[34m██████▋   [0m| 84/125 [11:07<06:19,  9.25s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.54:  68%|[34m██████▊   [0m| 85/125 [11:13<05:41,  8.54s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.55:  69%|[34m██████▉   [0m| 86/125 [11:20<05:13,  8.04s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.55:  70%|[34m██████▉   [0m| 87/125 [11:27<04:52,  7.69s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.56:  70%|[34m███████   [0m| 88/125 [11:33<04:20,  7.03s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.56:  71%|[34m███████   [0m| 89/125 [11:44<04:58,  8.30s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.56:  72%|[34m███████▏  [0m| 90/125 [11:52<04:47,  8.21s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.56:  73%|[34m███████▎  [0m| 91/125 [11:57<04:05,  7.23s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.55:  74%|[34m███████▎  [0m| 92/125 [12:05<04:03,  7.38s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.56:  74%|[34m███████▍  [0m| 93/125 [12:10<03:32,  6.65s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.55:  75%|[34m███████▌  [0m| 94/125 [12:19<03:48,  7.38s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.55:  76%|[34m███████▌  [0m| 95/125 [12:29<04:11,  8.38s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.55:  77%|[34m███████▋  [0m| 96/125 [12:38<04:06,  8.51s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.55:  78%|[34m███████▊  [0m| 97/125 [12:47<04:00,  8.60s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.54:  78%|[34m███████▊  [0m| 98/125 [12:51<03:11,  7.10s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.54:  79%|[34m███████▉  [0m| 99/125 [12:58<03:05,  7.12s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  80%|[34m████████  [0m| 100/125 [13:08<03:22,  8.12s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  81%|[34m████████  [0m| 101/125 [13:13<02:52,  7.17s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  82%|[34m████████▏ [0m| 102/125 [13:28<03:36,  9.40s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.52:  82%|[34m████████▏ [0m| 103/125 [13:36<03:17,  8.97s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.52:  83%|[34m████████▎ [0m| 104/125 [13:49<03:38, 10.41s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.51:  84%|[34m████████▍ [0m| 105/125 [13:56<03:06,  9.35s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.51:  85%|[34m████████▍ [0m| 106/125 [14:01<02:32,  8.03s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.51:  86%|[34m████████▌ [0m| 107/125 [14:10<02:28,  8.26s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.52:  86%|[34m████████▋ [0m| 108/125 [14:17<02:13,  7.84s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.52:  87%|[34m████████▋ [0m| 109/125 [14:22<01:51,  6.98s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  88%|[34m████████▊ [0m| 110/125 [14:29<01:44,  6.95s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.52:  89%|[34m████████▉ [0m| 111/125 [14:43<02:05,  8.99s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.52:  90%|[34m████████▉ [0m| 112/125 [14:52<01:59,  9.18s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.52:  90%|[34m█████████ [0m| 113/125 [14:57<01:35,  8.00s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  91%|[34m█████████ [0m| 114/125 [15:02<01:17,  7.08s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.52:  92%|[34m█████████▏[0m| 115/125 [15:09<01:09,  6.94s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  93%|[34m█████████▎[0m| 116/125 [15:16<01:02,  6.92s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  94%|[34m█████████▎[0m| 117/125 [15:23<00:56,  7.07s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  94%|[34m█████████▍[0m| 118/125 [15:35<00:59,  8.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.52:  95%|[34m█████████▌[0m| 119/125 [15:44<00:51,  8.59s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.52:  96%|[34m█████████▌[0m| 120/125 [15:51<00:41,  8.24s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  97%|[34m█████████▋[0m| 121/125 [15:56<00:29,  7.26s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  98%|[34m█████████▊[0m| 122/125 [16:04<00:21,  7.31s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.

@@ -1,0 +1,1030 @@
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 43.34 examples/s]
+Map (num_proc=32): 100%|██████████| 7932/7932 [00:04<00:00, 1862.22 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 41.04 examples/s]
+Training Epoch: 1/20, batch 247/248 completed (loss: 0.0074: 100%|[34m██████████[0m| 248/248 [09:18<00:00,  2.25s/it]
+logging training data
+eval loss 0.013356366893276572
+Test Accuracy:   0%|[34m          [0m| 0/25 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 0: Answer = 'no' CoT = 'Let V1 = tijv; X = xevo; Y = gyzp.
+V1->X,V1->Y,X->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.50, 0.50 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Tijv has a direct effect on xevo and gyzp. Xevo has a direct effect on gyzp.
+The overall probability of xevo is 21%. For those who are not xevo, the probability of gyzp is 42%. For those who are xevo, the probability of gyzp is 70%.
+Is gyzp more likely than not gyzp overall?
+Let V1 = tijv; X = xevo; Y = gyzp.
+V1->X,V1->Y,X->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.53, 0.53 > '
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Tijv has a direct effect on xevo and gyzp. Xevo has a direct effect on gyzp.
+The overall probability of xevo is 21%. For those who are not xevo the probability of gyzp is 42%. For those who are xevo the probability of gyzp is 70%.
+Is gyzp more likely than not gyzp overall?
+Let V1 = tijv; X = xevo; Y = gyzp.
+V1->XV1->YX->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.53 0.53 >'
+Test accuracy: 0.0:   4%|[34m▍         [0m| 1/25 [00:31<12:27, 31.13s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 4: Answer = 'yes' CoT = 'Let V1 = gender; X = treatment; Y = recovery.
+V1->X,V1->Y,X->Y
+Y_{X=1} = 1 | V1=0
+Solve for Y, given the evidence and the action
+V1 = 0
+X = not V1
+Y = V1 or X
+Y = 1 = 0 or 1, 1'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on treatment and recovery. Treatment has a direct effect on recovery.
+We know that male gender causes receives no treatment. male gender or receives treatment causes recovery. We observed the patient is not male.
+Would the patient does recover if receives treatment instead of receives no treatment?
+Let V1 = gender; X = treatment; Y = recovery.
+V1->X,V1->Y,X->Y
+Y_{X=1} = 1 | V1=0
+Solve for Y, given the evidence and the action
+V1 = 0
+X = not V1
+Y = V1 or X
+Y = 1 = 0 or 1, 1
+### yes<|end_of_text|>'
+Extracted Output: 'yes'
+Test accuracy: 0.5:   8%|[34m▊         [0m| 2/25 [01:01<11:40, 30.48s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 8: Answer = 'yes' CoT = 'Let V1 = wibl; X = zuph; Y = uvzi.
+V1->X,V1->Y,X->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=v,X=1) - P(Y=1|V1=v, X=0)]
+P(Y=1 | V1=0, X=0) = 0.11
+P(Y=1 | V1=0, X=1) = 0.40
+P(Y=1 | V1=1, X=0) = 0.93
+P(Y=1 | V1=1, X=1) = 0.05
+P(V1=1) = 0.76
+0.24 * (0.40 - 0.11) + 0.76 * (0.05 - 0.93) = -0.60, -0.60 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Wibl has a direct effect on zuph and uvzi. Zuph has a direct effect on uvzi.
+For those who are not wibl and are not zuph, the probability of uvzi is 11%. For those who are not wibl and are zuph, the probability of uvzi is 40%. For those who are wibl and are not zuph, the probability of uvzi is 93%. For those who are wibl and are zuph, the probability of uvzi is 5%. The overall probability of wibl is 76%.
+Will zuph decrease the chance of uvzi?
+Let V1 = wibl; X = zuph; Y = uvzi.
+V1->X,V1->Y,X->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=v,X=1) - P(Y=1|V1=v, X=0)]
+P(Y=1 | V1=0, X=0) = 0.11
+P(Y=1 | V1=0, X=1) = 0.40'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Wibl has a direct effect on zuph and uvzi. Zuph has a direct effect on uvzi.
+For those who are not wibl and are not zuph the probability of uvzi is 11%. For those who are not wibl and are zuph the probability of uvzi is 40%. For those who are wibl and are not zuph the probability of uvzi is 93%. For those who are wibl and are zuph the probability of uvzi is 5%. The overall probability of wibl is 76%.
+Will zuph decrease the chance of uvzi?
+Let V1 = wibl; X = zuph; Y = uvzi.
+V1->XV1->YX->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=vX=1) - P(Y=1|V1=v X=0)]
+P(Y=1 | V1=0 X=0) = 0.11
+P(Y=1 | V1=0 X=1) = 0.40'
+Test accuracy: 0.33:  12%|[34m█▏        [0m| 3/25 [01:32<11:18, 30.85s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 12: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+Y_{X=0} = 0 |
+Solve for Y, given the evidence and the action
+V2 = not X
+Y = V2
+Y = [1] = 1, 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+We know that pexu causes not hwax, and we know that hwax causes rukz.
+Would an individual is not rukz if not pexu instead of pexu?
+Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+Y_{X=0} = 0 |
+Solve for Y, given the evidence and the action
+V2 = not X
+Y = V2
+Y = [1] = 1, 0
+### no<|end_of_text|>'
+Extracted Output: 'no'
+Test accuracy: 0.5:  16%|[34m█▌        [0m| 4/25 [02:03<10:46, 30.78s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 16: Answer = 'no' CoT = 'Let V2 = gwet; X = yomx; Y = xevu.
+X->Y,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y|X)
+P(Y=1 | X=0) = 0.78
+P(Y=1 | X=1) = 0.67
+0.67 - 0.78 = -0.11, -0.11 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Yomx has a direct effect on xevu. Gwet has a direct effect on xevu.
+For those who are not yomx, the probability of xevu is 78%. For those who are yomx, the probability of xevu is 67%.
+Will yomx increase the chance of xevu?
+Let V2 = gwet; X = yomx; Y = xevu.
+X->Y,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y|X)
+P(Y=1 | X=0) = 0.78
+P(Y=1 | X=1) = 0.67
+0.67 - 0.78 = -0.11, -0.11 < 0
+### no<|end_of_text|>'
+Extracted Output: 'no'
+Test accuracy: 0.6:  20%|[34m██        [0m| 5/25 [02:33<10:10, 30.52s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  24%|[34m██▍       [0m| 6/25 [03:02<09:30, 30.05s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.57:  28%|[34m██▊       [0m| 7/25 [03:32<08:59, 29.95s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  32%|[34m███▏      [0m| 8/25 [04:03<08:35, 30.31s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.44:  36%|[34m███▌      [0m| 9/25 [04:33<08:04, 30.29s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  40%|[34m████      [0m| 10/25 [05:02<07:27, 29.86s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.55:  44%|[34m████▍     [0m| 11/25 [05:32<06:59, 29.98s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  48%|[34m████▊     [0m| 12/25 [06:03<06:33, 30.27s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.54:  52%|[34m█████▏    [0m| 13/25 [06:36<06:12, 31.04s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.57:  56%|[34m█████▌    [0m| 14/25 [07:06<05:37, 30.67s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.6:  60%|[34m██████    [0m| 15/25 [07:34<05:00, 30.06s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.56:  64%|[34m██████▍   [0m| 16/25 [08:04<04:29, 29.93s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  68%|[34m██████▊   [0m| 17/25 [08:33<03:58, 29.81s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  72%|[34m███████▏  [0m| 18/25 [09:04<03:29, 29.93s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.47:  76%|[34m███████▌  [0m| 19/25 [09:34<03:00, 30.14s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.45:  80%|[34m████████  [0m| 20/25 [10:03<02:29, 29.87s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.43:  84%|[34m████████▍ [0m| 21/25 [10:33<01:59, 29.85s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.41:  88%|[34m████████▊ [0m| 22/25 [11:05<01:31, 30.39s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.39:  92%|[34m█████████▏[0m| 23/25 [11:35<01:00, 30.25s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.38:  96%|[34m█████████▌[0m| 24/25 [12:04<00:30, 30.04s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.36: 100%|[34m██████████[0m| 25/25 [12:35<00:00, 30.21s/it]
+Device 0: Cor=9, CoT=0, Total=25
+Accuracy on validation set: 31 / 100 = 0.31
+CoT match on validation set: 0 / 100 = 0.0
+saving model.
+Map (num_proc=32): 100%|██████████| 100/100 [00:04<00:00, 23.85 examples/s]
+Map (num_proc=32): 100%|██████████| 7932/7932 [00:04<00:00, 1841.19 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 38.55 examples/s]
+Training Epoch: 2/20, batch 247/248 completed (loss: 0.0129: 100%|[34m██████████[0m| 248/248 [09:11<00:00,  2.22s/it]
+logging training data
+eval loss 0.012420030077919364
+Test Accuracy:   0%|[34m          [0m| 0/25 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 0: Answer = 'no' CoT = 'Let V1 = tijv; X = xevo; Y = gyzp.
+V1->X,V1->Y,X->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.50, 0.50 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Tijv has a direct effect on xevo and gyzp. Xevo has a direct effect on gyzp.
+The overall probability of xevo is 21%. For those who are not xevo, the probability of gyzp is 42%. For those who are xevo, the probability of gyzp is 70%.
+Is gyzp more likely than not gyzp overall?
+Let V1 = tijv; X = xevo; Y = gyzp.
+V1->X,V1->Y,X->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.51, 0.51 > '
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Tijv has a direct effect on xevo and gyzp. Xevo has a direct effect on gyzp.
+The overall probability of xevo is 21%. For those who are not xevo the probability of gyzp is 42%. For those who are xevo the probability of gyzp is 70%.
+Is gyzp more likely than not gyzp overall?
+Let V1 = tijv; X = xevo; Y = gyzp.
+V1->XV1->YX->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.51 0.51 >'
+Test accuracy: 0.0:   4%|[34m▍         [0m| 1/25 [00:30<12:05, 30.25s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 4: Answer = 'yes' CoT = 'Let V1 = gender; X = treatment; Y = recovery.
+V1->X,V1->Y,X->Y
+Y_{X=1} = 1 | V1=0
+Solve for Y, given the evidence and the action
+V1 = 0
+X = not V1
+Y = V1 or X
+Y = 1 = 0 or 1, 1'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on treatment and recovery. Treatment has a direct effect on recovery.
+We know that male gender causes receives no treatment. male gender or receives treatment causes recovery. We observed the patient is not male.
+Would the patient does recover if receives treatment instead of receives no treatment?
+Let V1 = gender; X = treatment; Y = recovery.
+V1->X,V1->Y,X->Y
+Y_{X=1} = 1 | V1=0
+Solve for Y, given the evidence and the action
+V1 = 0
+X = not V1
+Y = V1 or X
+Y = 0 = 0 or 0, 0
+### no<|end_of_text|>'
+Extracted Output: 'no'
+Test accuracy: 0.0:   8%|[34m▊         [0m| 2/25 [01:00<11:39, 30.41s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 8: Answer = 'yes' CoT = 'Let V1 = wibl; X = zuph; Y = uvzi.
+V1->X,V1->Y,X->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=v,X=1) - P(Y=1|V1=v, X=0)]
+P(Y=1 | V1=0, X=0) = 0.11
+P(Y=1 | V1=0, X=1) = 0.40
+P(Y=1 | V1=1, X=0) = 0.93
+P(Y=1 | V1=1, X=1) = 0.05
+P(V1=1) = 0.76
+0.24 * (0.40 - 0.11) + 0.76 * (0.05 - 0.93) = -0.60, -0.60 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Wibl has a direct effect on zuph and uvzi. Zuph has a direct effect on uvzi.
+For those who are not wibl and are not zuph, the probability of uvzi is 11%. For those who are not wibl and are zuph, the probability of uvzi is 40%. For those who are wibl and are not zuph, the probability of uvzi is 93%. For those who are wibl and are zuph, the probability of uvzi is 5%. The overall probability of wibl is 76%.
+Will zuph decrease the chance of uvzi?
+Let V1 = wibl; X = zuph; Y = uvzi.
+V1->X,V1->Y,X->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=v,X=1) - P(Y=1|V1=v, X=0)]
+P(Y=1 | V1=0, X=0) = 0.11
+P(Y=1 | V1=0, X=1) = 0.40'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Wibl has a direct effect on zuph and uvzi. Zuph has a direct effect on uvzi.
+For those who are not wibl and are not zuph the probability of uvzi is 11%. For those who are not wibl and are zuph the probability of uvzi is 40%. For those who are wibl and are not zuph the probability of uvzi is 93%. For those who are wibl and are zuph the probability of uvzi is 5%. The overall probability of wibl is 76%.
+Will zuph decrease the chance of uvzi?
+Let V1 = wibl; X = zuph; Y = uvzi.
+V1->XV1->YX->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=vX=1) - P(Y=1|V1=v X=0)]
+P(Y=1 | V1=0 X=0) = 0.11
+P(Y=1 | V1=0 X=1) = 0.40'
+Test accuracy: 0.0:  12%|[34m█▏        [0m| 3/25 [01:30<10:59, 29.95s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 12: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+Y_{X=0} = 0 |
+Solve for Y, given the evidence and the action
+V2 = not X
+Y = V2
+Y = [1] = 1, 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+We know that pexu causes not hwax, and we know that hwax causes rukz.
+Would an individual is not rukz if not pexu instead of pexu?
+Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+Y_{X=0} = 0 |
+Solve for Y, given the evidence and the action
+V2 = not X
+Y = V2
+Y = [1] = 1, 0
+### no<|end_of_text|>'
+Extracted Output: 'no'
+Test accuracy: 0.25:  16%|[34m█▌        [0m| 4/25 [01:59<10:22, 29.66s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 16: Answer = 'no' CoT = 'Let V2 = gwet; X = yomx; Y = xevu.
+X->Y,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y|X)
+P(Y=1 | X=0) = 0.78
+P(Y=1 | X=1) = 0.67
+0.67 - 0.78 = -0.11, -0.11 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Yomx has a direct effect on xevu. Gwet has a direct effect on xevu.
+For those who are not yomx, the probability of xevu is 78%. For those who are yomx, the probability of xevu is 67%.
+Will yomx increase the chance of xevu?
+Let V2 = gwet; X = yomx; Y = xevu.
+X->Y,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y|X)
+P(Y=1 | X=0) = 0.78
+P(Y=1 | X=1) = 0.67
+0.67 - 0.78 = -0.10, -0.10 < 0
+### no<|end_of_text|>'
+Extracted Output: 'no'
+Test accuracy: 0.4:  20%|[34m██        [0m| 5/25 [02:32<10:16, 30.83s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.33:  24%|[34m██▍       [0m| 6/25 [03:01<09:36, 30.36s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.43:  28%|[34m██▊       [0m| 7/25 [03:31<09:05, 30.29s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.38:  32%|[34m███▏      [0m| 8/25 [04:02<08:35, 30.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.33:  36%|[34m███▌      [0m| 9/25 [04:31<08:01, 30.10s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.4:  40%|[34m████      [0m| 10/25 [05:01<07:30, 30.05s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.45:  44%|[34m████▍     [0m| 11/25 [05:31<06:57, 29.82s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.42:  48%|[34m████▊     [0m| 12/25 [06:01<06:28, 29.85s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.46:  52%|[34m█████▏    [0m| 13/25 [06:31<06:01, 30.10s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  56%|[34m█████▌    [0m| 14/25 [07:02<05:33, 30.35s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  60%|[34m██████    [0m| 15/25 [07:30<04:55, 29.57s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  64%|[34m██████▍   [0m| 16/25 [07:59<04:24, 29.44s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.47:  68%|[34m██████▊   [0m| 17/25 [08:28<03:53, 29.21s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.44:  72%|[34m███████▏  [0m| 18/25 [08:57<03:24, 29.28s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.42:  76%|[34m███████▌  [0m| 19/25 [09:26<02:55, 29.28s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.4:  80%|[34m████████  [0m| 20/25 [09:56<02:26, 29.27s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.43:  84%|[34m████████▍ [0m| 21/25 [10:25<01:56, 29.16s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.41:  88%|[34m████████▊ [0m| 22/25 [10:54<01:27, 29.19s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.39:  92%|[34m█████████▏[0m| 23/25 [11:26<01:00, 30.08s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.38:  96%|[34m█████████▌[0m| 24/25 [11:57<00:30, 30.29s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.36: 100%|[34m██████████[0m| 25/25 [12:27<00:00, 29.88s/it]
+Device 0: Cor=9, CoT=0, Total=25
+Accuracy on validation set: 31 / 100 = 0.31
+CoT match on validation set: 0 / 100 = 0.0
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 42.32 examples/s]
+Map (num_proc=32): 100%|██████████| 7932/7932 [00:04<00:00, 1881.78 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 39.21 examples/s]
+Training Epoch: 3/20, batch 247/248 completed (loss: 0.013: 100%|[34m██████████[0m| 248/248 [09:09<00:00,  2.22s/it] 
+logging training data
+eval loss 0.02114852168597281
+Test Accuracy:   0%|[34m          [0m| 0/25 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 0: Answer = 'no' CoT = 'Let V1 = tijv; X = xevo; Y = gyzp.
+V1->X,V1->Y,X->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.50, 0.50 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Tijv has a direct effect on xevo and gyzp. Xevo has a direct effect on gyzp.
+The overall probability of xevo is 21%. For those who are not xevo, the probability of gyzp is 42%. For those who are xevo, the probability of gyzp is 70%.
+Is gyzp more likely than not gyzp overall?
+Let V1 = tijv; X = xevo; Y = gyzp.
+V1->X,V1->Y,X->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.50, 0.50 > '
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Tijv has a direct effect on xevo and gyzp. Xevo has a direct effect on gyzp.
+The overall probability of xevo is 21%. For those who are not xevo the probability of gyzp is 42%. For those who are xevo the probability of gyzp is 70%.
+Is gyzp more likely than not gyzp overall?
+Let V1 = tijv; X = xevo; Y = gyzp.
+V1->XV1->YX->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.50 0.50 >'
+Test accuracy: 0.0:   4%|[34m▍         [0m| 1/25 [00:29<11:50, 29.62s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 4: Answer = 'yes' CoT = 'Let V1 = gender; X = treatment; Y = recovery.
+V1->X,V1->Y,X->Y
+Y_{X=1} = 1 | V1=0
+Solve for Y, given the evidence and the action
+V1 = 0
+X = not V1
+Y = V1 or X
+Y = 1 = 0 or 1, 1'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on treatment and recovery. Treatment has a direct effect on recovery.
+We know that male gender causes receives no treatment. male gender or receives treatment causes recovery. We observed the patient is not male.
+Would the patient does recover if receives treatment instead of receives no treatment?
+Let V1 = gender; X = treatment; Y = recovery.
+V1->X,V1->Y,X->Y
+Y_{X=1} = 1 | V1=0
+Solve for Y, given the evidence and the action
+V1 = 0
+X = not V1
+Y = V1 or X
+Y = 1 = 0 or 1, 1
+### yes<|end_of_text|>'
+Extracted Output: 'yes'
+Test accuracy: 0.5:   8%|[34m▊         [0m| 2/25 [00:59<11:19, 29.56s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 8: Answer = 'yes' CoT = 'Let V1 = wibl; X = zuph; Y = uvzi.
+V1->X,V1->Y,X->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=v,X=1) - P(Y=1|V1=v, X=0)]
+P(Y=1 | V1=0, X=0) = 0.11
+P(Y=1 | V1=0, X=1) = 0.40
+P(Y=1 | V1=1, X=0) = 0.93
+P(Y=1 | V1=1, X=1) = 0.05
+P(V1=1) = 0.76
+0.24 * (0.40 - 0.11) + 0.76 * (0.05 - 0.93) = -0.60, -0.60 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Wibl has a direct effect on zuph and uvzi. Zuph has a direct effect on uvzi.
+For those who are not wibl and are not zuph, the probability of uvzi is 11%. For those who are not wibl and are zuph, the probability of uvzi is 40%. For those who are wibl and are not zuph, the probability of uvzi is 93%. For those who are wibl and are zuph, the probability of uvzi is 5%. The overall probability of wibl is 76%.
+Will zuph decrease the chance of uvzi?
+Let V1 = wibl; X = zuph; Y = uvzi.
+V1->X,V1->Y,X->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=v,X=1) - P(Y=1|V1=v, X=0)]
+P(Y=1 | V1=0, X=0) = 0.11
+P(Y=1 | V1=0, X=1) = 0.40'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Wibl has a direct effect on zuph and uvzi. Zuph has a direct effect on uvzi.
+For those who are not wibl and are not zuph the probability of uvzi is 11%. For those who are not wibl and are zuph the probability of uvzi is 40%. For those who are wibl and are not zuph the probability of uvzi is 93%. For those who are wibl and are zuph the probability of uvzi is 5%. The overall probability of wibl is 76%.
+Will zuph decrease the chance of uvzi?
+Let V1 = wibl; X = zuph; Y = uvzi.
+V1->XV1->YX->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=vX=1) - P(Y=1|V1=v X=0)]
+P(Y=1 | V1=0 X=0) = 0.11
+P(Y=1 | V1=0 X=1) = 0.40'
+Test accuracy: 0.33:  12%|[34m█▏        [0m| 3/25 [01:29<10:54, 29.74s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 12: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+Y_{X=0} = 0 |
+Solve for Y, given the evidence and the action
+V2 = not X
+Y = V2
+Y = [1] = 1, 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+We know that pexu causes not hwax, and we know that hwax causes rukz.
+Would an individual is not rukz if not pexu instead of pexu?
+Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+Y_{X=0} = 0 |
+Solve for Y, given the evidence and the action
+V2 = not X
+Y = V2
+Y = [1] = 1, 0
+### no<|end_of_text|>'
+Extracted Output: 'no'
+Test accuracy: 0.5:  16%|[34m█▌        [0m| 4/25 [01:58<10:25, 29.77s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 16: Answer = 'no' CoT = 'Let V2 = gwet; X = yomx; Y = xevu.
+X->Y,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y|X)
+P(Y=1 | X=0) = 0.78
+P(Y=1 | X=1) = 0.67
+0.67 - 0.78 = -0.11, -0.11 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Yomx has a direct effect on xevu. Gwet has a direct effect on xevu.
+For those who are not yomx, the probability of xevu is 78%. For those who are yomx, the probability of xevu is 67%.
+Will yomx increase the chance of xevu?
+Let V2 = gwet; X = yomx; Y = xevu.
+X->Y,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y|X)
+P(Y=1 | X=0) = 0.78
+P(Y=1 | X=1) = 0.67
+0.67 - 0.78 = -0.11, -0.11 < 0
+### no<|end_of_text|>'
+Extracted Output: 'no'
+Test accuracy: 0.6:  20%|[34m██        [0m| 5/25 [02:28<09:53, 29.67s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  24%|[34m██▍       [0m| 6/25 [02:58<09:28, 29.93s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.57:  28%|[34m██▊       [0m| 7/25 [03:28<08:55, 29.77s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.62:  32%|[34m███▏      [0m| 8/25 [03:57<08:20, 29.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.56:  36%|[34m███▌      [0m| 9/25 [04:26<07:52, 29.53s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.6:  40%|[34m████      [0m| 10/25 [04:59<07:38, 30.56s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.64:  44%|[34m████▍     [0m| 11/25 [05:29<07:03, 30.22s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.58:  48%|[34m████▊     [0m| 12/25 [05:58<06:31, 30.09s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.62:  52%|[34m█████▏    [0m| 13/25 [06:27<05:57, 29.79s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.64:  56%|[34m█████▌    [0m| 14/25 [06:57<05:26, 29.71s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.67:  60%|[34m██████    [0m| 15/25 [07:25<04:53, 29.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.62:  64%|[34m██████▍   [0m| 16/25 [07:55<04:24, 29.42s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.59:  68%|[34m██████▊   [0m| 17/25 [08:24<03:54, 29.34s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.56:  72%|[34m███████▏  [0m| 18/25 [08:53<03:24, 29.21s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  76%|[34m███████▌  [0m| 19/25 [09:23<02:55, 29.32s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  80%|[34m████████  [0m| 20/25 [09:55<02:30, 30.09s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.52:  84%|[34m████████▍ [0m| 21/25 [10:26<02:02, 30.61s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  88%|[34m████████▊ [0m| 22/25 [10:56<01:31, 30.45s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.48:  92%|[34m█████████▏[0m| 23/25 [11:26<01:00, 30.03s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.46:  96%|[34m█████████▌[0m| 24/25 [11:55<00:30, 30.01s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.44: 100%|[34m██████████[0m| 25/25 [12:26<00:00, 29.86s/it]
+Device 0: Cor=11, CoT=0, Total=25
+Accuracy on validation set: 33 / 100 = 0.33
+CoT match on validation set: 0 / 100 = 0.0
+saving model.
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 43.32 examples/s]
+Map (num_proc=32): 100%|██████████| 7932/7932 [00:04<00:00, 1851.47 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 37.84 examples/s]
+Training Epoch: 4/20, batch 247/248 completed (loss: 0.0086: 100%|[34m██████████[0m| 248/248 [09:12<00:00,  2.23s/it]
+logging training data
+eval loss 0.009696920868009329
+Test Accuracy:   0%|[34m          [0m| 0/25 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 0: Answer = 'no' CoT = 'Let V1 = tijv; X = xevo; Y = gyzp.
+V1->X,V1->Y,X->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.50, 0.50 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Tijv has a direct effect on xevo and gyzp. Xevo has a direct effect on gyzp.
+The overall probability of xevo is 21%. For those who are not xevo, the probability of gyzp is 42%. For those who are xevo, the probability of gyzp is 70%.
+Is gyzp more likely than not gyzp overall?
+Let V1 = tijv; X = xevo; Y = gyzp.
+V1->X,V1->Y,X->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.48, 0.48 > '
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Tijv has a direct effect on xevo and gyzp. Xevo has a direct effect on gyzp.
+The overall probability of xevo is 21%. For those who are not xevo the probability of gyzp is 42%. For those who are xevo the probability of gyzp is 70%.
+Is gyzp more likely than not gyzp overall?
+Let V1 = tijv; X = xevo; Y = gyzp.
+V1->XV1->YX->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.48 0.48 >'
+Test accuracy: 0.0:   4%|[34m▍         [0m| 1/25 [00:32<12:49, 32.06s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 4: Answer = 'yes' CoT = 'Let V1 = gender; X = treatment; Y = recovery.
+V1->X,V1->Y,X->Y
+Y_{X=1} = 1 | V1=0
+Solve for Y, given the evidence and the action
+V1 = 0
+X = not V1
+Y = V1 or X
+Y = 1 = 0 or 1, 1'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on treatment and recovery. Treatment has a direct effect on recovery.
+We know that male gender causes receives no treatment. male gender or receives treatment causes recovery. We observed the patient is not male.
+Would the patient does recover if receives treatment instead of receives no treatment?
+Let V1 = gender; X = treatment; Y = recovery.
+V1->X,V1->Y,X->Y
+Y_{X=1} = 1 | V1=0
+Solve for Y, given the evidence and the action
+V1 = 0
+X = not V1
+Y = V1 or X
+Y = 1 = 0 or 1, 1
+### yes<|end_of_text|>'
+Extracted Output: 'yes'
+Test accuracy: 0.5:   8%|[34m▊         [0m| 2/25 [01:01<11:36, 30.28s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 8: Answer = 'yes' CoT = 'Let V1 = wibl; X = zuph; Y = uvzi.
+V1->X,V1->Y,X->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=v,X=1) - P(Y=1|V1=v, X=0)]
+P(Y=1 | V1=0, X=0) = 0.11
+P(Y=1 | V1=0, X=1) = 0.40
+P(Y=1 | V1=1, X=0) = 0.93
+P(Y=1 | V1=1, X=1) = 0.05
+P(V1=1) = 0.76
+0.24 * (0.40 - 0.11) + 0.76 * (0.05 - 0.93) = -0.60, -0.60 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Wibl has a direct effect on zuph and uvzi. Zuph has a direct effect on uvzi.
+For those who are not wibl and are not zuph, the probability of uvzi is 11%. For those who are not wibl and are zuph, the probability of uvzi is 40%. For those who are wibl and are not zuph, the probability of uvzi is 93%. For those who are wibl and are zuph, the probability of uvzi is 5%. The overall probability of wibl is 76%.
+Will zuph decrease the chance of uvzi?
+Let V1 = wibl; X = zuph; Y = uvzi.
+V1->X,V1->Y,X->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=v,X=1) - P(Y=1|V1=v, X=0)]
+P(Y=1 | V1=0, X=0) = 0.11
+P(Y=1 | V1=0, X=1) = 0.40'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Wibl has a direct effect on zuph and uvzi. Zuph has a direct effect on uvzi.
+For those who are not wibl and are not zuph the probability of uvzi is 11%. For those who are not wibl and are zuph the probability of uvzi is 40%. For those who are wibl and are not zuph the probability of uvzi is 93%. For those who are wibl and are zuph the probability of uvzi is 5%. The overall probability of wibl is 76%.
+Will zuph decrease the chance of uvzi?
+Let V1 = wibl; X = zuph; Y = uvzi.
+V1->XV1->YX->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=vX=1) - P(Y=1|V1=v X=0)]
+P(Y=1 | V1=0 X=0) = 0.11
+P(Y=1 | V1=0 X=1) = 0.40'
+Test accuracy: 0.33:  12%|[34m█▏        [0m| 3/25 [01:30<10:53, 29.71s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 12: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+Y_{X=0} = 0 |
+Solve for Y, given the evidence and the action
+V2 = not X
+Y = V2
+Y = [1] = 1, 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+We know that pexu causes not hwax, and we know that hwax causes rukz.
+Would an individual is not rukz if not pexu instead of pexu?
+Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+Y_{X=0} = 0 |
+Solve for Y, given the evidence and the action
+V2 = not X
+Y = V2
+Y = [1] = 1, 0
+### no<|end_of_text|>'
+Extracted Output: 'no'
+Test accuracy: 0.5:  16%|[34m█▌        [0m| 4/25 [01:59<10:23, 29.71s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 16: Answer = 'no' CoT = 'Let V2 = gwet; X = yomx; Y = xevu.
+X->Y,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y|X)
+P(Y=1 | X=0) = 0.78
+P(Y=1 | X=1) = 0.67
+0.67 - 0.78 = -0.11, -0.11 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Yomx has a direct effect on xevu. Gwet has a direct effect on xevu.
+For those who are not yomx, the probability of xevu is 78%. For those who are yomx, the probability of xevu is 67%.
+Will yomx increase the chance of xevu?
+Let V2 = gwet; X = yomx; Y = xevu.
+X->Y,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y|X)
+P(Y=1 | X=0) = 0.78
+P(Y=1 | X=1) = 0.67
+0.67 - 0.78 = -0.11, -0.11 < 0
+### no<|end_of_text|>'
+Extracted Output: 'no'
+Test accuracy: 0.6:  20%|[34m██        [0m| 5/25 [02:29<09:53, 29.66s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  24%|[34m██▍       [0m| 6/25 [02:59<09:25, 29.77s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.57:  28%|[34m██▊       [0m| 7/25 [03:28<08:52, 29.58s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.62:  32%|[34m███▏      [0m| 8/25 [03:57<08:17, 29.29s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.56:  36%|[34m███▌      [0m| 9/25 [04:27<07:51, 29.46s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.6:  40%|[34m████      [0m| 10/25 [04:56<07:21, 29.43s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.64:  44%|[34m████▍     [0m| 11/25 [05:28<07:01, 30.14s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.58:  48%|[34m████▊     [0m| 12/25 [05:58<06:31, 30.14s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.62:  52%|[34m█████▏    [0m| 13/25 [06:27<05:57, 29.80s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.64:  56%|[34m█████▌    [0m| 14/25 [06:56<05:26, 29.69s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.67:  60%|[34m██████    [0m| 15/25 [07:24<04:52, 29.23s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.62:  64%|[34m██████▍   [0m| 16/25 [07:53<04:22, 29.16s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.59:  68%|[34m██████▊   [0m| 17/25 [08:23<03:54, 29.35s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.56:  72%|[34m███████▏  [0m| 18/25 [08:56<03:32, 30.30s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  76%|[34m███████▌  [0m| 19/25 [09:25<03:00, 30.02s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  80%|[34m████████  [0m| 20/25 [09:55<02:29, 29.83s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.52:  84%|[34m████████▍ [0m| 21/25 [10:24<01:58, 29.63s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  88%|[34m████████▊ [0m| 22/25 [10:53<01:28, 29.63s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.48:  92%|[34m█████████▏[0m| 23/25 [11:23<00:59, 29.73s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.46:  96%|[34m█████████▌[0m| 24/25 [11:53<00:29, 29.79s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.44: 100%|[34m██████████[0m| 25/25 [12:22<00:00, 29.72s/it]
+Device 0: Cor=11, CoT=0, Total=25
+Accuracy on validation set: 33 / 100 = 0.33
+CoT match on validation set: 0 / 100 = 0.0
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 42.73 examples/s]
+Map (num_proc=32): 100%|██████████| 7932/7932 [00:08<00:00, 986.94 examples/s] 
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 38.11 examples/s]
+Training Epoch: 5:   0%|[34m          [0m| 0/248 [00:00<?, ?it/s]wandb: WARNING Serializing object of type str that is 103075 bytes
+logging training data
+Training Epoch: 5/20, batch 247/248 completed (loss: 0.009: 100%|[34m██████████[0m| 248/248 [09:09<00:00,  2.21s/it] 
+eval loss 0.009814311750233173
+Test Accuracy:   0%|[34m          [0m| 0/25 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 0: Answer = 'no' CoT = 'Let V1 = tijv; X = xevo; Y = gyzp.
+V1->X,V1->Y,X->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.50, 0.50 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Tijv has a direct effect on xevo and gyzp. Xevo has a direct effect on gyzp.
+The overall probability of xevo is 21%. For those who are not xevo, the probability of gyzp is 42%. For those who are xevo, the probability of gyzp is 70%.
+Is gyzp more likely than not gyzp overall?
+Let V1 = tijv; X = xevo; Y = gyzp.
+V1->X,V1->Y,X->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.51, 0.51 > '
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Tijv has a direct effect on xevo and gyzp. Xevo has a direct effect on gyzp.
+The overall probability of xevo is 21%. For those who are not xevo the probability of gyzp is 42%. For those who are xevo the probability of gyzp is 70%.
+Is gyzp more likely than not gyzp overall?
+Let V1 = tijv; X = xevo; Y = gyzp.
+V1->XV1->YX->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.51 0.51 >'
+Test accuracy: 0.0:   4%|[34m▍         [0m| 1/25 [00:30<12:23, 30.99s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 4: Answer = 'yes' CoT = 'Let V1 = gender; X = treatment; Y = recovery.
+V1->X,V1->Y,X->Y
+Y_{X=1} = 1 | V1=0
+Solve for Y, given the evidence and the action
+V1 = 0
+X = not V1
+Y = V1 or X
+Y = 1 = 0 or 1, 1'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on treatment and recovery. Treatment has a direct effect on recovery.
+We know that male gender causes receives no treatment. male gender or receives treatment causes recovery. We observed the patient is not male.
+Would the patient does recover if receives treatment instead of receives no treatment?
+Let V1 = gender; X = treatment; Y = recovery.
+V1->X,V1->Y,X->Y
+Y_{X=1} = 1 | V1=0
+Solve for Y, given the evidence and the action
+V1 = 0
+X = not V1
+Y = V1 or X
+Y = 1 = 0 or 1, 1
+### yes<|end_of_text|>'
+Extracted Output: 'yes'
+Test accuracy: 0.5:   8%|[34m▊         [0m| 2/25 [01:00<11:33, 30.15s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 8: Answer = 'yes' CoT = 'Let V1 = wibl; X = zuph; Y = uvzi.
+V1->X,V1->Y,X->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=v,X=1) - P(Y=1|V1=v, X=0)]
+P(Y=1 | V1=0, X=0) = 0.11
+P(Y=1 | V1=0, X=1) = 0.40
+P(Y=1 | V1=1, X=0) = 0.93
+P(Y=1 | V1=1, X=1) = 0.05
+P(V1=1) = 0.76
+0.24 * (0.40 - 0.11) + 0.76 * (0.05 - 0.93) = -0.60, -0.60 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Wibl has a direct effect on zuph and uvzi. Zuph has a direct effect on uvzi.
+For those who are not wibl and are not zuph, the probability of uvzi is 11%. For those who are not wibl and are zuph, the probability of uvzi is 40%. For those who are wibl and are not zuph, the probability of uvzi is 93%. For those who are wibl and are zuph, the probability of uvzi is 5%. The overall probability of wibl is 76%.
+Will zuph decrease the chance of uvzi?
+Let V1 = wibl; X = zuph; Y = uvzi.
+V1->X,V1->Y,X->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=v,X=1) - P(Y=1|V1=v, X=0)]
+P(Y=1 | V1=0, X=0) = 0.11
+P(Y=1 | V1=0, X=1) = 0.40'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Wibl has a direct effect on zuph and uvzi. Zuph has a direct effect on uvzi.
+For those who are not wibl and are not zuph the probability of uvzi is 11%. For those who are not wibl and are zuph the probability of uvzi is 40%. For those who are wibl and are not zuph the probability of uvzi is 93%. For those who are wibl and are zuph the probability of uvzi is 5%. The overall probability of wibl is 76%.
+Will zuph decrease the chance of uvzi?
+Let V1 = wibl; X = zuph; Y = uvzi.
+V1->XV1->YX->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=vX=1) - P(Y=1|V1=v X=0)]
+P(Y=1 | V1=0 X=0) = 0.11
+P(Y=1 | V1=0 X=1) = 0.40'
+Test accuracy: 0.33:  12%|[34m█▏        [0m| 3/25 [01:30<10:56, 29.83s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 12: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+Y_{X=0} = 0 |
+Solve for Y, given the evidence and the action
+V2 = not X
+Y = V2
+Y = [1] = 1, 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+We know that pexu causes not hwax, and we know that hwax causes rukz.
+Would an individual is not rukz if not pexu instead of pexu?
+Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+Y_{X=0} = 0 |
+Solve for Y, given the evidence and the action
+V2 = not X
+Y = V2
+Y = [1] = 1, 0
+### no<|end_of_text|>'
+Extracted Output: 'no'
+Test accuracy: 0.5:  16%|[34m█▌        [0m| 4/25 [01:59<10:27, 29.87s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 16: Answer = 'no' CoT = 'Let V2 = gwet; X = yomx; Y = xevu.
+X->Y,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y|X)
+P(Y=1 | X=0) = 0.78
+P(Y=1 | X=1) = 0.67
+0.67 - 0.78 = -0.11, -0.11 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Yomx has a direct effect on xevu. Gwet has a direct effect on xevu.
+For those who are not yomx, the probability of xevu is 78%. For those who are yomx, the probability of xevu is 67%.
+Will yomx increase the chance of xevu?
+Let V2 = gwet; X = yomx; Y = xevu.
+X->Y,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y|X)
+P(Y=1 | X=0) = 0.78
+P(Y=1 | X=1) = 0.67
+0.67 - 0.78 = -0.11, -0.11 < 0
+### no<|end_of_text|>'
+Extracted Output: 'no'
+Test accuracy: 0.6:  20%|[34m██        [0m| 5/25 [02:30<10:01, 30.08s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  24%|[34m██▍       [0m| 6/25 [03:00<09:32, 30.11s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.57:  28%|[34m██▊       [0m| 7/25 [03:30<09:01, 30.09s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.62:  32%|[34m███▏      [0m| 8/25 [04:00<08:29, 29.98s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.56:  36%|[34m███▌      [0m| 9/25 [04:32<08:08, 30.55s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.6:  40%|[34m████      [0m| 10/25 [05:02<07:38, 30.56s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.64:  44%|[34m████▍     [0m| 11/25 [05:32<07:05, 30.42s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.58:  48%|[34m████▊     [0m| 12/25 [06:02<06:33, 30.30s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.62:  52%|[34m█████▏    [0m| 13/25 [06:32<06:00, 30.03s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.64:  56%|[34m█████▌    [0m| 14/25 [07:02<05:30, 30.01s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.67:  60%|[34m██████    [0m| 15/25 [07:30<04:53, 29.36s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.62:  64%|[34m██████▍   [0m| 16/25 [08:00<04:26, 29.60s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.59:  68%|[34m██████▊   [0m| 17/25 [08:30<03:57, 29.73s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.56:  72%|[34m███████▏  [0m| 18/25 [09:00<03:29, 29.87s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  76%|[34m███████▌  [0m| 19/25 [09:31<03:01, 30.33s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  80%|[34m████████  [0m| 20/25 [10:02<02:32, 30.41s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.52:  84%|[34m████████▍ [0m| 21/25 [10:32<02:00, 30.19s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  88%|[34m████████▊ [0m| 22/25 [11:01<01:29, 29.86s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.48:  92%|[34m█████████▏[0m| 23/25 [11:31<00:59, 29.87s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.46:  96%|[34m█████████▌[0m| 24/25 [12:00<00:29, 29.69s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.44: 100%|[34m██████████[0m| 25/25 [12:29<00:00, 30.00s/it]
+Device 0: Cor=11, CoT=0, Total=25
+Accuracy on validation set: 35 / 100 = 0.35
+CoT match on validation set: 0 / 100 = 0.0
+saving model.
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 41.09 examples/s]
+Map (num_proc=32): 100%|██████████| 7932/7932 [00:04<00:00, 1849.57 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:04<00:00, 21.51 examples/s]
+Training Epoch: 6:   0%|[34m          [0m| 0/248 [00:00<?, ?it/s]wandb: WARNING Serializing object of type str that is 103075 bytes
+logging training data
+wandb: WARNING Serializing object of type str that is 145020 bytes
+Training Epoch: 6/20, batch 247/248 completed (loss: 0.0101: 100%|[34m██████████[0m| 248/248 [09:11<00:00,  2.22s/it]
+eval loss 0.010157429031096399
+Test Accuracy:   0%|[34m          [0m| 0/25 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 0: Answer = 'no' CoT = 'Let V1 = tijv; X = xevo; Y = gyzp.
+V1->X,V1->Y,X->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.50, 0.50 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Tijv has a direct effect on xevo and gyzp. Xevo has a direct effect on gyzp.
+The overall probability of xevo is 21%. For those who are not xevo, the probability of gyzp is 42%. For those who are xevo, the probability of gyzp is 70%.
+Is gyzp more likely than not gyzp overall?
+Let V1 = tijv; X = xevo; Y = gyzp.
+V1->X,V1->Y,X->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.47, 0.47 > '
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Tijv has a direct effect on xevo and gyzp. Xevo has a direct effect on gyzp.
+The overall probability of xevo is 21%. For those who are not xevo the probability of gyzp is 42%. For those who are xevo the probability of gyzp is 70%.
+Is gyzp more likely than not gyzp overall?
+Let V1 = tijv; X = xevo; Y = gyzp.
+V1->XV1->YX->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.47 0.47 >'
+Test accuracy: 0.0:   4%|[34m▍         [0m| 1/25 [00:26<10:24, 26.00s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 4: Answer = 'yes' CoT = 'Let V1 = gender; X = treatment; Y = recovery.
+V1->X,V1->Y,X->Y
+Y_{X=1} = 1 | V1=0
+Solve for Y, given the evidence and the action
+V1 = 0
+X = not V1
+Y = V1 or X
+Y = 1 = 0 or 1, 1'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on treatment and recovery. Treatment has a direct effect on recovery.
+We know that male gender causes receives no treatment. male gender or receives treatment causes recovery. We observed the patient is not male.
+Would the patient does recover if receives treatment instead of receives no treatment?
+Let V1 = gender; X = treatment; Y = recovery.
+V1->X,V1->Y,X->Y
+Y_{X=1} = 1 | V1=0
+Solve for Y, given the evidence and the action
+V1 = 0
+X = not V1
+Y = V1 or X
+Y = 1 = 0 or 1, 1
+### yes<|end_of_text|>'
+Extracted Output: 'yes'
+Test accuracy: 0.5:   8%|[34m▊         [0m| 2/25 [00:51<09:51, 25.71s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 8: Answer = 'yes' CoT = 'Let V1 = wibl; X = zuph; Y = uvzi.
+V1->X,V1->Y,X->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=v,X=1) - P(Y=1|V1=v, X=0)]
+P(Y=1 | V1=0, X=0) = 0.11
+P(Y=1 | V1=0, X=1) = 0.40
+P(Y=1 | V1=1, X=0) = 0.93
+P(Y=1 | V1=1, X=1) = 0.05
+P(V1=1) = 0.76
+0.24 * (0.40 - 0.11) + 0.76 * (0.05 - 0.93) = -0.60, -0.60 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Wibl has a direct effect on zuph and uvzi. Zuph has a direct effect on uvzi.
+For those who are not wibl and are not zuph, the probability of uvzi is 11%. For those who are not wibl and are zuph, the probability of uvzi is 40%. For those who are wibl and are not zuph, the probability of uvzi is 93%. For those who are wibl and are zuph, the probability of uvzi is 5%. The overall probability of wibl is 76%.
+Will zuph decrease the chance of uvzi?
+Let V1 = wibl; X = zuph; Y = uvzi.
+V1->X,V1->Y,X->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=v,X=1) - P(Y=1|V1=v, X=0)]
+P(Y=1 | V1=0, X=0) = 0.11
+P(Y=1 | V1=0, X=1) = 0.40'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Wibl has a direct effect on zuph and uvzi. Zuph has a direct effect on uvzi.
+For those who are not wibl and are not zuph the probability of uvzi is 11%. For those who are not wibl and are zuph the probability of uvzi is 40%. For those who are wibl and are not zuph the probability of uvzi is 93%. For those who are wibl and are zuph the probability of uvzi is 5%. The overall probability of wibl is 76%.
+Will zuph decrease the chance of uvzi?
+Let V1 = wibl; X = zuph; Y = uvzi.
+V1->XV1->YX->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=vX=1) - P(Y=1|V1=v X=0)]
+P(Y=1 | V1=0 X=0) = 0.11
+P(Y=1 | V1=0 X=1) = 0.40'
+Test accuracy: 0.33:  12%|[34m█▏        [0m| 3/25 [01:17<09:24, 25.65s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 12: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+Y_{X=0} = 0 |
+Solve for Y, given the evidence and the action
+V2 = not X
+Y = V2
+Y = [1] = 1, 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+We know that pexu causes not hwax, and we know that hwax causes rukz.
+Would an individual is not rukz if not pexu instead of pexu?
+Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+Y_{X=0} = 0 |
+Solve for Y, given the evidence and the action
+V2 = not X
+Y = V2
+Y = [1] = 1, 0
+### no<|end_of_text|>'
+Extracted Output: 'no'
+Test accuracy: 0.5:  16%|[34m█▌        [0m| 4/25 [01:42<08:58, 25.63s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 16: Answer = 'no' CoT = 'Let V2 = gwet; X = yomx; Y = xevu.
+X->Y,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y|X)
+P(Y=1 | X=0) = 0.78
+P(Y=1 | X=1) = 0.67
+0.67 - 0.78 = -0.11, -0.11 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Yomx has a direct effect on xevu. Gwet has a direct effect on xevu.
+For those who are not yomx, the probability of xevu is 78%. For those who are yomx, the probability of xevu is 67%.
+Will yomx increase the chance of xevu?
+Let V2 = gwet; X = yomx; Y = xevu.
+X->Y,V2->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+P(Y|X)
+P(Y=1 | X=0) = 0.78
+P(Y=1 | X=1) = 0.67
+0.67 - 0.78 = -0.11, -0.11 < 0
+### no<|end_of_text|>'
+Extracted Output: 'no'
+Test accuracy: 0.6:  20%|[34m██        [0m| 5/25 [02:08<08:34, 25.71s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  24%|[34m██▍       [0m| 6/25 [02:34<08:08, 25.71s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.57:  28%|[34m██▊       [0m| 7/25 [03:04<08:07, 27.09s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  32%|[34m███▏      [0m| 8/25 [03:34<07:55, 27.98s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.44:  36%|[34m███▌      [0m| 9/25 [04:02<07:31, 28.22s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  40%|[34m████      [0m| 10/25 [04:31<07:05, 28.36s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.55:  44%|[34m████▍     [0m| 11/25 [05:00<06:41, 28.70s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  48%|[34m████▊     [0m| 12/25 [05:33<06:28, 29.89s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.54:  52%|[34m█████▏    [0m| 13/25 [06:02<05:55, 29.64s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.57:  56%|[34m█████▌    [0m| 14/25 [06:31<05:23, 29.45s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.6:  60%|[34m██████    [0m| 15/25 [07:00<04:51, 29.18s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.56:  64%|[34m██████▍   [0m| 16/25 [07:30<04:25, 29.50s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.53:  68%|[34m██████▊   [0m| 17/25 [08:02<04:01, 30.19s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.5:  72%|[34m███████▏  [0m| 18/25 [08:31<03:29, 29.86s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.47:  76%|[34m███████▌  [0m| 19/25 [09:00<02:58, 29.69s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.45:  80%|[34m████████  [0m| 20/25 [09:30<02:28, 29.64s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.48:  84%|[34m████████▍ [0m| 21/25 [09:59<01:58, 29.61s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.45:  88%|[34m████████▊ [0m| 22/25 [10:29<01:29, 29.75s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.43:  92%|[34m█████████▏[0m| 23/25 [10:58<00:59, 29.55s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.42:  96%|[34m█████████▌[0m| 24/25 [11:28<00:29, 29.49s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Test accuracy: 0.4: 100%|[34m██████████[0m| 25/25 [12:00<00:00, 28.83s/it] 
+Device 0: Cor=10, CoT=0, Total=25
+Accuracy on validation set: 32 / 100 = 0.32
+CoT match on validation set: 0 / 100 = 0.0
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 41.53 examples/s]
+Map (num_proc=32): 100%|██████████| 7932/7932 [00:04<00:00, 1753.89 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 38.14 examples/s]
+Training Epoch: 7:   0%|[34m          [0m| 0/248 [00:00<?, ?it/s]wandb: WARNING Serializing object of type str that is 103075 bytes
+logging training data
+wandb: WARNING Serializing object of type str that is 145020 bytes
+wandb: WARNING Serializing object of type str that is 214174 bytes
+Training Epoch: 7/20, batch 247/248 completed (loss: 0.0049: 100%|[34m██████████[0m| 248/248 [09:11<00:00,  2.22s/it]
+eval loss 0.011890213936567307
+Test Accuracy:   0%|[34m          [0m| 0/25 [00:00<?, ?it/s]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 0: Answer = 'no' CoT = 'Let V1 = tijv; X = xevo; Y = gyzp.
+V1->X,V1->Y,X->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.50, 0.50 > 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Tijv has a direct effect on xevo and gyzp. Xevo has a direct effect on gyzp.
+The overall probability of xevo is 21%. For those who are not xevo, the probability of gyzp is 42%. For those who are xevo, the probability of gyzp is 70%.
+Is gyzp more likely than not gyzp overall?
+Let V1 = tijv; X = xevo; Y = gyzp.
+V1->X,V1->Y,X->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.46, 0.46 > '
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Tijv has a direct effect on xevo and gyzp. Xevo has a direct effect on gyzp.
+The overall probability of xevo is 21%. For those who are not xevo the probability of gyzp is 42%. For those who are xevo the probability of gyzp is 70%.
+Is gyzp more likely than not gyzp overall?
+Let V1 = tijv; X = xevo; Y = gyzp.
+V1->XV1->YX->Y
+P(Y)
+P(Y | X=1)*P(X=1) + P(Y | X=0)*P(X=0)
+P(X=1) = 0.21
+P(Y=1 | X=0) = 0.42
+P(Y=1 | X=1) = 0.70
+0.21*0.70 - 0.79*0.42 = 0.46 0.46 >'
+Test accuracy: 0.0:   4%|[34m▍         [0m| 1/25 [00:31<12:43, 31.82s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 4: Answer = 'yes' CoT = 'Let V1 = gender; X = treatment; Y = recovery.
+V1->X,V1->Y,X->Y
+Y_{X=1} = 1 | V1=0
+Solve for Y, given the evidence and the action
+V1 = 0
+X = not V1
+Y = V1 or X
+Y = 1 = 0 or 1, 1'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Gender has a direct effect on treatment and recovery. Treatment has a direct effect on recovery.
+We know that male gender causes receives no treatment. male gender or receives treatment causes recovery. We observed the patient is not male.
+Would the patient does recover if receives treatment instead of receives no treatment?
+Let V1 = gender; X = treatment; Y = recovery.
+V1->X,V1->Y,X->Y
+Y_{X=1} = 1 | V1=0
+Solve for Y, given the evidence and the action
+V1 = 0
+X = not V1
+Y = V1 or X
+Y = 1 = 0 or 1, 1
+### yes<|end_of_text|>'
+Extracted Output: 'yes'
+Test accuracy: 0.5:   8%|[34m▊         [0m| 2/25 [01:00<11:35, 30.26s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 8: Answer = 'yes' CoT = 'Let V1 = wibl; X = zuph; Y = uvzi.
+V1->X,V1->Y,X->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=v,X=1) - P(Y=1|V1=v, X=0)]
+P(Y=1 | V1=0, X=0) = 0.11
+P(Y=1 | V1=0, X=1) = 0.40
+P(Y=1 | V1=1, X=0) = 0.93
+P(Y=1 | V1=1, X=1) = 0.05
+P(V1=1) = 0.76
+0.24 * (0.40 - 0.11) + 0.76 * (0.05 - 0.93) = -0.60, -0.60 < 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Wibl has a direct effect on zuph and uvzi. Zuph has a direct effect on uvzi.
+For those who are not wibl and are not zuph, the probability of uvzi is 11%. For those who are not wibl and are zuph, the probability of uvzi is 40%. For those who are wibl and are not zuph, the probability of uvzi is 93%. For those who are wibl and are zuph, the probability of uvzi is 5%. The overall probability of wibl is 76%.
+Will zuph decrease the chance of uvzi?
+Let V1 = wibl; X = zuph; Y = uvzi.
+V1->X,V1->Y,X->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=v,X=1) - P(Y=1|V1=v, X=0)]
+P(Y=1 | V1=0, X=0) = 0.11
+P(Y=1 | V1=0, X=1) = 0.40'
+Extracted Output: 'Imagine a self-contained hypothetical world with only the following conditions and without any unmentioned factors or causal relationships: Wibl has a direct effect on zuph and uvzi. Zuph has a direct effect on uvzi.
+For those who are not wibl and are not zuph the probability of uvzi is 11%. For those who are not wibl and are zuph the probability of uvzi is 40%. For those who are wibl and are not zuph the probability of uvzi is 93%. For those who are wibl and are zuph the probability of uvzi is 5%. The overall probability of wibl is 76%.
+Will zuph decrease the chance of uvzi?
+Let V1 = wibl; X = zuph; Y = uvzi.
+V1->XV1->YX->Y
+E[Y | do(X = 1)] - E[Y | do(X = 0)]
+\sum_{V1=v} P(V1=v)*[P(Y=1|V1=vX=1) - P(Y=1|V1=v X=0)]
+P(Y=1 | V1=0 X=0) = 0.11
+P(Y=1 | V1=0 X=1) = 0.40'
+Test accuracy: 0.33:  12%|[34m█▏        [0m| 3/25 [01:30<10:58, 29.93s/it]Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.
+Question 12: Answer = 'no' CoT = 'Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+Y_{X=0} = 0 |
+Solve for Y, given the evidence and the action
+V2 = not X
+Y = V2
+Y = [1] = 1, 0'
+Full output: '<|begin_of_text|>Imagine a self-contained, hypothetical world with only the following conditions, and without any unmentioned factors or causal relationships: Pexu has a direct effect on hwax. Hwax has a direct effect on rukz.
+We know that pexu causes not hwax, and we know that hwax causes rukz.
+Would an individual is not rukz if not pexu instead of pexu?
+Let X = pexu; V2 = hwax; Y = rukz.
+X->V2,V2->Y
+Y_{X=0} = 0 |
+Solve for Y, given the evidence and the action
+V2 = not X
+Y = V2
+Y = [1] = 1, 0
+### no<|end_of_text|>'
+Extracted Output: 'no'
+Test accuracy: 0.5:  16%|[34m█▌        [0m| 4/25 [02:00<10:27, 29.87s/it] Setting `pad_token_id` to `eos_token_id`:128001 for open-end generation.

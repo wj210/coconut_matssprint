@@ -1,0 +1,15 @@
+{"time":"2025-04-22T21:48:57.553880256+08:00","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/export/home2/weijie210/coconut/wandb/run-20250422_214857-bri1esuv/logs/debug-core.log"}
+{"time":"2025-04-22T21:48:57.800647357+08:00","level":"INFO","msg":"created new stream","id":"bri1esuv"}
+{"time":"2025-04-22T21:48:57.800721469+08:00","level":"INFO","msg":"stream: started","id":"bri1esuv"}
+{"time":"2025-04-22T21:48:57.800736909+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"bri1esuv"}
+{"time":"2025-04-22T21:48:57.800812648+08:00","level":"INFO","msg":"handler: started","stream_id":"bri1esuv"}
+{"time":"2025-04-22T21:48:57.800919504+08:00","level":"INFO","msg":"sender: started","stream_id":"bri1esuv"}
+{"time":"2025-04-22T21:48:58.228245001+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-22T21:49:31.756750159+08:00","level":"INFO","msg":"stream: closing","id":"bri1esuv"}
+{"time":"2025-04-22T21:49:31.756947725+08:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-22T21:49:31.759803789+08:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-22T21:49:33.442199355+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-22T21:49:33.793968264+08:00","level":"INFO","msg":"handler: closed","stream_id":"bri1esuv"}
+{"time":"2025-04-22T21:49:33.794141675+08:00","level":"INFO","msg":"sender: closed","stream_id":"bri1esuv"}
+{"time":"2025-04-22T21:49:33.794101373+08:00","level":"INFO","msg":"writer: Close: closed","stream_id":"bri1esuv"}
+{"time":"2025-04-22T21:49:33.794886141+08:00","level":"INFO","msg":"stream: closed","id":"bri1esuv"}

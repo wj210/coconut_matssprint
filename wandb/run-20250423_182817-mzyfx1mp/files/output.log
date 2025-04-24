@@ -1,0 +1,6 @@
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 38.13 examples/s]
+Map (num_proc=32): 100%|██████████| 50000/50000 [00:07<00:00, 6273.56 examples/s] 
+Map (num_proc=32): 100%|██████████| 100/100 [00:02<00:00, 36.58 examples/s]
+Training Epoch: 3:   0%|[34m          [0m| 0/782 [00:00<?, ?it/s]We detected that you are passing `past_key_values` as a tuple of tuples. This is deprecated and will be removed in v4.47. Please convert your cache or use an appropriate `Cache` class (https://huggingface.co/docs/transformers/kv_cache#legacy-cache-format)
+logging training data
+Training Epoch: 3/8, batch 22/782 completed (loss: 0.5529:   3%|[34m▎         [0m| 23/782 [01:59<58:10,  4.60s/it]  

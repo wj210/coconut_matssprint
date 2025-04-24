@@ -1,0 +1,23 @@
+2025-04-23 23:18:49,993 INFO    MainThread:3608153 [wandb_setup.py:_flush():68] Current SDK version is 0.19.6
+2025-04-23 23:18:49,993 INFO    MainThread:3608153 [wandb_setup.py:_flush():68] Configure stats pid to 3608153
+2025-04-23 23:18:49,993 INFO    MainThread:3608153 [wandb_setup.py:_flush():68] Loading settings from /export/home2/weijie210/.config/wandb/settings
+2025-04-23 23:18:49,993 INFO    MainThread:3608153 [wandb_setup.py:_flush():68] Loading settings from /export/home2/weijie210/coconut/wandb/settings
+2025-04-23 23:18:49,993 INFO    MainThread:3608153 [wandb_setup.py:_flush():68] Loading settings from environment variables
+2025-04-23 23:18:49,994 INFO    MainThread:3608153 [wandb_init.py:setup_run_log_directory():637] Logging user logs to /export/home2/weijie210/coconut/wandb/run-20250423_231849-74dhwc4r/logs/debug.log
+2025-04-23 23:18:49,994 INFO    MainThread:3608153 [wandb_init.py:setup_run_log_directory():638] Logging internal logs to /export/home2/weijie210/coconut/wandb/run-20250423_231849-74dhwc4r/logs/debug-internal.log
+2025-04-23 23:18:49,994 INFO    MainThread:3608153 [wandb_init.py:init():756] calling init triggers
+2025-04-23 23:18:49,994 INFO    MainThread:3608153 [wandb_init.py:init():761] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-04-23 23:18:49,994 INFO    MainThread:3608153 [wandb_init.py:init():789] starting backend
+2025-04-23 23:18:50,238 INFO    MainThread:3608153 [wandb_init.py:init():793] sending inform_init request
+2025-04-23 23:18:50,252 INFO    MainThread:3608153 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2025-04-23 23:18:50,253 INFO    MainThread:3608153 [wandb_init.py:init():808] backend started and connected
+2025-04-23 23:18:50,259 INFO    MainThread:3608153 [wandb_init.py:init():901] updated telemetry
+2025-04-23 23:18:50,271 INFO    MainThread:3608153 [wandb_init.py:init():936] communicating run to backend with 90.0 second timeout
+2025-04-23 23:18:50,867 INFO    MainThread:3608153 [wandb_init.py:init():994] starting run threads in backend
+2025-04-23 23:18:51,858 INFO    MainThread:3608153 [wandb_run.py:_console_start():2385] atexit reg
+2025-04-23 23:18:51,858 INFO    MainThread:3608153 [wandb_run.py:_redirect():2235] redirect: wrap_raw
+2025-04-23 23:18:51,858 INFO    MainThread:3608153 [wandb_run.py:_redirect():2300] Wrapping output streams.
+2025-04-23 23:18:51,859 INFO    MainThread:3608153 [wandb_run.py:_redirect():2325] Redirects installed.
+2025-04-23 23:18:51,871 INFO    MainThread:3608153 [wandb_init.py:init():1036] run started, returning control to user process
+2025-04-23 23:18:51,872 INFO    MainThread:3608153 [wandb_run.py:_config_callback():1253] config_cb None None {'project': 'coconut', 'save_path': 'checkpoint', 'name': 'gsm-cot_gpt2', 'only_eval': False, 'coconut': False, 'cot': True, 'no_thoughts': False, 'no_cot': False, 'c_thought': 0, 'epochs_per_stage': 1, 'max_latent_stage': 0, 'pad_latent_to_max': True, 'train_size': 50000, 'val_size': 100, 'save_only_improve': True, 'uniform_prob': 0.0, 'model_id': 'openai-community/gpt2', 'load_model_path': 'None', 'seed': 0, 'resume': 0, 'bf16': False, 'train_path': 'data/gsm_train.json', 'val_path': 'data/gsm_valid.json', 'reset_optimizer': False, 'batch_size_training': 32, 'debug': False, 'gradient_accumulation_steps': 1, 'num_epochs': 7, 'lr': 0.0001, 'weight_decay': 0.01}

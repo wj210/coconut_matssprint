@@ -1,0 +1,182 @@
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 164.56 examples/s]
+Map (num_proc=32): 100%|██████████| 25000/25000 [00:01<00:00, 22872.60 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 144.41 examples/s]
+Training Epoch: 2:   0%|[34m          [0m| 0/391 [00:00<?, ?it/s]We detected that you are passing `past_key_values` as a tuple of tuples. This is deprecated and will be removed in v4.47. Please convert your cache or use an appropriate `Cache` class (https://huggingface.co/docs/transformers/kv_cache#legacy-cache-format)
+logging training data
+Training Epoch: 2/5, batch 390/391 completed (loss: 0.151: 100%|[34m██████████[0m| 391/391 [14:07<00:00,  2.17s/it] 
+saving model.
+eval loss 0.7142721712589264
+Test accuracy: 0.33:  12%|[34m█▏        [0m| 3/25 [01:16<09:17, 25.33s/it]
+Question 0: Answer = '300' CoT = '<<4-2=2>>
+<<2/.5=4>>
+<<12/4=3>>
+<<100*3=300>>'
+Full output: '<|begin_of_text|>John cuts his grass to 2 inches.  It grows.5 inches per month.  When it gets to 4 inches he cuts it back down to 2 inches.  It cost $100 to get his grass cut.  How much does he pay per year?
+<|start-latent|><|latent|><|end-latent|><<2*12=24>>
+<<24/4=6>>
+<<100/6=16.67>>
+### 16.67'
+Extracted Output: '16.67'
+Question 4: Answer = '240' CoT = '<<200*3=600>>
+<<600*.4=240>>'
+Full output: '<|begin_of_text|>Tom bought his games for $200.  They tripled in value and he then sold 40% of them.  How much did he sell the games for?
+<|start-latent|><|latent|><|end-latent|><<600*40*.01=240>>
+### 240'
+Extracted Output: '240'
+Question 8: Answer = '25' CoT = '<<2*2.25=4.50>>
+<<2*4=8.00>>
+<<2*2.50=5.00>>
+<<4.50+8.00+.50+5.00+3.50+3.50=25.00>>'
+Full output: '<|begin_of_text|>It’s Meghan’s turn to pick up her team's coffee order.  She needs 2 drip coffees that are $2.25 each and one double shot espresso that’s $3.50.  She needs 2 lattes that are $4.00 and needs to add vanilla syrup to one of those for an additional $0.50.  She also needs 2 cold brew coffees that are $2.50 each and 1 cappuccino for $3.50.  How much is the coffee order?
+<|start-latent|><|latent|><|end-latent|><<2*4=8.00>>
+<<2*2.50=5.00>>
+<<3.00+8+5+3.50=17.50>>
+### 17.50'
+Extracted Output: '17.50'
+Question 12: Answer = '10' CoT = '<<12*10=120>>
+<<130-120=10>>'
+Full output: '<|begin_of_text|>Joshua packs 12 bottles in each crate. He has a total of 130 bottles and 10 crates. How many bottles will not be placed in a crate?
+<|start-latent|><|latent|><|end-latent|><<130-120=10>>
+### 10'
+Extracted Output: '10'
+Question 16: Answer = '45' CoT = '<<10+15=25>>
+<<2*10=20>>
+<<20+25=45>>'
+Full output: '<|begin_of_text|>Olivia gave William 10 napkins. Amelia also gives William twice the number of napkins Olivia gave him. If William had 15 napkins before, how many napkins does he have now?
+<|start-latent|><|latent|><|end-latent|><<15+10=25>>
+### 25'
+Extracted Output: '25'
+Device 0: Cor=6, CoT=0, Total=25
+Accuracy on validation set: 27 / 100 = 0.27
+CoT match on validation set: 0 / 100 = 0.0
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 148.27 examples/s]
+Map (num_proc=32): 100%|██████████| 25000/25000 [00:01<00:00, 23722.10 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 145.74 examples/s]
+Training Epoch: 3/5, batch 390/391 completed (loss: 0.3706: 100%|[34m██████████[0m| 391/391 [17:19<00:00,  2.66s/it]
+logging training data
+saving model.
+eval loss 0.8381068110466003
+Test accuracy: 0.5:  16%|[34m█▌        [0m| 4/25 [01:41<08:51, 25.33s/it] 
+Question 0: Answer = '300' CoT = '<<4-2=2>>
+<<2/.5=4>>
+<<12/4=3>>
+<<100*3=300>>'
+Full output: '<|begin_of_text|>John cuts his grass to 2 inches.  It grows.5 inches per month.  When it gets to 4 inches he cuts it back down to 2 inches.  It cost $100 to get his grass cut.  How much does he pay per year?
+<|start-latent|><|latent|><|latent|><|end-latent|><<12/4=3>>
+<<3*100=300>>
+### 300'
+Extracted Output: '300'
+Question 4: Answer = '240' CoT = '<<200*3=600>>
+<<600*.4=240>>'
+Full output: '<|begin_of_text|>Tom bought his games for $200.  They tripled in value and he then sold 40% of them.  How much did he sell the games for?
+<|start-latent|><|latent|><|latent|><|end-latent|>### 160'
+Extracted Output: '160'
+Question 8: Answer = '25' CoT = '<<2*2.25=4.50>>
+<<2*4=8.00>>
+<<2*2.50=5.00>>
+<<4.50+8.00+.50+5.00+3.50+3.50=25.00>>'
+Full output: '<|begin_of_text|>It’s Meghan’s turn to pick up her team's coffee order.  She needs 2 drip coffees that are $2.25 each and one double shot espresso that’s $3.50.  She needs 2 lattes that are $4.00 and needs to add vanilla syrup to one of those for an additional $0.50.  She also needs 2 cold brew coffees that are $2.50 each and 1 cappuccino for $3.50.  How much is the coffee order?
+<|start-latent|><|latent|><|latent|><|end-latent|><<2*4=8.00>>
+<<2*0.50=1.00>>
+<<4.50+8+8+3.50=23>>
+### 23'
+Extracted Output: '23'
+Question 12: Answer = '10' CoT = '<<12*10=120>>
+<<130-120=10>>'
+Full output: '<|begin_of_text|>Joshua packs 12 bottles in each crate. He has a total of 130 bottles and 10 crates. How many bottles will not be placed in a crate?
+<|start-latent|><|latent|><|latent|><|end-latent|>### 10'
+Extracted Output: '10'
+Question 16: Answer = '45' CoT = '<<10+15=25>>
+<<2*10=20>>
+<<20+25=45>>'
+Full output: '<|begin_of_text|>Olivia gave William 10 napkins. Amelia also gives William twice the number of napkins Olivia gave him. If William had 15 napkins before, how many napkins does he have now?
+<|start-latent|><|latent|><|latent|><|end-latent|>### 25'
+Extracted Output: '25'
+Device 0: Cor=3, CoT=0, Total=25
+Accuracy on validation set: 17 / 100 = 0.17
+CoT match on validation set: 0 / 100 = 0.0
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 145.66 examples/s]
+Map (num_proc=32): 100%|██████████| 25000/25000 [00:01<00:00, 23034.35 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 137.21 examples/s]
+Training Epoch: 4/5, batch 390/391 completed (loss: 0.3802: 100%|[34m██████████[0m| 391/391 [20:33<00:00,  3.16s/it]
+logging training data
+saving model.
+eval loss 1.096011221408844
+Test accuracy: 0.75:  16%|[34m█▌        [0m| 4/25 [01:41<08:49, 25.23s/it]
+Question 0: Answer = '300' CoT = '<<4-2=2>>
+<<2/.5=4>>
+<<12/4=3>>
+<<100*3=300>>'
+Full output: '<|begin_of_text|>John cuts his grass to 2 inches.  It grows.5 inches per month.  When it gets to 4 inches he cuts it back down to 2 inches.  It cost $100 to get his grass cut.  How much does he pay per year?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|><<12/4=3>>
+<<100*3=300>>
+### 300'
+Extracted Output: '300'
+Question 4: Answer = '240' CoT = '<<200*3=600>>
+<<600*.4=240>>'
+Full output: '<|begin_of_text|>Tom bought his games for $200.  They tripled in value and he then sold 40% of them.  How much did he sell the games for?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>### 240'
+Extracted Output: '240'
+Question 8: Answer = '25' CoT = '<<2*2.25=4.50>>
+<<2*4=8.00>>
+<<2*2.50=5.00>>
+<<4.50+8.00+.50+5.00+3.50+3.50=25.00>>'
+Full output: '<|begin_of_text|>It’s Meghan’s turn to pick up her team's coffee order.  She needs 2 drip coffees that are $2.25 each and one double shot espresso that’s $3.50.  She needs 2 lattes that are $4.00 and needs to add vanilla syrup to one of those for an additional $0.50.  She also needs 2 cold brew coffees that are $2.50 each and 1 cappuccino for $3.50.  How much is the coffee order?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|><<5.50+3.50+10+3.50=23.50>>
+### 23.50'
+Extracted Output: '23.50'
+Question 12: Answer = '10' CoT = '<<12*10=120>>
+<<130-120=10>>'
+Full output: '<|begin_of_text|>Joshua packs 12 bottles in each crate. He has a total of 130 bottles and 10 crates. How many bottles will not be placed in a crate?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>### 10'
+Extracted Output: '10'
+Question 16: Answer = '45' CoT = '<<10+15=25>>
+<<2*10=20>>
+<<20+25=45>>'
+Full output: '<|begin_of_text|>Olivia gave William 10 napkins. Amelia also gives William twice the number of napkins Olivia gave him. If William had 15 napkins before, how many napkins does he have now?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>### 35'
+Extracted Output: '35'
+Device 0: Cor=5, CoT=0, Total=25
+Accuracy on validation set: 14 / 100 = 0.14
+CoT match on validation set: 0 / 100 = 0.0
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 150.66 examples/s]
+Map (num_proc=32): 100%|██████████| 25000/25000 [00:01<00:00, 23453.37 examples/s]
+Map (num_proc=32): 100%|██████████| 100/100 [00:00<00:00, 145.90 examples/s]
+Training Epoch: 5/5, batch 390/391 completed (loss: 0.5374: 100%|[34m██████████[0m| 391/391 [19:33<00:00,  3.00s/it]
+logging training data
+saving model.
+eval loss 1.1604936122894287
+Test accuracy: 0.12: 100%|[34m██████████[0m| 25/25 [10:29<00:00, 25.17s/it]
+Question 0: Answer = '300' CoT = '<<4-2=2>>
+<<2/.5=4>>
+<<12/4=3>>
+<<100*3=300>>'
+Full output: '<|begin_of_text|>John cuts his grass to 2 inches.  It grows.5 inches per month.  When it gets to 4 inches he cuts it back down to 2 inches.  It cost $100 to get his grass cut.  How much does he pay per year?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>### 10'
+Extracted Output: '10'
+Question 4: Answer = '240' CoT = '<<200*3=600>>
+<<600*.4=240>>'
+Full output: '<|begin_of_text|>Tom bought his games for $200.  They tripled in value and he then sold 40% of them.  How much did he sell the games for?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>### 120'
+Extracted Output: '120'
+Question 8: Answer = '25' CoT = '<<2*2.25=4.50>>
+<<2*4=8.00>>
+<<2*2.50=5.00>>
+<<4.50+8.00+.50+5.00+3.50+3.50=25.00>>'
+Full output: '<|begin_of_text|>It’s Meghan’s turn to pick up her team's coffee order.  She needs 2 drip coffees that are $2.25 each and one double shot espresso that’s $3.50.  She needs 2 lattes that are $4.00 and needs to add vanilla syrup to one of those for an additional $0.50.  She also needs 2 cold brew coffees that are $2.50 each and 1 cappuccino for $3.50.  How much is the coffee order?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>### 13.50'
+Extracted Output: '13.50'
+Question 12: Answer = '10' CoT = '<<12*10=120>>
+<<130-120=10>>'
+Full output: '<|begin_of_text|>Joshua packs 12 bottles in each crate. He has a total of 130 bottles and 10 crates. How many bottles will not be placed in a crate?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>### 10'
+Extracted Output: '10'
+Question 16: Answer = '45' CoT = '<<10+15=25>>
+<<2*10=20>>
+<<20+25=45>>'
+Full output: '<|begin_of_text|>Olivia gave William 10 napkins. Amelia also gives William twice the number of napkins Olivia gave him. If William had 15 napkins before, how many napkins does he have now?
+<|start-latent|><|latent|><|latent|><|latent|><|end-latent|>### 35'
+Extracted Output: '35'
+Device 0: Cor=3, CoT=0, Total=25
+Accuracy on validation set: 16 / 100 = 0.16
+CoT match on validation set: 0 / 100 = 0.0
